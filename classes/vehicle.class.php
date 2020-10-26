@@ -11,13 +11,13 @@ class Vehicle
 
     //private data members of Vehicle object
     private $id, $year, $make, $model, $engine_type, $transmission,
-        $class, $doors, $line, $passengers, $suitcases, $combined_mpg, $sirius;
+        $class, $doors, $line, $passengers, $suitcases, $combined_mpg, $sirius, $price_per_day;
 
     //constructor to initialize vehicle attributes
 
     public function __construct(string $year, string $make, string $model, string $engine_type,
                                 string $transmission, string $class, string $doors, string $line, string $passengers,
-                                string $suitcases, string $combined_mpg, string $sirius, string $image){
+                                string $suitcases, string $combined_mpg, string $sirius, string $price_per_day, string $image){
 
         $this->year = $year;
         $this->make = $make;
@@ -31,6 +31,7 @@ class Vehicle
         $this->suitcases = $suitcases;
         $this->combined_mpg = $combined_mpg;
         $this->sirius = $sirius;
+        $this->price_per_day = $price_per_day;
         $this->image = $image;
     }
 
@@ -93,6 +94,12 @@ class Vehicle
     public function getSirius():string {
         return $this->sirius;
     }
+
+    //get the price per day capability of the vehicle
+    public function getPrice():string {
+        return $this->price_per_day;
+    }
+
     // Get the image file name and path of a vehicle
     public function getImage():string {
         return $this->image;

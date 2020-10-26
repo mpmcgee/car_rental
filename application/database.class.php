@@ -15,6 +15,7 @@ class Database {
         'password' => 'phpuser',
         'database' => 'rental',
         'tblVehicle' => 'vehicles',
+        'tblBookings' => 'bookings'
     );
 
     //define the database connection object
@@ -50,6 +51,11 @@ class Database {
     //returns name of table that stores vehicles
     public function getVehiclesTable(){
         return $this->param['tblVehicle'];
+    }
+
+    //returns name of table that stores bookings
+    public function getBookingsTable(){
+        return $this->param['tblBookings'];
     }
 
 }
