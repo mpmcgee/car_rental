@@ -6,6 +6,8 @@
  *Description:
  */
 
+require_once ("application/database.class.php");
+
 class Vehicle
 {
 
@@ -109,6 +111,43 @@ class Vehicle
     public function setID(int $id) {
         $this->id = $id;
     }
+
+    public function lookup($type, $line){
+        $vehicles_array = array(); // array to store vehicle objects
+
+        //query database with class and line
+        $sql = "SELECT * FROM vehicles WHERE class='$type' AND line='$line'";
+
+        //execute the query
+        $results = Database::getConnection()->query($sql);
+
+        //retrieve query results and store them in population_array
+        while($row = $results->fetch_assoc($results)) {
+
+            echo $row['year'];
+            echo $row['make'];
+            echo $row['model'];
+            echo $row['engine_type'];
+            echo $row['transmission'];
+            echo $row['class'];
+            echo $row['doors'];
+            echo $row['line'];
+            echo $row['passengers'];
+            echo $row['suitcases'];
+            echo $row['combined_mpg'];
+            echo $row['sirius'];
+            echo $row['price_per_day'];
+
+        }
+
+        // var_dump($population_array);
+        return $vehicles_array;
+
+
+    }
+
+
+
 
 
 }

@@ -6,6 +6,10 @@
  *Description:
  */
 
+require_once ("classes/vehicle.class.php");
+
+$vehicle = new Vehicle;
+
 //retrieve values selected
 $details = explode(",", $_GET["details"]);
 
@@ -15,4 +19,5 @@ $v_class = $details[0];
 //retrieve line entered
 $line = $details[1];
 
-//retrieve objects from database with these parameters
+//retrieve objects from array with these parameters
+$result = $vehicle->lookup($line, $v_class);

@@ -181,7 +181,7 @@ function request(vehicleType, line){
     let xhr = new XMLHttpRequest();
 
     //open an asynchronous AJAX request
-    xhr.open("GET", "browse_vehicle.php?q=" + details, true);
+    xhr.open("GET", "browse_vehicle.php?details=" + details, true);
 
     //handle the server's responses
     xhr.onload = function () {
@@ -190,10 +190,11 @@ function request(vehicleType, line){
         var vehicles = JSON.parse(xhr.responseText);
 
         //display details of shape object
-        console.log(vehicles);
+        console.log("hi");
 
     }
 
+    xhr.send(null);
 }
 
 // function selectLine(){
