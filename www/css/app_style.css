@@ -1,0 +1,40 @@
+.clickable-image
+{
+    cursor: pointer;
+}
+
+/* styles for grid */
+.container{
+    margin: 10px auto 10px auto;
+    width: 960px;
+    border: 1px solid #eee;
+    background-color: #ffebeb;
+}
+.classes
+{
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15%;
+    cursor: pointer;
+}
+.lines
+{
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15%;
+    cursor: pointer;
+}
+
+.car-lines
+{
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15%;
+    cursor: pointer;
+}

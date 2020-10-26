@@ -6,18 +6,20 @@
  *Description:
  */
 
+require_once ("application/database.class.php");
+
 class Vehicle
 {
 
     //private data members of Vehicle object
     private $id, $year, $make, $model, $engine_type, $transmission,
-        $class, $doors, $line, $passengers, $suitcases, $combined_mpg, $sirius;
+        $class, $doors, $line, $passengers, $suitcases, $combined_mpg, $sirius, $price_per_day;
 
     //constructor to initialize vehicle attributes
 
     public function __construct(string $year, string $make, string $model, string $engine_type,
                                 string $transmission, string $class, string $doors, string $line, string $passengers,
-                                string $suitcases, string $combined_mpg, string $sirius, string $image){
+                                string $suitcases, string $combined_mpg, string $sirius, string $price_per_day, string $image){
 
         $this->year = $year;
         $this->make = $make;
@@ -31,6 +33,7 @@ class Vehicle
         $this->suitcases = $suitcases;
         $this->combined_mpg = $combined_mpg;
         $this->sirius = $sirius;
+        $this->price_per_day = $price_per_day;
         $this->image = $image;
     }
 
@@ -93,6 +96,12 @@ class Vehicle
     public function getSirius():string {
         return $this->sirius;
     }
+
+    //get the price per day capability of the vehicle
+    public function getPrice():string {
+        return $this->price_per_day;
+    }
+
     // Get the image file name and path of a vehicle
     public function getImage():string {
         return $this->image;
@@ -102,6 +111,43 @@ class Vehicle
     public function setID(int $id) {
         $this->id = $id;
     }
+
+    public function lookup($type, $line){
+        $vehicles_array = array(); // array to store vehicle objects
+
+        //query database with class and line
+        $sql = "SELECT * FROM vehicles WHERE class='$type' AND line='$line'";
+
+        //execute the query
+        $results = Database::getConnection()->query($sql);
+
+        //retrieve query results and store them in population_array
+        while($row = $results->fetch_assoc($results)) {
+
+            echo $row['year'];
+            echo $row['make'];
+            echo $row['model'];
+            echo $row['engine_type'];
+            echo $row['transmission'];
+            echo $row['class'];
+            echo $row['doors'];
+            echo $row['line'];
+            echo $row['passengers'];
+            echo $row['suitcases'];
+            echo $row['combined_mpg'];
+            echo $row['sirius'];
+            echo $row['price_per_day'];
+
+        }
+
+        // var_dump($population_array);
+        return $vehicles_array;
+
+
+    }
+
+
+
 
 
 }
