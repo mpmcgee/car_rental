@@ -11,7 +11,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Country, region, and world population</title>
+    <title>Car rental app</title>
     <link href="www/css/app_style.css" rel="stylesheet" type="text/css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="www/js/ajax_vehicleclass.js" type="text/javascript"></script>
