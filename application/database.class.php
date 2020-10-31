@@ -15,7 +15,8 @@ class Database {
         'password' => 'phpuser',
         'database' => 'rental',
         'tblVehicle' => 'vehicles',
-        'tblBookings' => 'bookings'
+        'tblBookings' => 'bookings',
+        'tblUsers' => 'users'
     );
 
     //define the database connection object
@@ -24,7 +25,7 @@ class Database {
 
     //private constructor
     private function __construct(){
-        $this->objConnection = @new mysqli(
+        $this->objDBConnection = @new mysqli(
             $this->param['host'],
             $this->param['login'],
             $this->param['password'],
@@ -37,7 +38,7 @@ class Database {
     }
 
     //static method to ensure only one Database instance
-    static public function getDatabase(){
+    static public function getInstance(){
         if (self::$_instance == NULL)
             self::$_instance = new Database;
         return self::$_instance;
@@ -45,7 +46,7 @@ class Database {
 
     //function to return the database connection object
     public function getConnection(){
-        return $this->objConnection;
+        return $this->objDBConnection;
     }
 
     //returns name of table that stores vehicles
@@ -56,6 +57,11 @@ class Database {
     //returns name of table that stores bookings
     public function getBookingsTable(){
         return $this->param['tblBookings'];
+    }
+
+    //returns name of table that stores bookings
+    public function getUsersTable(){
+        return $this->param['tblUsers'];
     }
 
 }
