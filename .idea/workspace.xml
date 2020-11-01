@@ -20,10 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e28ebf4-0eaa-483e-af0b-973de67c25cb" name="Default Changelist" comment="Reformatted for MVC">
-      <change afterPath="$PROJECT_DIR$/views/vehicle_view.class.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/browse.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vehicle.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Final.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Final.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/user_model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/user_model.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/vehicle_controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/vehicle_controller.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/vehicle_model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/vehicle_model.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/error/vehicle_error.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/error/vehicle_error.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vehicle_view.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vehicle_view.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/app_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/www/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +57,11 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+    </include_path>
+  </component>
   <component name="ProjectId" id="1jKSLIkZoxvNk6ihL2oxCY39ZVo" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -90,7 +101,7 @@
       <workItem from="1604052635419" duration="2058000" />
       <workItem from="1604172143930" duration="3168000" />
       <workItem from="1604239524063" duration="20000" />
-      <workItem from="1604242674458" duration="632000" />
+      <workItem from="1604242674458" duration="4501000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1603552583926</created>
@@ -141,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604174430200</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Reformatted for MVC">
+      <created>1604243325756</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1604243325756</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +193,10 @@
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
     <state x="-1733" y="-134" key="#PHP/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1603720352853" />
+    <state x="-1155" y="-64" key="#com.intellij.ide.util.MemberChooser" timestamp="1604254234907">
+      <screen x="-1920" y="-300" width="1920" height="1040" />
+    </state>
+    <state x="-1155" y="-64" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604254234907" />
     <state x="185" y="195" key="FileChooserDialogImpl" timestamp="1604242731796">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -188,26 +210,26 @@
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
     <state x="-1082" y="118" key="Github.ShareDialog/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1603552383739" />
-    <state x="331" y="141" key="NewPhpClassDialog" timestamp="1604243229454">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="-1163" y="-57" key="NewPhpClassDialog" timestamp="1604253784160">
+      <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
-    <state x="-1163" y="-57" key="NewPhpClassDialog/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1603738521950" />
+    <state x="-1163" y="-57" key="NewPhpClassDialog/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604253784160" />
     <state x="331" y="141" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1604243229454" />
-    <state x="565" y="310" key="NewPhpFileDialog" timestamp="1604173599178">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="-1126" y="143" key="NewPhpFileDialog" timestamp="1604255195895">
+      <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
-    <state x="-1126" y="143" key="NewPhpFileDialog/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1603737816796" />
+    <state x="-1126" y="143" key="NewPhpFileDialog/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604255195895" />
     <state x="565" y="310" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1604173599178" />
     <state x="328" y="18" key="SettingsEditor" timestamp="1604242688878">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="-1459" y="-135" key="SettingsEditor/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604054158309" />
     <state x="328" y="18" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1604242688878" />
-    <state x="393" y="168" key="Vcs.Push.Dialog.v2" timestamp="1604174457295">
+    <state x="393" y="168" key="Vcs.Push.Dialog.v2" timestamp="1604243328344">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1603820616595" />
-    <state x="393" y="168" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604174457295" />
+    <state x="393" y="168" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604243328344" />
     <state x="-1159" y="126" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1603552489074">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
