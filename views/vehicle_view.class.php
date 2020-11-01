@@ -23,18 +23,36 @@ class VehicleView{
         <h2>Vehicles in our inventory</h2>
         <table border="0">
         <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
+            <th>Year</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Engine Type</th>
+            <th>Transmission</th>
+            <th>Class</th>
+            <th>Doors</th>
+            <th>Line</th>
+            <th>Passengers</th>
+            <th>Suitcases</th>
+            <th>Combined MPG</th>
+            <th>Sirius Capability</th>
+            <th>Price Per Day</th>
         </tr>
         <?php
-        foreach ($toys as $toy) {
+        foreach ($vehicles as $vehicle) {
             echo "<tr>";
-            echo "<td>" . $toy->getId() . "</td>";
-            echo "<td>" . $toy->getName() . "</td>";
-            echo "<td>" . $toy->getDescription() . "</td>";
-            echo "<td>" . $toy->getPrice() . "</td>";
+            echo "<td>" . $vehicle->getYear() . "</td>";
+            echo "<td>" . $vehicle->getMake() . "</td>";
+            echo "<td>" . $vehicle->getModel() . "</td>";
+            echo "<td>" . $vehicle->getEngineType() . "</td>";
+            echo "<td>" . $vehicle->getTransmission() . "</td>";
+            echo "<td>" . $vehicle->getClass() . "</td>";
+            echo "<td>" . $vehicle->getDoors() . "</td>";
+            echo "<td>" . $vehicle->getLine() . "</td>";
+            echo "<td>" . $vehicle->getPassengers() . "</td>";
+            echo "<td>" . $vehicle->getSuitcases() . "</td>";
+            echo "<td>" . $vehicle->getMPG() . "</td>";
+            echo "<td>" . $vehicle->getSirius() . "</td>";
+            echo "<td>" . $vehicle->getPrice() . "</td>";
             echo "</tr>";
         }
 

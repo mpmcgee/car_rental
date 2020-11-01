@@ -6,7 +6,7 @@
  *Description:
  */
 
-class ToyModel
+class VehicleModel
 {
     private $db; //database object
     private $dbConnection; // database connection object
@@ -20,7 +20,7 @@ class ToyModel
  * this method retrieves all toys from the database and
  * returns an array of Toy objects if successful or false if failed.
  */
-    public function getToys() {
+    public function getVehicles() {
         //SQL select statement
         $sql = "SELECT * FROM " . $this->db->getVehiclesTable();
 
@@ -33,7 +33,7 @@ class ToyModel
 
             //loop through all rows
             while ($query_row = $query->fetch_assoc()) {
-                $vehicle = new Toy($query_row["vehicle_id"],
+                $vehicle = new Vehicle($query_row["vehicle_id"],
                     $query_row["year"],
                     $query_row["make"],
                     $query_row["model"],
@@ -44,6 +44,7 @@ class ToyModel
                     $query_row["line"],
                     $query_row["passengers"],
                     $query_row["suitcases"],
+                    $query_row["combined_mpg"],
                     $query_row["sirius"],
                     $query_row["price_per_day"]);
 
