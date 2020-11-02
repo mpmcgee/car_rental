@@ -52,5 +52,5 @@ class User {
     //Get password.
     public function getPassword() {
         return $this->password;
-    }
+    } 
 }
