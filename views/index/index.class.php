@@ -6,7 +6,8 @@
  *Description:
  */
 
-class Index
-{
+class Index extends View {
+
+
 
 }
