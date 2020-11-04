@@ -16,7 +16,7 @@ class VehicleView{
         <!DOCTYPE HTML">
 <html>
     <head>
-        <title>ToyMVC List All Toys</title>
+        <title>List All Vehicles</title>
         <link type="text/css" rel="stylesheet" href="includes/style.css" />
     </head>
     <body>
@@ -63,5 +63,5 @@ class VehicleView{
 
         <?php
     } // end of display method
-    // end of ToyView Class
+    // VehicleView class
 }

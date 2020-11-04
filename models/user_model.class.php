@@ -1,6 +1,6 @@
 <?php
-/**
- * Author: Matthew McGee
+/*
+ * Author: Matthew McGee, Danny Harris, Coltin Espich
  * Date: 10/30/2020
  * File: user_model.class.php
  *Description:
@@ -20,117 +20,97 @@ class UserModel
 
 
 
-    public function add_user()
-    {
+    public function add_user(){
         // REGISTER USER
-        if (isset($_POST['submit'])) {
-            // receive all input values from the form
-            $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
-            $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
-            $password_hash = password_hash($password, PASSWORD_DEFAULT);
-            $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
-            $first_name = filter_var(['first_name'], FILTER_SANITIZE_STRING);
-            $last_name = filter_var(['last_name'], FILTER_SANITIZE_STRING);
-        }
-        if (empty($username)) {
+        // receive all input values from the form
+        $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+        $password_hash = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
+        $first_name = filter_var($_POST['firstname'], FILTER_SANITIZE_STRING);
+        $last_name = filter_var($_POST['lastname'], FILTER_SANITIZE_STRING);
 
+        //SQL insert statement
+        $sql = "INSERT INTO " . $this->db->getUserTable() .
+            " VALUES (NULL, '$username', '$password_hash', '$email', '$first_name', '$last_name')";
+
+        //execute the query
+        $query = $this->dbConnection->query($sql);
+
+        if (is_null($query)) {
             return false;
 
-        } else if (empty($password)) {
-
-            return false;
-
-        } else if (empty($email)) {
-
-            return false;
-
-        } else if (empty($first_name)) {
-
-            return false;
-
-        } else if (empty($last_name)) {
-
-            return false;
-
+            //set cookie with username and return true
         } else {
-            $sql = ("INSERT INTO" . $this->db->getUserTable() . "(username, password, email, first_name, last_name) 
-            VALUES ('$username', '$password_hash', '$email', '$first_name', '$last_name'");
-
-
-            if ($this->dbConnection->query($sql)) {
-
-                return true;
-            } else {
-
-                return false;
-            }
+            //Create cookie for username.
+            setcookie("login", $username);
+            return true;
         }
 
     }
-    public function verify_user(){
-        if (isset($_POST['submit'])) {
 
-            $username = $_POST['username'];
-            $password = $_POST['password'];
 
-            //sql select statement
-            $sql = "SELECT * FROM" . $this->db->getUserTable() . "WHERE username = '$username'";
+    public function verify_user()
+    {
+        //get credentials
+        $username = ($_POST['username']);
+        $password = ($_POST['password']);
 
-            //execute the query
-            $query = $this->dbConnection->query($sql);
+        //sql select statement
+        $sql = "Select * From " . $this->db->getUserTable() . " WHERE username = '$username'";
 
-            if ($query && $query->num_rows > 0){
-                //array to store credentials from db
-                $credentials = array();
+        //execute the query
+        $query = $this->dbConnection->query($sql);
 
-                //loop through all rows
-                while ($query_row = $query->fetch_assoc()) {
-                    $credential = new User($query_row["username"],
-                        $query_row["password"]);
+        if($query->num_rows > 0){
+            //loop through all rows
+            while ($query_row = $query->fetch_assoc()){
 
-                    //push credential into the array
-                    $credentials[] = $credential;
-                }
-            } if ($username == $credentials["username"] and password_verify($password, $credentials["password"])){
-                setcookie("login", $_REQUEST["username"]);
-
-            } else{
-                return false;
-            }
-        } else{
-
-            return false;
-        }
-    }
-
-    public function logout(){
-        setcookie('login', '', time()-70000000000, '/');
-    }
-
-    public function reset_password(){
-        if (isset($_COOKIE['login'])){
-            if (isset($_POST['submit'])) {
-                $username = $_POST['username'];
-                $password = $_POST['username'];
-                $password_hash = password_hash($password, PASSWORD_DEFAULT);
-
-                //sql select statement
-                $sql = "UPDATE" . $this->db->getUserTable() .
-                    "SET password = '$password_hash' where username = '$username'";
-
-                if ($this->dbConnection->query($sql) === TRUE){
+                //verify password
+                if (password_verify($password, $query_row['password'])) {
+                    setcookie("login", $username);
                     return true;
                 }
-
-                else{
-                    return false;
-                }
-
-
             }
-        } else{
+        }
+        return false;
+    }
+
+
+    public function logout(){
+
+        //if 'login' cookie is set, destroy it
+        if (isset($_COOKIE['login'])) {
+            unset($_COOKIE['login']);
+            setcookie('login', null, -1, '/');
+        }
+        //if 'login' cookie is not set, return true
+        if (isset($_COOKIE['login'])){
             return false;
+        } else {
+            return true;
         }
     }
 
+
+    public function reset_password(){
+
+        //retrieve credentials and table
+        $username = $_POST['username'];
+        $password_hash = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        $tbl = $this->db->getUserTable();
+
+        //sql update statement
+        $sql = "UPDATE $tbl SET password='$password_hash' WHERE username='$username'";
+
+        //execute the query
+        $query = $this->dbConnection->query($sql);
+
+        if (!$query){
+            return false;
+        }
+
+        else{
+            return true;
+        }
+    }
 }

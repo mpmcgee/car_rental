@@ -13,16 +13,21 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:car_rental" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e28ebf4-0eaa-483e-af0b-973de67c25cb" name="Default Changelist" comment="Prints entire vehicle inventory using MVC">
+    <list default="true" id="2e28ebf4-0eaa-483e-af0b-973de67c25cb" name="Default Changelist" comment="Reformatted for MVC">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user_controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user_controller.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/user_model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/user_model.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rental.sql" beforeDir="false" afterPath="$PROJECT_DIR$/rental.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/error/user_error.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/error/user_error.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/index/index.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/index/index.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vehicle_view.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vehicle_view.class.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +57,7 @@
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
     </include_path>
   </component>
   <component name="ProjectId" id="1jKSLIkZoxvNk6ihL2oxCY39ZVo" />
@@ -63,7 +69,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Unit04/Lab09" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.composer" />
@@ -93,8 +99,9 @@
       <workItem from="1604052635419" duration="2058000" />
       <workItem from="1604172143930" duration="3168000" />
       <workItem from="1604239524063" duration="20000" />
-      <workItem from="1604242674458" duration="4624000" />
-      <workItem from="1604359959445" duration="271000" />
+      <workItem from="1604242674458" duration="4501000" />
+      <workItem from="1604404992187" duration="51000" />
+      <workItem from="1604493962894" duration="890000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1603552583926</created>
@@ -152,14 +159,7 @@
       <option name="project" value="LOCAL" />
       <updated>1604243325756</updated>
     </task>
-    <task id="LOCAL-00009" summary="Prints entire vehicle inventory using MVC">
-      <created>1604256550987</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1604256550987</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,9 +182,7 @@
     <MESSAGE value="10/24/2020 11:56" />
     <MESSAGE value="10/27/2020: Changed name of site" />
     <MESSAGE value="Reformatted for MVC" />
-    <MESSAGE value="New changes" />
-    <MESSAGE value="Prints entire vehicle inventory using MVC" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prints entire vehicle inventory using MVC" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reformatted for MVC" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1380" y="-125" key="#CLI_Interpreters" timestamp="1604053670306">
@@ -199,10 +197,10 @@
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
     <state x="-1155" y="-64" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604254234907" />
-    <state x="-1660" y="-22" key="FileChooserDialogImpl" timestamp="1604360097426">
+    <state x="-1660" y="-22" key="FileChooserDialogImpl" timestamp="1604493991254">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
-    <state x="-1660" y="-22" key="FileChooserDialogImpl/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604360097426" />
+    <state x="-1660" y="-22" key="FileChooserDialogImpl/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604493991254" />
     <state x="185" y="195" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604242731796" />
     <state x="-1136" y="122" key="Github.CreateGistDialog" timestamp="1603552300392">
       <screen x="-1920" y="-300" width="1920" height="1040" />
@@ -227,11 +225,15 @@
     </state>
     <state x="-1459" y="-135" key="SettingsEditor/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604054158309" />
     <state x="328" y="18" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1604242688878" />
-    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2" timestamp="1604256553540">
+    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2" timestamp="1604494849137">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
-    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604256553540" />
+    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604494849137" />
     <state x="393" y="168" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604243328344" />
+    <state x="-1143" y="134" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604493968002">
+      <screen x="-1920" y="-300" width="1920" height="1040" />
+    </state>
+    <state x="-1143" y="134" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604493968002" />
     <state x="-1159" y="126" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1603552489074">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>

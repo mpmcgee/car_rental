@@ -31,4 +31,3 @@ else {
     $message = "Invalid action was requested.";
     $vehicle_controller->error($message);
 }
-
