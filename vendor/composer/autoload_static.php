@@ -7,15 +7,20 @@ namespace Composer\Autoload;
 class ComposerStaticInitfe4c4fae442cdb8392988156c0594d3d
 {
     public static $classMap = array (
+        'Booking' => __DIR__ . '/../..' . '/models/booking.class.php',
         'BookingController' => __DIR__ . '/../..' . '/controllers/booking_controller.class.php',
-        'BookingError' => __DIR__ . '/../..' . '/views/error/booking_error.class.php',
+        'BookingError' => __DIR__ . '/../..' . '/views/booking/error/booking_error.class.php',
+        'BookingIndex' => __DIR__ . '/../..' . '/views/booking/index/booking_index.class.php',
+        'BookingIndexView' => __DIR__ . '/../..' . '/views/booking/booking_index_view.class.php',
         'BookingModel' => __DIR__ . '/../..' . '/models/booking_model.class.php',
         'ComposerAutoloaderInitfe4c4fae442cdb8392988156c0594d3d' => __DIR__ . '/..' . '/composer/autoload_real.php',
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
         'Composer\\Autoload\\ComposerStaticInitfe4c4fae442cdb8392988156c0594d3d' => __DIR__ . '/..' . '/composer/autoload_static.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Database' => __DIR__ . '/../..' . '/application/database.class.php',
+        'Dispatcher' => __DIR__ . '/../..' . '/application/dispatcher.class.php',
         'Index' => __DIR__ . '/../..' . '/views/index/index.class.php',
+        'IndexView' => __DIR__ . '/../..' . '/views/index_view.class.php',
         'Login' => __DIR__ . '/../..' . '/views/login/login.class.php',
         'Logout' => __DIR__ . '/../..' . '/views/logout/logout.class.php',
         'Register' => __DIR__ . '/../..' . '/views/index/register.class.php',
@@ -27,10 +32,10 @@ class ComposerStaticInitfe4c4fae442cdb8392988156c0594d3d
         'Vehicle' => __DIR__ . '/../..' . '/vehicle.class.php',
         'VehicleController' => __DIR__ . '/../..' . '/controllers/vehicle_controller.class.php',
         'VehicleError' => __DIR__ . '/../..' . '/views/error/vehicle_error.class.php',
-        'VehicleModel' => __DIR__ . '/../..' . '/models/vehicle_model.class.php',
         'VehicleView' => __DIR__ . '/../..' . '/views/vehicle_view.class.php',
         'VerifyUser' => __DIR__ . '/../..' . '/views/login/verify_user.class.php',
-        'View' => __DIR__ . '/../..' . '/views/view.class.php',
+        'WelcomeController' => __DIR__ . '/../..' . '/controllers/welcome.controller.class.php',
+        'WelcomeIndex' => __DIR__ . '/../..' . '/views/welcome/welcome_index.class.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

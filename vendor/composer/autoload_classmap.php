@@ -6,15 +6,20 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Booking' => $baseDir . '/models/booking.class.php',
     'BookingController' => $baseDir . '/controllers/booking_controller.class.php',
-    'BookingError' => $baseDir . '/views/error/booking_error.class.php',
+    'BookingError' => $baseDir . '/views/booking/error/booking_error.class.php',
+    'BookingIndex' => $baseDir . '/views/booking/index/booking_index.class.php',
+    'BookingIndexView' => $baseDir . '/views/booking/booking_index_view.class.php',
     'BookingModel' => $baseDir . '/models/booking_model.class.php',
     'ComposerAutoloaderInitfe4c4fae442cdb8392988156c0594d3d' => $vendorDir . '/composer/autoload_real.php',
     'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',
     'Composer\\Autoload\\ComposerStaticInitfe4c4fae442cdb8392988156c0594d3d' => $vendorDir . '/composer/autoload_static.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Database' => $baseDir . '/application/database.class.php',
+    'Dispatcher' => $baseDir . '/application/dispatcher.class.php',
     'Index' => $baseDir . '/views/index/index.class.php',
+    'IndexView' => $baseDir . '/views/index_view.class.php',
     'Login' => $baseDir . '/views/login/login.class.php',
     'Logout' => $baseDir . '/views/logout/logout.class.php',
     'Register' => $baseDir . '/views/index/register.class.php',
@@ -26,8 +31,8 @@ return array(
     'Vehicle' => $baseDir . '/vehicle.class.php',
     'VehicleController' => $baseDir . '/controllers/vehicle_controller.class.php',
     'VehicleError' => $baseDir . '/views/error/vehicle_error.class.php',
-    'VehicleModel' => $baseDir . '/models/vehicle_model.class.php',
     'VehicleView' => $baseDir . '/views/vehicle_view.class.php',
     'VerifyUser' => $baseDir . '/views/login/verify_user.class.php',
-    'View' => $baseDir . '/views/view.class.php',
+    'WelcomeController' => $baseDir . '/controllers/welcome.controller.class.php',
+    'WelcomeIndex' => $baseDir . '/views/welcome/welcome_index.class.php',
 );
