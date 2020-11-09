@@ -16,11 +16,11 @@ class Database {
         'database' => 'rental',
         'tblVehicle' => 'vehicles',
         'tblBookings' => 'bookings',
-        'tblUsers' => 'users'
+        'tblCustomers' => 'customers'
     );
 
     //define the database connection object
-    private $objConnection = NULL;
+    private $objDBConnection = NULL;
     static private $_instance = NULL;
 
     //private constructor
@@ -32,13 +32,14 @@ class Database {
             $this->param['database']
         );
         if (mysqli_connect_errno() != 0){
-            echo "Failed to connect to database: ", mysqli_connect_error(), ".";
+            $message =  "Failed to connect to database: " . mysqli_connect_error() . ".";
+            include 'error.php';
             exit();
         }
     }
 
     //static method to ensure only one Database instance
-    static public function getInstance(){
+    static public function getDatabase(){
         if (self::$_instance == NULL)
             self::$_instance = new Database;
         return self::$_instance;
@@ -60,8 +61,8 @@ class Database {
     }
 
     //returns name of table that stores bookings
-    public function getUsersTable(){
-        return $this->param['tblUsers'];
+    public function getCustomersTable(){
+        return $this->param['tblCustomers'];
     }
 
 }
