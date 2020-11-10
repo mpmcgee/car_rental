@@ -51,7 +51,7 @@ class IndexView {
         <div id="push"></div>
         </div>
         <div id="footer"><br>&copy 2016 Kung Fu Panda Media Library. All Rights Reserved.</div>
-        <script type="text/javascript" src="<?= BASE_URL ?>/www/js/ajax_autosuggestion.js"></script>
+<!--        <script type="text/javascript" src="--><?//= BASE_URL ?><!--/www/js/ajax_autosuggestion.js"></script>-->
         </body>
         </html>
         <?php
