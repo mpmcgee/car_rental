@@ -93,8 +93,8 @@ class BookingModel
 
         while($obj = $query->fetch_object()){
             $booking = new Booking(stripslashes($obj->customer_id), stripslashes($obj->last_name), stripslashes($obj->first_name),
-                stripslashes($obj->vehicle_id), stripslashes($obj->vehicle_year), stripslashes($obj->vehicle_make),
-                stripslashes($obj->vehicle_model), stripslashes($obj->start_date), stripslashes($obj->end_date));
+                stripslashes($obj->vehicle_id), stripslashes($obj->year), stripslashes($obj->make),
+                stripslashes($obj->model), stripslashes($obj->start_date), stripslashes($obj->end_date));
 
             //set the id for the booking
             $booking->setId($obj->booking_id);
@@ -103,15 +103,6 @@ class BookingModel
             $bookings[] = $booking;
         }
         return $bookings;
-
-//        $this->customer_id = $customer_id;
-//        $this->customer_name = $customer_name;
-//        $this->vehicle_id = $vehicle_id;
-//        $this->vehicle_year = $vehicle_year;
-//        $this->vehicle_make = $vehicle_make;
-//        $this->vehicle_model = $vehicle_model;
-//        $this->start_date = $start_date;
-//        $this->end_date = $end_date;
 
     }
 
@@ -148,24 +139,76 @@ class BookingModel
 
         return false;
     }
-    //get all customers
-    private function getBookingCustomers(){
-        $sql = "SELECT * FROM " . $this->tblCustomers;
+
+    public function search_bookings($terms)
+    {
+        $terms = explode("", $terms); //explode multiple terms into an array
+
+        //select statement for AND search
+        $sql = "SELECT * FROM " . $this->tblBookings . "," . $this->tblCustomers . "," .
+            $this->tblVehicles . " WHERE " . $this->tblBookings . ".customer_id=" . $this->tblCustomers .
+            ".customer_id AND " . $this->tblBookings . ".vehicle_id=" . $this->tblVehicles . ".vehicle_id";
+
+        foreach ($terms as $term) {
+            $sql .= " AND last_name LIKE '%" . $term . "%'";
+            $sql .= " AND first_name LIKE '%" . $term . "%'";
+            $sql .= " AND vehicle_make LIKE '%" . $term . "%'";
+            $sql .= " AND vehicle_model LIKE '%" . $term . "%'";
+        }
+
+        $sql .= ")";
 
         //execute the query
         $query = $this->dbConnection->query($sql);
 
-        if (!$query){
-            return false;
+        //if search failed, return false
+        if ($query->num_rows == 0) {
+            return 0;
         }
 
-        //loop through all rows
-        $customers = array();
-        while ($obj = $query->fetch_object()){
-            $customers[$obj->customer_id] = $obj->customer_id;
+        //search succeeded and at least one booking found
+        $bookings = array();
+
+        //loop through all rows and crete recordsets
+        while($obj = $query->fetch_object()){
+        $booking = new Booking(stripslashes($obj->customer_id), stripslashes($obj->last_name), stripslashes($obj->first_name),
+            stripslashes($obj->vehicle_id), stripslashes($obj->vehicle_year), stripslashes($obj->vehicle_make),
+            stripslashes($obj->vehicle_model), stripslashes($obj->start_date), stripslashes($obj->end_date));
+
+        //set the id for the booking
+        $booking->setId($obj->id);
+
+        //add the booking to the array
+        $bookings[] = $booking;
         }
-        return $customers;
+
+        return $bookings;
+
     }
+
+
+
+        //get all customers
+
+        private function getBookingCustomers()
+        {
+            $sql = "SELECT * FROM " . $this->tblCustomers;
+
+            //execute the query
+            $query = $this->dbConnection->query($sql);
+
+            if (!$query) {
+                return false;
+            }
+
+            //loop through all rows
+            $customers = array();
+            while ($obj = $query->fetch_object()) {
+                $customers[$obj->customer_id] = $obj->customer_id;
+            }
+            return $customers;
+        }
+
 
     //get all customers
     private function getBookingVehicles(){
@@ -182,6 +225,7 @@ class BookingModel
         $vehicles = array();
         while ($obj = $query->fetch_object()){
             $vehicles[$obj->vehicle_id] = $obj->vehicle_id;
+
 
         }
         return $vehicles;

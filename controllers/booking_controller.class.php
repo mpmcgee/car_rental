@@ -44,6 +44,32 @@ class BookingController
         $error->display($message);
     }
 
+    // search bookings
+    public function search(){
+        $query_terms = trim($_GET['query_terms']);
+
+        //if search term is empty, list all bookings
+        if ($query_terms == "") {
+            $this->index();
+        }
+
+        //search the database for matching bookings
+        $bookings = $this->booking_model->search_bookings($query_terms);
+
+        if(!$bookings === false){
+            //handle error
+            $message = "An error has occurred.";
+            $this->error($message);
+            return;
+        }
+        //display matching bookings
+        $search = new BookingSearch();
+        $search->display($query_terms, $bookings);
+
+
+
+    }
+
     //handle calling inaccessible methods
     public function __call($name, $arguments)
     {

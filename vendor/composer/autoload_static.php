@@ -13,6 +13,7 @@ class ComposerStaticInitfe4c4fae442cdb8392988156c0594d3d
         'BookingIndex' => __DIR__ . '/../..' . '/views/booking/index/booking_index.class.php',
         'BookingIndexView' => __DIR__ . '/../..' . '/views/booking/booking_index_view.class.php',
         'BookingModel' => __DIR__ . '/../..' . '/models/booking_model.class.php',
+        'BookingSearch' => __DIR__ . '/../..' . '/views/booking/search/booking_search.class.php',
         'ComposerAutoloaderInitfe4c4fae442cdb8392988156c0594d3d' => __DIR__ . '/..' . '/composer/autoload_real.php',
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
         'Composer\\Autoload\\ComposerStaticInitfe4c4fae442cdb8392988156c0594d3d' => __DIR__ . '/..' . '/composer/autoload_static.php',

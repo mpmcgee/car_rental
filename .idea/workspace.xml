@@ -19,26 +19,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e28ebf4-0eaa-483e-af0b-973de67c25cb" name="Default Changelist" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/config.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/dispatcher.class.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/error.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/welcome.controller.class.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/booking.class.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/booking/booking_index_view.class.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/booking/index/booking_index.class.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/welcome/welcome_index.class.php" afterDir="false" />
+    <list default="true" id="2e28ebf4-0eaa-483e-af0b-973de67c25cb" name="Default Changelist" comment="Created MVC to list bookings.">
+      <change afterPath="$PROJECT_DIR$/views/booking/search/booking_search.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/database.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/database.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/booking_controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/booking_controller.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/booking_model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/booking_model.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/vehicle_model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/vehicle_model.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/error/booking_error.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/booking/error/booking_error.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/view.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/index_view.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/booking/booking_index_view.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/booking/booking_index_view.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/booking/index/booking_index.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/booking/index/booking_index.class.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,11 +79,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\I211\Final\views\booking\search" />
       <recent name="C:\xampp\htdocs\I211\Final\views\booking\error" />
       <recent name="C:\xampp\htdocs\I211\Final" />
       <recent name="C:\xampp\htdocs\I211\Final\views\Employee\index" />
       <recent name="C:\xampp\htdocs\I211\Final\views\Employee" />
-      <recent name="C:\xampp\htdocs\I211\Final\www" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -117,7 +108,8 @@
       <workItem from="1604242674458" duration="4501000" />
       <workItem from="1604404992187" duration="51000" />
       <workItem from="1604493962894" duration="1221000" />
-      <workItem from="1604938342913" duration="13874000" />
+      <workItem from="1604938342913" duration="14112000" />
+      <workItem from="1605019642398" duration="3627000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1603552583926</created>
@@ -189,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604495104688</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Created MVC to list bookings.">
+      <created>1604953386811</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1604953386811</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,7 +213,8 @@
     <MESSAGE value="Reformatted for MVC" />
     <MESSAGE value="Updated user_model, user_controller, and user_error classes" />
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="Created MVC to list bookings." />
+    <option name="LAST_COMMIT_MESSAGE" value="Created MVC to list bookings." />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1380" y="-125" key="#CLI_Interpreters" timestamp="1604053670306">
@@ -242,10 +242,10 @@
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
     <state x="-1082" y="118" key="Github.ShareDialog/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1603552383739" />
-    <state x="-1163" y="-57" key="NewPhpClassDialog" timestamp="1604944457955">
+    <state x="-1163" y="-57" key="NewPhpClassDialog" timestamp="1605021711633">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
-    <state x="-1163" y="-57" key="NewPhpClassDialog/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604944457955" />
+    <state x="-1163" y="-57" key="NewPhpClassDialog/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1605021711633" />
     <state x="331" y="141" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1604243229454" />
     <state x="-1126" y="143" key="NewPhpFileDialog" timestamp="1604943689008">
       <screen x="-1920" y="-300" width="1920" height="1040" />
@@ -257,10 +257,10 @@
     </state>
     <state x="-1459" y="-135" key="SettingsEditor/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604054158309" />
     <state x="328" y="18" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1604242688878" />
-    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2" timestamp="1604495113294">
+    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2" timestamp="1604953395560">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
-    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604495113294" />
+    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604953395560" />
     <state x="393" y="168" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604243328344" />
     <state x="-1143" y="134" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604493968002">
       <screen x="-1920" y="-300" width="1920" height="1040" />
