@@ -12,6 +12,7 @@ return array(
     'BookingIndex' => $baseDir . '/views/booking/index/booking_index.class.php',
     'BookingIndexView' => $baseDir . '/views/booking/booking_index_view.class.php',
     'BookingModel' => $baseDir . '/models/booking_model.class.php',
+    'BookingSearch' => $baseDir . '/views/booking/search/booking_search.class.php',
     'ComposerAutoloaderInitfe4c4fae442cdb8392988156c0594d3d' => $vendorDir . '/composer/autoload_real.php',
     'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',
     'Composer\\Autoload\\ComposerStaticInitfe4c4fae442cdb8392988156c0594d3d' => $vendorDir . '/composer/autoload_static.php',
