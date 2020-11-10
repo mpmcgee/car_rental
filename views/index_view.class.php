@@ -42,7 +42,7 @@ class IndexView {
         </div>
         <?php
 
-    }
+    }//end of displayHeader function
 
     //this method displays the page footer
     public static function displayFooter() {

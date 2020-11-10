@@ -56,8 +56,7 @@ class BookingSearch extends BookingIndexView {
             }
         ?>
             </table>
-            </div>
-            <a href="<?= BASE_URL ?>/booking/index">Go to movie list</a>
+            <a href="<?= BASE_URL ?>/booking/index">Go to bookings list</a>
         <?php
         //display page footer
         parent::displayFooter();

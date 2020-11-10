@@ -12,6 +12,8 @@ class BookingController
 
     //default constructor
     public function __construct(){
+
+        //create an instance of the BookingModel class
         $this->booking_model = BookingModel::getBookingModel();
     }
 
