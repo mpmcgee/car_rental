@@ -8,8 +8,13 @@
 
 class BookingIndex extends BookingIndexView {
     public function display($bookings){
+            //display page header
             Parent::displayHeader("List all Bookings");
 
+        if ($bookings === 0) {
+            echo "No bookings were found.<br><br><br><br><br>";
+        } else {
+            //display bookings in table
         ?>
         <div id="main-header"> Bookings</div>
     <table border="0">
@@ -26,6 +31,8 @@ class BookingIndex extends BookingIndexView {
             <th>End Date</th>
         </tr>
         <?php
+
+
         foreach ($bookings as $booking) {
             echo "<tr>";
             echo "<td>" . $booking->getId() . "</td>";
@@ -40,7 +47,7 @@ class BookingIndex extends BookingIndexView {
             echo "<td>" . $booking->getEndDate() . "</td>";
             echo "</tr>";
         }
-
+    }
         ?>
     </table>
 

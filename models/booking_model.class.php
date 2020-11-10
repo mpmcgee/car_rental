@@ -147,13 +147,13 @@ class BookingModel
         //select statement for AND search
         $sql = "SELECT * FROM " . $this->tblBookings . "," . $this->tblCustomers . "," .
             $this->tblVehicles . " WHERE " . $this->tblBookings . ".customer_id=" . $this->tblCustomers .
-            ".customer_id AND " . $this->tblBookings . ".vehicle_id=" . $this->tblVehicles . ".vehicle_id";
+            ".customer_id AND " . $this->tblBookings . ".vehicle_id=" . $this->tblVehicles . ".vehicle_id AND (1";
 
         foreach ($terms as $term) {
-            $sql .= " AND last_name LIKE '%" . $term . "%'";
-            $sql .= " AND first_name LIKE '%" . $term . "%'";
+//            $sql .= " AND last_name LIKE '%" . $term . "%'";
+//            $sql .= " AND first_name LIKE '%" . $term . "%'";
             $sql .= " AND make LIKE '%" . $term . "%'";
-            $sql .= " AND model LIKE '%" . $term . "%'";
+//            $sql .= " AND model LIKE '%" . $term . "%'";
         }
 
         $sql .= ")";
@@ -161,22 +161,27 @@ class BookingModel
         //execute the query
         $query = $this->dbConnection->query($sql);
 
-        //if search failed, return false
+        // the search failed, return false.
+        if (!$query) {
+            return false;
+        }
+
         if ($query->num_rows == 0) {
             return 0;
         }
 
         //search succeeded and at least one booking found
+        //create an array to store all returned bookings
         $bookings = array();
 
         //loop through all rows and crete recordsets
         while($obj = $query->fetch_object()){
         $booking = new Booking($obj->customer_id, $obj->last_name, $obj->first_name,
-            $obj->vehicle_id, $obj->vehicle_year, $obj->vehicle_make,
-            $obj->vehicle_model, $obj->start_date, $obj->end_date);
+            $obj->vehicle_id, $obj->year, $obj->make,
+            $obj->model, $obj->start_date, $obj->end_date);
 
         //set the id for the booking
-        $booking->setId($obj->id);
+        $booking->setId($obj->booking_id);
 
         //add the booking to the array
         $bookings[] = $booking;

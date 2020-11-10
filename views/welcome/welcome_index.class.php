@@ -9,7 +9,7 @@
 class WelcomeIndex extends IndexView{
 
     public function display() {
-        parent::displayHeader("Kung Fu Panda Media Library Home");
+        parent::displayHeader("X Car Rental Home");
 
         ?>
         <div id="main-header">Welcome to KUNG FU PANDA Media Library!</div>
