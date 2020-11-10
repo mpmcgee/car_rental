@@ -142,7 +142,7 @@ class BookingModel
 
     public function search_bookings($terms)
     {
-        $terms = explode("", $terms); //explode multiple terms into an array
+        $terms = explode(" ", $terms); //explode multiple terms into an array
 
         //select statement for AND search
         $sql = "SELECT * FROM " . $this->tblBookings . "," . $this->tblCustomers . "," .
@@ -152,8 +152,8 @@ class BookingModel
         foreach ($terms as $term) {
             $sql .= " AND last_name LIKE '%" . $term . "%'";
             $sql .= " AND first_name LIKE '%" . $term . "%'";
-            $sql .= " AND vehicle_make LIKE '%" . $term . "%'";
-            $sql .= " AND vehicle_model LIKE '%" . $term . "%'";
+            $sql .= " AND make LIKE '%" . $term . "%'";
+            $sql .= " AND model LIKE '%" . $term . "%'";
         }
 
         $sql .= ")";
@@ -171,9 +171,9 @@ class BookingModel
 
         //loop through all rows and crete recordsets
         while($obj = $query->fetch_object()){
-        $booking = new Booking(stripslashes($obj->customer_id), stripslashes($obj->last_name), stripslashes($obj->first_name),
-            stripslashes($obj->vehicle_id), stripslashes($obj->vehicle_year), stripslashes($obj->vehicle_make),
-            stripslashes($obj->vehicle_model), stripslashes($obj->start_date), stripslashes($obj->end_date));
+        $booking = new Booking($obj->customer_id, $obj->last_name, $obj->first_name,
+            $obj->vehicle_id, $obj->vehicle_year, $obj->vehicle_make,
+            $obj->vehicle_model, $obj->start_date, $obj->end_date);
 
         //set the id for the booking
         $booking->setId($obj->id);

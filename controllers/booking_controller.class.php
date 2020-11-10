@@ -56,7 +56,7 @@ class BookingController
         //search the database for matching bookings
         $bookings = $this->booking_model->search_bookings($query_terms);
 
-        if(!$bookings === false){
+        if($bookings === false){
             //handle error
             $message = "An error has occurred.";
             $this->error($message);
