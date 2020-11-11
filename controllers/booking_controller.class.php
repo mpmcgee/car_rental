@@ -35,6 +35,23 @@ class BookingController
         $view->display($bookings);
     }
 
+    //show details of a booking
+    public function detail($id) {
+        //retrieve the specific booking
+        $booking = $this->booking_model->view_booking($id);
+
+        if (!$booking) {
+            //display an error
+            $message = "There was a problem displaying the booking id='" . $id . "'.";
+            $this->error($message);
+            return;
+        }
+
+        //display booking details
+        $view = new BookingDetail();
+        $view->display($booking);
+    }
+
     //handle an error
     public function error($message)
     {
