@@ -20,6 +20,8 @@ define("BASE_URL", "http://localhost/I211/Final");
  ************************************************************************************/
 
 //define default path for media images
-define("Vehicle_img", "www/img/vehicle/");
+define("Vehicle_img", "www/img/vehicles/");
+
+
 
 

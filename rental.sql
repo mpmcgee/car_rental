@@ -82,7 +82,7 @@ INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `username`, `password
 -- --------------------------------------------------------
 
 --
--- Table structure for table `vehicle`
+-- Table structure for table `vehicles`
 --
 
 CREATE TABLE `vehicles` (
