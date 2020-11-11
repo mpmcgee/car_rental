@@ -47,6 +47,18 @@ class BookingModel
             $_SESSION['vehicles'] = $vehicles;
         }
 
+        //initializes the vehicle
+        if(!isset($_SESSION['makes'])){
+            $makes = $this->getBookingMakes();
+            $_SESSION['makes'] = $makes;
+        }
+
+        //initializes the vehicle
+        if(!isset($_SESSION['models'])){
+            $models = $this->getBookingModels();
+            $_SESSION['models'] = $models;
+        }
+
     }
 
     //static method to ensure there is just one BookModel instance
@@ -150,10 +162,12 @@ class BookingModel
             ".customer_id AND " . $this->tblBookings . ".vehicle_id=" . $this->tblVehicles . ".vehicle_id AND (1";
 
         foreach ($terms as $term) {
-//            $sql .= " AND last_name LIKE '%" . $term . "%'";
-//            $sql .= " AND first_name LIKE '%" . $term . "%'";
-            $sql .= " AND make LIKE '%" . $term . "%'";
-//            $sql .= " AND model LIKE '%" . $term . "%'";
+            $sql .= " AND last_name LIKE '%"  . $term . "%' OR  first_name LIKE '%" . $term . "%' 
+            OR model LIKE '%" . $term . "%' OR make LIKE '%" . $term . "%' OR booking_id LIKE '%" . $term . "%'
+            OR year LIKE '%" . $term . "%'";
+
+
+
         }
 
         $sql .= ")";
@@ -234,5 +248,47 @@ class BookingModel
 
         }
         return $vehicles;
+    }
+
+    //get all makes
+    private function getBookingMakes(){
+        $sql = "SELECT * FROM " . $this->tblVehicles;
+
+        //execute the query
+        $query = $this->dbConnection->query($sql);
+
+        if (!$query){
+            return false;
+        }
+
+        //loop through all rows
+        $makes = array();
+        while ($obj = $query->fetch_object()){
+            $makes[$obj->make] = $obj->make;
+
+
+        }
+        return $makes;
+    }
+
+    //get all makes
+    private function getBookingModels(){
+        $sql = "SELECT * FROM " . $this->tblVehicles;
+
+        //execute the query
+        $query = $this->dbConnection->query($sql);
+
+        if (!$query){
+            return false;
+        }
+
+        //loop through all rows
+        $models = array();
+        while ($obj = $query->fetch_object()){
+            $models[$obj->model] = $obj->model;
+
+
+        }
+        return $models;
     }
 }
