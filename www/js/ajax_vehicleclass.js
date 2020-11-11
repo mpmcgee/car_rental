@@ -31,28 +31,28 @@ function selectVclass() {
 function displayLines(Vclass){
     if (Vclass === "car"){
         var regular = document.createElement("IMG");
-        regular.setAttribute('src', 'www/img/vehicles/car.jfif');
+        regular.setAttribute('src', 'www/img/vehicle/car.jfif');
         regular.setAttribute("class", "car-lines");
         regular.setAttribute("id", "regular-car");
         document.body.appendChild(regular);
         document.getElementById("regular-car").addEventListener("click", selectRegularLine);
 
         var luxury = document.createElement("IMG");
-        luxury.setAttribute('src', 'www/img/vehicles/car.jfif');
+        luxury.setAttribute('src', 'www/img/vehicle/car.jfif');
         luxury.setAttribute("class", "car-lines");
         luxury.setAttribute("id", "luxury-car");
         document.body.appendChild(luxury);
         document.getElementById("luxury-car").addEventListener("click", selectLine);
 
         var exotic = document.createElement("IMG");
-        exotic.setAttribute('src', 'www/img/vehicles/car.jfif');
+        exotic.setAttribute('src', 'www/img/vehicle/car.jfif');
         exotic.setAttribute("class", "car-lines");
         exotic.setAttribute("id", "exotic-car");
         document.body.appendChild(exotic);
         document.getElementById("exotic-car").addEventListener("click", selectLine);
 
         var sports = document.createElement("IMG");
-        sports.setAttribute('src', 'www/img/vehicles/car.jfif');
+        sports.setAttribute('src', 'www/img/vehicle/car.jfif');
         sports.setAttribute("class", "car-lines");
         sports.setAttribute("id", "sports-car");
         document.body.appendChild(sports);
@@ -62,28 +62,28 @@ function displayLines(Vclass){
 
     } else if (Vclass === "suv"){
         var compact = document.createElement("IMG");
-        compact.setAttribute('src', 'www/img/vehicles/car.jfif')
+        compact.setAttribute('src', 'www/img/vehicle/car.jfif')
         compact.setAttribute("class", "lines");
         compact.setAttribute("id", "compact-suv");
         document.body.appendChild(compact);
         document.getElementById("compact-suv").addEventListener("click", selectLine);
 
         var standard = document.createElement("IMG");
-        standard.setAttribute('src', 'www/img/vehicles/car.jfif');
+        standard.setAttribute('src', 'www/img/vehicle/car.jfif');
         standard.setAttribute("class", "lines");
         standard.setAttribute("id", "standard-suv");
         document.body.appendChild(standard);
         document.getElementById("standard-suv").addEventListener("click", selectLine);
 
         var fullsize = document.createElement("IMG");
-        fullsize.setAttribute('src', 'www/img/vehicles/car.jfif');
+        fullsize.setAttribute('src', 'www/img/vehicle/car.jfif');
         fullsize.setAttribute("class", "lines");
         fullsize.setAttribute("id", "fullsize-suv");
         document.body.appendChild(fullsize);
         document.getElementById("fullsize-suv").addEventListener("click", selectLine);
 
         var jeep = document.createElement("IMG");
-        jeep.setAttribute('src', 'www/img/vehicles/car.jfif');
+        jeep.setAttribute('src', 'www/img/vehicle/car.jfif');
         jeep.setAttribute("class", "lines");
         jeep.setAttribute("id", "jeep-suv");
         document.body.appendChild(jeep);
@@ -91,14 +91,14 @@ function displayLines(Vclass){
 
     } else if (Vclass === "truck"){
         var small = document.createElement("IMG");
-        small.setAttribute('src', 'www/img/vehicles/car.jfif');
+        small.setAttribute('src', 'www/img/vehicle/car.jfif');
         small.setAttribute("class", "lines");
         small.setAttribute("id", "small-truck");
         document.body.appendChild(small);
         document.getElementById("small-truck").addEventListener("click", selectLine);
 
         var fullsize = document.createElement("IMG");
-        fullsize.setAttribute('src', 'www/img/vehicles/car.jfif');
+        fullsize.setAttribute('src', 'www/img/vehicle/car.jfif');
         fullsize.setAttribute("class", "lines");
         fullsize.setAttribute("id", "fullsize-truck");
         document.body.appendChild(fullsize);
@@ -106,14 +106,14 @@ function displayLines(Vclass){
 
     } else if (Vclass === "van"){
         var mini = document.createElement("IMG");
-        mini.setAttribute('src', 'www/img/vehicles/car.jfif');
+        mini.setAttribute('src', 'www/img/vehicle/car.jfif');
         mini.setAttribute("class", "lines");
         mini.setAttribute("id", "mini-van");
         document.body.appendChild(mini);
         document.getElementById("mini-van").addEventListener("click", selectLine);
 
         var passenger = document.createElement("IMG");
-        passenger.setAttribute('src', 'www/img/vehicles/car.jfif');
+        passenger.setAttribute('src', 'www/img/vehicle/car.jfif');
         passenger.setAttribute("class", "lines");
         passenger.setAttribute("id", "passenger-van");
         document.body.appendChild(passenger);
@@ -130,21 +130,21 @@ function selectRegularLine(){
 
 
     var compact = document.createElement("IMG");
-    compact.setAttribute('src', 'www/img/vehicles/car.jfif');
+    compact.setAttribute('src', 'www/img/vehicle/car.jfif');
     compact.setAttribute("class", "lines");
     compact.setAttribute("id", "compact-car");
     document.body.appendChild(compact);
     document.getElementById("compact-car").addEventListener("click", selectLine);
 
     var midsize = document.createElement("IMG");
-    midsize.setAttribute('src', 'www/img/vehicles/car.jfif');
+    midsize.setAttribute('src', 'www/img/vehicle/car.jfif');
     midsize.setAttribute("class", "lines");
     midsize.setAttribute("id", "midsize-car");
     document.body.appendChild(midsize);
     document.getElementById("midsize-car").addEventListener("click", selectLine);
 
     var fullsize = document.createElement("IMG");
-    fullsize.setAttribute('src', 'www/img/vehicles/car.jfif');
+    fullsize.setAttribute('src', 'www/img/vehicle/car.jfif');
     fullsize.setAttribute("class", "lines");
     fullsize.setAttribute("id", "fullsize-car");
     document.body.appendChild(fullsize);

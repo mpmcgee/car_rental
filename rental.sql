@@ -82,7 +82,7 @@ INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `username`, `password
 -- --------------------------------------------------------
 
 --
--- Table structure for table `vehicles`
+-- Table structure for table `vehicle`
 --
 
 CREATE TABLE `vehicles` (
@@ -103,7 +103,7 @@ CREATE TABLE `vehicles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `vehicles`
+-- Dumping data for table `vehicle`
 --
 
 INSERT INTO `vehicles` (`vehicle_id`, `year`, `make`, `model`, `engine_type`, `transmission`, `class`, `doors`, `line`, `passengers`, `suitcases`, `combined_mpg`, `sirius`, `price_per_day`) VALUES
@@ -182,7 +182,7 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- Indexes for table `vehicles`
+-- Indexes for table `vehicle`
 --
 ALTER TABLE `vehicles`
   ADD PRIMARY KEY (`vehicle_id`);
@@ -210,7 +210,7 @@ ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `vehicles`
+-- AUTO_INCREMENT for table `vehicle`
 --
 ALTER TABLE `vehicles`
   MODIFY `vehicle_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;

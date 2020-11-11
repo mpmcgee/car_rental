@@ -14,33 +14,72 @@ class VehicleController
     public function __construct(){
 
         //crete an object of the VehicleModel class
-        $this->vehicle_model = new VehicleModel();
+        $this->vehicle_model = VehicleModel::getVehicleModel();
     }
 
-    //list all vehicles
-    public function all(){
-        //retrieve all vehicles and store them in an array
-        $vehicles = $this->vehicle_model->getVehicles();
+    //list all vehicle
+    public function index(){
+        //retrieve all vehicle and store them in an array
+        $vehicles = $this->vehicle_model->list_vehicle();
 
         //if there is no vehicle model, display error message
         if(!$vehicles){
-            header("Location: browse.php?action=error&message=No vehicle was found.");
-            exit();
+            //display error
+            $message = "There was a problem displaying vehicle.";
+            $this->error($message);
+            return;
         }
 
-        //crete a new object of the VehicleView class
-        $view = new VehicleView();
-
-        //display all vehicles
+        //display all vehicle
+        $view = new VehicleIndex();
         $view->display($vehicles);
     }
 
-    public function error($message){
+    //handle an error
+    public function error($message)
+    {
 
         //create an object of the error class
         $error = new VehicleError();
 
-        //display the error message
+        //display error message
         $error->display($message);
+    }
+
+    // search vehicle
+    public function search(){
+        $query_terms = trim($_GET['query_terms']);
+
+        //if search term is empty, list all vehicle
+        if ($query_terms == "") {
+            $this->index();
+        }
+
+        //search the database for matching vehicle
+        $vehicles = $this->vehicle_model->search_vehicles($query_terms);
+
+        if($vehicles === false){
+            //handle error
+            $message = "An error has occurred.";
+            $this->error($message);
+            return;
+        }
+        //display matching vehicle
+        $search = new VehicleSearch();
+        $search->display($query_terms, $vehicles);
+
+
+
+    }
+
+    //handle calling inaccessible methods
+    public function __call($name, $arguments)
+    {
+        //$message = "Route does not exist.";
+        //Note: value of $name is case sensitive
+        $message = "Calling method '$name' caused errors. Route does not exist.";
+
+        $this->error($message);
+        return;
     }
 }

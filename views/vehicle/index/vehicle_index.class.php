@@ -1,26 +1,24 @@
 <?php
 /**
  * Author: Matthew McGee
- * Date: 11/1/2020
- * File: vehicle_view.class.php
+ * Date: 11/11/2020
+ * File: vehicle_index.class.php
  *Description:
  */
 
-
-class VehicleView{
+class VehicleIndex extends VehicleIndexView {
     public function display($vehicles){
+        Parent::displayHeader("List all vehicle");
 
 
+
+        if ($vehicles === 0) {
+        echo "No vehicle were found.<br><br><br><br><br>";
+        } else {
+        //display bookings in table
         ?>
 
-        <!DOCTYPE HTML">
-<html>
-    <head>
-        <title>List All Vehicles</title>
-        <link type="text/css" rel="stylesheet" href="includes/style.css" />
-    </head>
-    <body>
-        <h2>Vehicles in our inventory</h2>
+        <div id="main-header"> Bookings</div>
         <table border="0">
         <tr>
             <th>Year</th>
@@ -62,6 +60,8 @@ class VehicleView{
         </html>
 
         <?php
+            Parent::displayFooter();
+    }
     } // end of display method
-    // VehicleView class
-}
+
+}// VehicleView class
