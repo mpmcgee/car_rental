@@ -44,7 +44,7 @@ class VehicleModel {
          * WHERE ...
          */
 
-        $sql = "SELECT * FROM tblVehicles";
+        $sql = "SELECT * FROM . " . $this-> tblVehicles;
 
         //execute the query
         $query = $this->dbConnection->query($sql);
@@ -90,7 +90,7 @@ class VehicleModel {
     {
 
         //select sql statement
-        $sql = "SELECT * FROM tblVehicles";
+        $sql = "SELECT * FROM" . $this->tblVehicles;
 
         //execute the query
         $query = $this->dbConnection->query($sql);
@@ -118,10 +118,10 @@ class VehicleModel {
         $terms = explode(" ", $terms); //explode multiple terms into an array
 
         //select statement for AND search
-        $sql = "SELECT * FROM tblVehicles AND (1";
+        $sql = "SELECT * FROM " . $this->tblVehicles. " WHERE ";
 
         foreach ($terms as $term) {
-            $sql .= " AND year LIKE '%" . $term . "%' OR  make LIKE '%" . $term . "%' 
+            $sql .= "year LIKE '%" . $term . "%' OR  make LIKE '%" . $term . "%' 
             OR model LIKE '%" . $term . "%' OR engine_type LIKE '%" . $term . "%' OR transmission LIKE '%" . $term . "%'
             OR class LIKE '%" . $term . "%' OR doors LIKE '%" . $term . "%' OR line LIKE '%" . $term . "%'
             OR passengers LIKE '%" . $term . "%' OR suitcases LIKE '%" . $term . "%' OR combined_mpg LIKE '%" . $term . "%'
@@ -130,7 +130,7 @@ class VehicleModel {
 
         }
 
-        $sql .= ")";
+
 
         //execute the query
         $query = $this->dbConnection->query($sql);

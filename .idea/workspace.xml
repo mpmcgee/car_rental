@@ -19,33 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e28ebf4-0eaa-483e-af0b-973de67c25cb" name="Default Changelist" comment="Booking search working">
-      <change afterPath="$PROJECT_DIR$/views/vehicle/error/vehicle_error.class.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/vehicle/search/vehicle_search.class.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/vehicle/vehicle_index_view.class.php" afterDir="false" />
+    <list default="true" id="2e28ebf4-0eaa-483e-af0b-973de67c25cb" name="Default Changelist" comment="Added vehicles">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/database.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/database.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/browse.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/browse_vehicle.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/vehicle_controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/vehicle_controller.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/booking_model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/booking_model.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/vehicle_model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/vehicle_model.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rental.sql" beforeDir="false" afterPath="$PROJECT_DIR$/rental.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vehicle.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/vehicle.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/error/user_error.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/error/user_error.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/error/vehicle_error.class.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index/index.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/index/index.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index/register.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/index/register.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/login/login.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/login/login.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/login/verify_user.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/login/verify_user.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/logout/logout.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/logout/logout.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/reset/reset.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/reset/reset.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/reset/reset_confirm.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/reset/reset_confirm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/vehicle_view.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vehicle/index/vehicle_index.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/welcome/welcome_index.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/welcome/welcome_index.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/js/ajax_vehicleclass.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/ajax_vehicleclass.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,7 +111,7 @@
       <workItem from="1605023342611" duration="102000" />
       <workItem from="1605037611188" duration="7139000" />
       <workItem from="1605050848260" duration="3293000" />
-      <workItem from="1605092824520" duration="6177000" />
+      <workItem from="1605092824520" duration="8728000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1603552583926</created>
@@ -244,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605054086879</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added vehicles">
+      <created>1605099196975</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1605099196975</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,7 +261,8 @@
     <MESSAGE value="Updated search bookings function" />
     <MESSAGE value="Booking search works with make" />
     <MESSAGE value="Booking search working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Booking search working" />
+    <MESSAGE value="Added vehicles" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added vehicles" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1380" y="-125" key="#CLI_Interpreters" timestamp="1604053670306">
@@ -316,10 +305,10 @@
     </state>
     <state x="-1459" y="-135" key="SettingsEditor/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604054158309" />
     <state x="328" y="18" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1604242688878" />
-    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2" timestamp="1605054094632">
+    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2" timestamp="1605099208540">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
-    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1605054094632" />
+    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1605099208540" />
     <state x="393" y="168" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@0.0.1366.728" timestamp="1605023369129" />
     <state x="393" y="168" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604243328344" />
     <state x="-1143" y="134" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605092872051">
@@ -330,6 +319,10 @@
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
     <state x="-1159" y="126" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1603552489074" />
+    <state x="-1304" y="90" key="run.anything.popup" timestamp="1605101118165">
+      <screen x="-1920" y="-300" width="1920" height="1040" />
+    </state>
+    <state x="-1304" y="90" key="run.anything.popup/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1605101118165" />
     <state x="11" y="49" key="search.everywhere.popup" timestamp="1604242713479">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

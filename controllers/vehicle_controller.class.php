@@ -25,7 +25,7 @@ class VehicleController
         //if there is no vehicle model, display error message
         if(!$vehicles){
             //display error
-            $message = "There was a problem displaying vehicle.";
+            $message = "There was a problem displaying vehicles.";
             $this->error($message);
             return;
         }

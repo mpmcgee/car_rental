@@ -14,7 +14,7 @@ class Database {
         'login' => 'phpuser',
         'password' => 'phpuser',
         'database' => 'rental',
-        'tblVehicle' => 'vehicle',
+        'tblVehicles' => 'vehicles',
         'tblBookings' => 'bookings',
         'tblCustomers' => 'customers'
     );
@@ -50,9 +50,9 @@ class Database {
         return $this->objDBConnection;
     }
 
-    //returns name of table that stores vehicle
+    //returns name of table that stores vehicles
     public function getVehiclesTable(){
-        return $this->param['tblVehicle'];
+        return $this->param['tblVehicles'];
     }
 
     //returns name of table that stores bookings
