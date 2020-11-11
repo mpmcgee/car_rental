@@ -16,16 +16,10 @@ date_default_timezone_set('America/New_York');
 define("BASE_URL", "http://localhost/I211/Final");
 
 /*************************************************************************************
- *                       settings for vehicles                                       *
+ *                       settings for vehicle                                       *
  ************************************************************************************/
 
 //define default path for media images
-define("Vehicle_img", "www/img/vehicles/");
+define("Vehicle_img", "www/img/vehicle/");
 
 
-///*************************************************************************************
-// *                       settings for books                                         *
-// ************************************************************************************/
-//
-////define default path for media images
-//define("BOOK_IMG", "www/img/vehicles/");
