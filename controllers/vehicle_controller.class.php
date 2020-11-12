@@ -35,6 +35,73 @@ class VehicleController
         $view->display($vehicles);
     }
 
+    //show details of a vehicle
+    public function detail($id) {
+        //retrieve the specific vehicle
+        $vehicle = $this->vehicle_model->view_vehicle($id);
+
+        if (!$vehicle) {
+            //display an error
+            $message = "There was a problem displaying the vehicle id='" . $id . "'.";
+            $this->error($message);
+            return;
+        }
+
+        //display vehicle details
+        $view = new VehicleDetail();
+        $view->display($vehicle);
+    }
+
+    //display a vehicle in a form for editing
+    public function edit($id)
+    {
+        //retrieve the specific movie
+        $vehicle = $this->vehicle_model->view_vehicle($id);
+
+        if (!$vehicle) {
+            //display an error
+            $message = "There was a problem displaying the vehicle id='" . $id . "'.";
+            $this->error($message);
+            return;
+        }
+    }
+
+    //Register - store user information in database.
+    public function new_vehicle()
+    {
+        $vehicle = $this->vehicle_model->add_vehicle();
+
+        //If return value is false, return an error.
+        if ($vehicle == False) {
+            $message = "There was an error booking the vehicle.";
+            $this->error($message);
+            return;
+        }
+
+        $message = "Vehicle successfully created.";
+        $view = new Vehicle();
+        $view->display($message);
+    }
+
+    //update a vehicle in the database
+    public function update($id) {
+        //update the vehicle
+        $update = $this->vehicle_model->update_vehicle($id);
+        if (!$update) {
+            //handle errors
+            $message = "There was a problem updating the vehicle id='" . $id . "'.";
+            $this->error($message);
+            return;
+        }
+
+        //display the updated vehicle details
+        $confirm = "The vehicle was successfully updated.";
+        $vehicle = $this->vehicle_model->view_vehicle($id);
+
+        $view = new VehicleDetail();
+        $view->display($vehicle, $confirm);
+    }
+
     //handle an error
     public function error($message)
     {
