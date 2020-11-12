@@ -85,9 +85,76 @@ class BookingController
         $search = new BookingSearch();
         $search->display($query_terms, $bookings);
 
-
-
     }
+
+    //Register - store user information in database.
+    public function book()
+    {
+        $booking = $this->booking_model->add_booking();
+
+        //If return value is false, return an error.
+        if ($booking == False) {
+            $message = "There was an error booking the vehicle.";
+            $this->error($message);
+            return;
+        }
+
+        $message = "Booking successfully created.";
+        $view = new Booking();
+        $view->display($message);
+    }
+
+    //show details of a booking
+    public function detail($id){
+
+        //retrieve the specific booking
+        $booking = $this->booking_model->view_booking($id);
+
+        if (!$booking) {
+            $message = "There was a problem displaying the booking with id'" . $id . "'.";
+        }
+
+        //display the booking results
+        $view = new BookingDetail();
+        $view->display($booking);
+    }
+
+    //display a booking in a form for editing
+    public function edit($id) {
+        //retrieve the specific booking
+        $booking = $this->booking_model->view_booking($id);
+
+        if (!$booking) {
+            //display an error
+            $message = "There was a problem displaying the booking id='" . $id . "'.";
+            $this->error($message);
+            return;
+        }
+
+        $view = new BookingEdit();
+        $view->display($booking);
+    }
+
+    //update a booking in the database
+    public function update($id) {
+        //update the booking
+        $update = $this->booking_model->update_booking($id);
+        if (!$update) {
+            //handle errors
+            $message = "There was a problem updating the booking id='" . $id . "'.";
+            $this->error($message);
+            return;
+        }
+
+        //display the updated booking details
+        $confirm = "The booking was successfully updated.";
+        $booking = $this->booking_model->view_booking($id);
+
+        $view = new BookingDetail();
+        $view->display($booking, $confirm);
+    }
+
+
 
     //handle calling inaccessible methods
     public function __call($name, $arguments)

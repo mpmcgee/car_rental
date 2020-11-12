@@ -19,15 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e28ebf4-0eaa-483e-af0b-973de67c25cb" name="Default Changelist" comment="Added vehicles">
+    <list default="true" id="2e28ebf4-0eaa-483e-af0b-973de67c25cb" name="Default Changelist" comment="Reorganized directories">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/database.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/database.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/booking_controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/booking_controller.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/vehicle_controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/vehicle_controller.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/booking_model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/booking_model.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/vehicle_model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/vehicle_model.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rental.sql" beforeDir="false" afterPath="$PROJECT_DIR$/rental.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/js/ajax_vehicleclass.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/ajax_vehicleclass.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +66,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Unit04/Lab10" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.composer" />
@@ -111,7 +108,9 @@
       <workItem from="1605023342611" duration="102000" />
       <workItem from="1605037611188" duration="7139000" />
       <workItem from="1605050848260" duration="3293000" />
-      <workItem from="1605092824520" duration="8728000" />
+      <workItem from="1605092824520" duration="9376000" />
+      <workItem from="1605141983659" duration="113000" />
+      <workItem from="1605198068047" duration="3761000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1603552583926</created>
@@ -232,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605099196975</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Reorganized directories">
+      <created>1605101615092</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1605101615092</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,7 +268,8 @@
     <MESSAGE value="Booking search works with make" />
     <MESSAGE value="Booking search working" />
     <MESSAGE value="Added vehicles" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added vehicles" />
+    <MESSAGE value="Reorganized directories" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reorganized directories" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1380" y="-125" key="#CLI_Interpreters" timestamp="1604053670306">
@@ -277,10 +284,10 @@
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
     <state x="-1155" y="-64" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604940727688" />
-    <state x="-1660" y="-22" key="FileChooserDialogImpl" timestamp="1605037832300">
+    <state x="-1660" y="-22" key="FileChooserDialogImpl" timestamp="1605198155977">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
-    <state x="-1660" y="-22" key="FileChooserDialogImpl/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1605037832300" />
+    <state x="-1660" y="-22" key="FileChooserDialogImpl/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1605198155977" />
     <state x="185" y="195" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604242731796" />
     <state x="-1136" y="122" key="Github.CreateGistDialog" timestamp="1603552300392">
       <screen x="-1920" y="-300" width="1920" height="1040" />
@@ -305,10 +312,10 @@
     </state>
     <state x="-1459" y="-135" key="SettingsEditor/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604054158309" />
     <state x="328" y="18" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1604242688878" />
-    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2" timestamp="1605099208540">
+    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2" timestamp="1605101794239">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
-    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1605099208540" />
+    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1605101794239" />
     <state x="393" y="168" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@0.0.1366.728" timestamp="1605023369129" />
     <state x="393" y="168" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604243328344" />
     <state x="-1143" y="134" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605092872051">
