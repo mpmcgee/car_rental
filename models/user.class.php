@@ -11,16 +11,15 @@ require_once ("application/database.class.php");
 
 class User {
     //Object Attributes.
-    private $id, $first_name, $last_name, $username, $password, $role, $phone, $email;
+    private $id, $first_name, $last_name, $username, $password, $role, $email;
 
     //Constructor.
-    public function __construct($first_name, $last_name, $username, $password, $role, $phone, $email) {
+    public function __construct($first_name, $last_name, $username, $password, $role, $email) {
         $this->first_name = $first_name;
         $this->last_name = $last_name;
         $this->username = $username;
         $this->password = $password;
         $this->role = $role;
-        $this->phone = $phone;
         $this->email = $email;
     }
 
