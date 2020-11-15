@@ -28,10 +28,11 @@ class UserModel
         $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
         $first_name = filter_var($_POST['firstname'], FILTER_SANITIZE_STRING);
         $last_name = filter_var($_POST['lastname'], FILTER_SANITIZE_STRING);
+        $role = 2; //Role 2 = customer role.
 
-        //SQL insert statement
+        //SQL insert statement.
         $sql = "INSERT INTO " . $this->db->getUserTable() .
-            " VALUES (NULL, '$username', '$password_hash', '$email', '$first_name', '$last_name')";
+            " VALUES (NULL, '$first_name', '$last_name', '$username', '$password_hash', '$role', '$email')";
 
         //execute the query
         $query = $this->dbConnection->query($sql);
