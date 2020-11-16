@@ -104,36 +104,7 @@ class BookingController
         $view->display($message);
     }
 
-    //show details of a booking
-    public function detail($id){
 
-        //retrieve the specific booking
-        $booking = $this->booking_model->view_booking($id);
-
-        if (!$booking) {
-            $message = "There was a problem displaying the booking with id'" . $id . "'.";
-        }
-
-        //display the booking results
-        $view = new BookingDetail();
-        $view->display($booking);
-    }
-
-    //display a booking in a form for editing
-    public function edit($id) {
-        //retrieve the specific booking
-        $booking = $this->booking_model->view_booking($id);
-
-        if (!$booking) {
-            //display an error
-            $message = "There was a problem displaying the booking id='" . $id . "'.";
-            $this->error($message);
-            return;
-        }
-
-        $view = new BookingEdit();
-        $view->display($booking);
-    }
 
     //update a booking in the database
     public function update($id) {
