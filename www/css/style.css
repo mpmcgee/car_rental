@@ -38,3 +38,55 @@
     width: 15%;
     cursor: pointer;
 }
+
+div.top-row {
+    height: 50px;
+    line-height: 50px;
+    font-size: 18pt;
+    color: white;
+    background-color: #316AC5;
+    padding: 20px;
+    text-transform: uppercase;
+}
+
+div.middle-row {
+    min-height: 200px;
+    padding: 0px 20px;
+    width: 100%;
+}
+
+div.bottom-row {
+    margin: 0px 20px;
+    height: 50px;
+    line-height: 50px;
+    border-top: 1px solid #999;
+    overflow: hidden;
+}
+
+input.button {
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    text-align: center;
+    color: white;
+    background-color: #000;
+    text-transform: uppercase;
+}
+
+input[type=text] {
+    width: 550px;
+}
+
+input[type=submit] {
+    width: 550px;
+}
+
+input[type='text'], input[type='password'], input[type='email'] {
+    height: 30px;
+    font-size: 10pt;
+    width: 550px;
+}
+
+form div {
+    margin: 25px auto;
+}

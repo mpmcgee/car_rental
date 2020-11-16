@@ -1,12 +1,12 @@
 <?php
 /**
- * Author: Matthew McGee
- * Date: 10/31/2020
- * File: verify_user.class.php
- *Description:
+ * Author: Danny Harris
+ * Date: 11/15/20
+ * File: reset_confirm.class.php
+ * Description:
  */
 
-class VerifyUser extends View
+class ResetConfirm extends View
 {
     public function display($message) {
 
@@ -15,17 +15,16 @@ class VerifyUser extends View
         ?>
         <!-- page specific content starts -->
         <!-- top row for the page header  -->
-        <div class="top-row">LOGIN</div>
+        <div class="top-row">RESET PASSWORD</div>
 
         <!-- middle row -->
         <div class="middle-row">
             <p><?= $message ?></p>
         </div>
-
         <!-- bottom row for links  -->
         <div class="bottom-row">
-            <span style="float: left">Want to logout? <a href="index.php?action=logout">Logout</a></span>
-            <span style="float: right">Reset password? <a href="index.php?action=reset">Reset</a></span>
+            <span style="float: left">Want to log out? <a href="index.php?action=logout">Logout</a></span>
+            <span style="float: right">Don't have an account? <a href="index.php">Register</a></span>
         </div>
         <!-- page specific content ends -->
 
