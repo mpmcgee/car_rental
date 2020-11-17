@@ -9,6 +9,7 @@ class ComposerStaticInitfe4c4fae442cdb8392988156c0594d3d
     public static $classMap = array (
         'Booking' => __DIR__ . '/../..' . '/models/booking.class.php',
         'BookingController' => __DIR__ . '/../..' . '/controllers/booking_controller.class.php',
+        'BookingDetail' => __DIR__ . '/../..' . '/views/booking/detail/booking_detail.class.php',
         'BookingError' => __DIR__ . '/../..' . '/views/booking/error/booking_error.class.php',
         'BookingIndex' => __DIR__ . '/../..' . '/views/booking/index/booking_index.class.php',
         'BookingIndexView' => __DIR__ . '/../..' . '/views/booking/booking_index_view.class.php',
@@ -26,6 +27,7 @@ class ComposerStaticInitfe4c4fae442cdb8392988156c0594d3d
         'Logout' => __DIR__ . '/../..' . '/views/user/logout/logout.class.php',
         'Register' => __DIR__ . '/../..' . '/views/user/index/register.class.php',
         'Reset' => __DIR__ . '/../..' . '/views/user/reset/reset.class.php',
+        'ResetConfirm' => __DIR__ . '/../..' . '/views/user/reset/reset_confirm.class.php',
         'User' => __DIR__ . '/../..' . '/models/user.class.php',
         'UserController' => __DIR__ . '/../..' . '/controllers/user_controller.class.php',
         'UserError' => __DIR__ . '/../..' . '/views/user/error/user_error.class.php',
