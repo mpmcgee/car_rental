@@ -16,7 +16,7 @@ class Database {
         'database' => 'rental',
         'tblVehicles' => 'vehicles',
         'tblBookings' => 'bookings',
-        'tblCustomers' => 'customers'
+        'tblUsers' => 'users'
     );
 
     //define the database connection object
@@ -61,8 +61,8 @@ class Database {
     }
 
     //returns name of table that stores bookings
-    public function getCustomersTable(){
-        return $this->param['tblCustomers'];
+    public function getUsersTable(){
+        return $this->param['tblUsers'];
     }
 
 }
