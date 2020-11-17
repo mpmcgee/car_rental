@@ -1,18 +1,20 @@
 <?php
 /**
- * Author: Matthew McGee
- * Date: 10/31/2020
- * File: index.class.php
- *Description:
+ * Author: Danny Harris
+ * Date: 11/16/20
+ * File: user_index_view.class.php
+ * Description:
  */
 
-class Index extends UserIndexView
+class UserIndexView extends IndexView
 {
-    public function display() {
-
-        //call the header method defined in the parent class to add the header
-        parent::displayHeader("Create Account");
+    public static function displayHeader($title) {
+        parent::displayHeader($title)
         ?>
+        <script>
+            //the media type
+            var media = "user";
+        </script>
         <!-- page specific content starts -->
         <!-- top row for the page header  -->
         <div class="top-row">CREATE AN ACCOUNT</div>
@@ -48,13 +50,12 @@ class Index extends UserIndexView
         <hr>
         <!-- bottom row for links  -->
         <div class="bottom-row">
-            <span style="float: left">Already have an account? <a href=<?= BASE_URL ?>/user/login">Login</a></span>
+            <span style="float: left">Already have an account? <a href="<?= BASE_URL ?>/user/login">Login</a></span>
         </div>
-        <!-- page specific content ends -->
-
-
         <?php
-        //call the footer method defined in the parent class to add the footer
+    }
+
+    public static function displayFooter() {
         parent::displayFooter();
     }
 }

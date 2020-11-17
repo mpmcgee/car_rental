@@ -6,12 +6,12 @@
  *Description:
  */
 
-class Reset extends View
+class Reset extends UserIndexView
 {
     public function display() {
 
         //call the header method defined in the parent class to add the header
-        parent::header();
+        parent::displayHeader("Reset Password");
         ?>
         <!-- page specific content starts -->
         <!-- top row for the page header  -->
@@ -41,6 +41,6 @@ class Reset extends View
 
         <?php
         //call the footer method defined in the parent class to add the footer
-        parent::footer();
+        parent::displayFooter();
     }
 }

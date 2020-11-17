@@ -23,9 +23,9 @@ class IndexView {
                 var base_url = "<?= BASE_URL ?>";
             </script>
         </head>
-        <body>
+    <body>
         <div id="top"></div>
-        <div id='wrapper'>
+    <div id='wrapper'>
         <div id="banner">
             <a href="<?= BASE_URL ?>/index.php" style="text-decoration: none" title="X Car Rental">
                 <div id="left">
@@ -51,7 +51,7 @@ class IndexView {
         <div id="push"></div>
         </div>
         <div id="footer"><br>&copy 2020 X Car. All Rights Reserved.</div>
-        <!--        <script type="text/javascript" src="--><?//= BASE_URL ?><!--/www/js/ajax_autosuggestion.js"></script>-->
+<!--        <script type="text/javascript" src="--><?//= BASE_URL ?><!--/www/js/ajax_autosuggestion.js"></script>-->
         </body>
         </html>
         <?php

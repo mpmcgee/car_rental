@@ -8,11 +8,11 @@
  *				methods defined in the parent class.
  */
 
-class UserError extends View {
+class UserError extends UserIndexView {
     public function display($message) {
 
         //call the header method defined in the parent class to add the header
-        parent::header();
+        parent::displayHeader("Error");
         ?>
         <!-- page specific content starts -->
         <!-- top row for the page header  -->
@@ -26,15 +26,15 @@ class UserError extends View {
 
         <!-- bottom row for links  -->
         <div class="bottom-row">
-            <span style="float: left">Already have an account? <a href="../../../index.php">Login</a></span>
-            <span style="float: right">Don't have an account? <a href="../../../index.php">Register</a></span>
+            <span style="float: left">Already have an account? <a href="<?= BASE_URL ?>/user/login">Login</a></span>
+            <span style="float: right">Don't have an account? <a href="<?= BASE_URL ?>/user/index">Register</a></span>
         </div>
         <!-- page specific content ends -->
 
 
         <?php
         //call the footer method defined in the parent class to add the footer
-        parent::footer();
+        parent::displayFooter();
     }
 
 }

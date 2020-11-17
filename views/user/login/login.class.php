@@ -6,12 +6,12 @@
  *Description:
  */
 
-class Login extends View
+class Login extends UserIndexView
 {
     public function display() {
 
         //call the header method defined in the parent class to add the header
-        parent::header();
+        parent::displayHeader("Login");
         ?>
         <!-- page specific content starts -->
         <!-- top row for the page header  -->
@@ -35,13 +35,13 @@ class Login extends View
 
         <!-- bottom row for links  -->
         <div class="bottom-row">
-            <span style="float: left">Don't have an account? <a href="index.php">Register</a></span>
+            <span style="float: left">Don't have an account? <a href="<?= BASE_URL ?>/user/index">Register</a></span>
         </div>
         <!-- page specific content ends -->
 
 
         <?php
         //call the footer method defined in the parent class to add the footer
-        parent::footer();
+        parent::displayFooter();
     }
 }
