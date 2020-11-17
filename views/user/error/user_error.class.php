@@ -36,5 +36,5 @@ class UserError extends View {
         //call the footer method defined in the parent class to add the footer
         parent::footer();
     }
-}
+
 }

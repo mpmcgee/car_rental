@@ -23,15 +23,15 @@ class IndexView {
                 var base_url = "<?= BASE_URL ?>";
             </script>
         </head>
-    <body>
+        <body>
         <div id="top"></div>
-    <div id='wrapper'>
+        <div id='wrapper'>
         <div id="banner">
             <a href="<?= BASE_URL ?>/index.php" style="text-decoration: none" title="X Car Rental">
                 <div id="left">
                     <img src='<?= BASE_URL ?>/www/img/logo.png' style="width: 180px; border: none" />
                     <span style='color: #000; font-size: 36pt; font-weight: bold; vertical-align: top'>
-                                    Media Library!
+                                    X Car Rental
                                 </span>
                     <div style='color: #000; font-size: 14pt; font-weight: bold'>An interactive application designed with MVC pattern</div>
                 </div>
@@ -50,8 +50,8 @@ class IndexView {
         <br><br><br>
         <div id="push"></div>
         </div>
-        <div id="footer"><br>&copy 2016 Kung Fu Panda Media Library. All Rights Reserved.</div>
-<!--        <script type="text/javascript" src="--><?//= BASE_URL ?><!--/www/js/ajax_autosuggestion.js"></script>-->
+        <div id="footer"><br>&copy 2020 X Car. All Rights Reserved.</div>
+        <!--        <script type="text/javascript" src="--><?//= BASE_URL ?><!--/www/js/ajax_autosuggestion.js"></script>-->
         </body>
         </html>
         <?php
