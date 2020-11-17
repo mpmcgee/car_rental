@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'Booking' => $baseDir . '/models/booking.class.php',
     'BookingController' => $baseDir . '/controllers/booking_controller.class.php',
+    'BookingDetail' => $baseDir . '/views/booking/detail/booking_detail.class.php',
     'BookingError' => $baseDir . '/views/booking/error/booking_error.class.php',
     'BookingIndex' => $baseDir . '/views/booking/index/booking_index.class.php',
     'BookingIndexView' => $baseDir . '/views/booking/booking_index_view.class.php',
@@ -25,6 +26,7 @@ return array(
     'Logout' => $baseDir . '/views/user/logout/logout.class.php',
     'Register' => $baseDir . '/views/user/index/register.class.php',
     'Reset' => $baseDir . '/views/user/reset/reset.class.php',
+    'ResetConfirm' => $baseDir . '/views/user/reset/reset_confirm.class.php',
     'User' => $baseDir . '/models/user.class.php',
     'UserController' => $baseDir . '/controllers/user_controller.class.php',
     'UserError' => $baseDir . '/views/user/error/user_error.class.php',
