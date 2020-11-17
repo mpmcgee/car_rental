@@ -13,7 +13,7 @@ class BookingModel
     private $dbConnection;
     static private $_instance = NULL;
     private $tblBookings;
-    private $tblCustomers;
+    private $tblUsers;
     private $tblVehicles;
 
     //To use singleton pattern, this constructor is made private.
@@ -23,7 +23,7 @@ class BookingModel
         $this->dbConnection = $this->db->getConnection();
         $this->tblBookings = $this->db->getBookingsTable();
         $this->tblVehicles = $this->db->getVehiclesTable();
-        $this->tblCustomers = $this->db->getCustomersTable();
+        $this->tblUsers = $this->db->getUsersTable();
 
         //Escapes special characters in a string for use in an SQL statement. This stops SQL inject in POST vars.
         foreach ($_POST as $key => $value) {
@@ -35,10 +35,10 @@ class BookingModel
             $_GET[$key] = $this->dbConnection->real_escape_string($value);
         }
 
-        //initializes the customer
-        if(!isset($_SESSION['customers'])){
-            $customers = $this->getBookingCustomers();
-            $_SESSION['customers'] = $customers;
+        //initializes the user
+        if(!isset($_SESSION['users'])){
+            $users = $this->getBookingCustomers();
+            $_SESSION['users'] = $users;
         }
 
         //initializes the vehicle
@@ -72,7 +72,7 @@ class BookingModel
     /*
      * the list_book method retrieves all bookings from the database and
      * returns an array of Booking objects if successful or false if failed.
-     * Bookings should also be filtered by customer and vehicle and/or sorted by customer or vehicle.
+     * Bookings should also be filtered by user and vehicle and/or sorted by user or vehicle.
      */
 
     public function list_booking(){
@@ -82,9 +82,9 @@ class BookingModel
          * WHERE ...
          */
 
-        $sql = "SELECT * FROM " . $this->tblBookings . "," . $this->tblCustomers . "," .
-            $this->tblVehicles . " WHERE " . $this->tblBookings . ".customer_id=" . $this->tblCustomers .
-            ".customer_id AND " . $this->tblBookings . ".vehicle_id=" . $this->tblVehicles . ".vehicle_id";
+        $sql = "SELECT * FROM " . $this->tblBookings . "," . $this->tblUsers . "," .
+            $this->tblVehicles . " WHERE " . $this->tblBookings . ".user_id=" . $this->tblUsers .
+            ".user_id AND " . $this->tblBookings . ".vehicle_id=" . $this->tblVehicles . ".vehicle_id";
 
         //execute the query
         $query = $this->dbConnection->query($sql);
@@ -104,7 +104,7 @@ class BookingModel
         $bookings = array();
 
         while($obj = $query->fetch_object()){
-            $booking = new Booking(stripslashes($obj->customer_id), stripslashes($obj->last_name), stripslashes($obj->first_name),
+            $booking = new Booking(stripslashes($obj->user_id), stripslashes($obj->last_name), stripslashes($obj->first_name),
                 stripslashes($obj->vehicle_id), stripslashes($obj->year), stripslashes($obj->make),
                 stripslashes($obj->model), stripslashes($obj->start_date), stripslashes($obj->end_date));
 
@@ -127,9 +127,9 @@ class BookingModel
     {
 
         //select sql statement
-        $sql = "SELECT * FROM " . $this->tblBookings . "," . $this->tblCustomers . "," .
-            $this->tblVehicles . " WHERE " . $this->tblBookings . ".customer_id=" . $this->tblCustomers .
-            ".customer_id AND " . $this->tblBookings . ".vehicle_id=" . $this->tblVehicles . ".vehicle_id AND"
+        $sql = "SELECT * FROM " . $this->tblBookings . "," . $this->tblUsers . "," .
+            $this->tblVehicles . " WHERE " . $this->tblBookings . ".user_id=" . $this->tblUsers .
+            ".user_id AND " . $this->tblBookings . ".vehicle_id=" . $this->tblVehicles . ".vehicle_id AND"
             . $this->tblBookings . ".booking_id='$id'";
 
         //execute the query
@@ -139,7 +139,7 @@ class BookingModel
             $obj = $query->fetch_object();
 
             //crete a new booking object
-            $booking = new Booking(stripslashes($obj->customer_id), stripslashes($obj->last_name), stripslashes($obj->first_name),
+            $booking = new Booking(stripslashes($obj->user_id), stripslashes($obj->last_name), stripslashes($obj->first_name),
                 stripslashes($obj->vehicle_id), stripslashes($obj->year), stripslashes($obj->make),
                 stripslashes($obj->model), stripslashes($obj->start_date), stripslashes($obj->end_date));
 
@@ -157,9 +157,9 @@ class BookingModel
         $terms = explode(" ", $terms); //explode multiple terms into an array
 
         //select statement for AND search
-        $sql = "SELECT * FROM " . $this->tblBookings . "," . $this->tblCustomers . "," .
-            $this->tblVehicles . " WHERE " . $this->tblBookings . ".customer_id=" . $this->tblCustomers .
-            ".customer_id AND " . $this->tblBookings . ".vehicle_id=" . $this->tblVehicles . ".vehicle_id AND (1";
+        $sql = "SELECT * FROM " . $this->tblBookings . "," . $this->tblUsers . "," .
+            $this->tblVehicles . " WHERE " . $this->tblBookings . ".user_id=" . $this->tblUsers .
+            ".user_id AND " . $this->tblBookings . ".vehicle_id=" . $this->tblVehicles . ".vehicle_id AND (1";
 
         foreach ($terms as $term) {
             $sql .= " AND last_name LIKE '%"  . $term . "%' OR  first_name LIKE '%" . $term . "%' 
@@ -190,15 +190,15 @@ class BookingModel
 
         //loop through all rows and crete recordsets
         while($obj = $query->fetch_object()){
-        $booking = new Booking($obj->customer_id, $obj->last_name, $obj->first_name,
-            $obj->vehicle_id, $obj->year, $obj->make,
-            $obj->model, $obj->start_date, $obj->end_date);
+            $booking = new Booking($obj->user_id, $obj->last_name, $obj->first_name,
+                $obj->vehicle_id, $obj->year, $obj->make,
+                $obj->model, $obj->start_date, $obj->end_date);
 
-        //set the id for the booking
-        $booking->setId($obj->booking_id);
+            //set the id for the booking
+            $booking->setId($obj->booking_id);
 
-        //add the booking to the array
-        $bookings[] = $booking;
+            //add the booking to the array
+            $bookings[] = $booking;
         }
 
         return $bookings;
@@ -282,26 +282,26 @@ class BookingModel
 
 
 
-        //get all customers
+    //get all users
 
-        private function getBookingCustomers()
-        {
-            $sql = "SELECT * FROM " . $this->tblCustomers;
+    private function getBookingCustomers()
+    {
+        $sql = "SELECT * FROM " . $this->tblUsers;
 
-            //execute the query
-            $query = $this->dbConnection->query($sql);
+        //execute the query
+        $query = $this->dbConnection->query($sql);
 
-            if (!$query) {
-                return false;
-            }
-
-            //loop through all rows
-            $customers = array();
-            while ($obj = $query->fetch_object()) {
-                $customers[$obj->customer_id] = $obj->customer_id;
-            }
-            return $customers;
+        if (!$query) {
+            return false;
         }
+
+        //loop through all rows
+        $users = array();
+        while ($obj = $query->fetch_object()) {
+            $users[$obj->user_id] = $obj->user_id;
+        }
+        return $users;
+    }
 
 
     //get all vehicle
