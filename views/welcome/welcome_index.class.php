@@ -12,8 +12,8 @@ class WelcomeIndex extends IndexView{
         parent::displayHeader("X Car Rental Home");
 
         ?>
-        <div id="main-header">Welcome to KUNG FU PANDA Media Library!</div>
-        <p>This application is designed to demonstrate the popular software design pattern named MVC. The application hosts four different media types: movie, book, music cd, and game. The movie library is complete. The partially completed book, cd, and game libraries are to show how easy it is to host additional media objects. The application is meant to be flexible and extensible.</p>
+        <div id="main-header">Welcome to X Car Rental!</div>
+        <p>This application is designed to demonstrate the popular software design pattern named MVC. The application hosts three different media types: booking, vehicles, and login. The application is meant to be flexible and extensible.</p>
         <br>
         <table style="border: none; width: 700px; margin: 5px auto">
             <tr>
@@ -50,8 +50,8 @@ class WelcomeIndex extends IndexView{
             <a href="<?= BASE_URL ?>/vehicle/index">
                 <img src="<?= BASE_URL ?>/www/img/books.jpg" title="Vehicles"/>
             </a>
-            <a href="#">
-                <img src="<?= BASE_URL ?>/www/img/games.jpg" title="Game Library" />
+            <a href="<?= BASE_URL ?>/user/index">
+                <img src="<?= BASE_URL ?>/www/img/games.jpg" title="Login" />
             </a>
             <a href="#">
                 <img src="<?= BASE_URL ?>/www/img/music.jpg" title="Music Library (Under Construction)" />
@@ -60,7 +60,7 @@ class WelcomeIndex extends IndexView{
         <br>
         <p style="text-align: center; color: red; font-weight: bold">Disclaimer</p>
         <p style="font-style: italic">This application is created as a course project for I211. It is solely for teaching and learning purposes. As a course project, the goal is to learn how to do things, but not to get things done. Therefore, the code used in this project may not be most efficient or most effective. Furthermore, the code has not been tested in any production environment. If you want to use any code in this project in any production environment, use it at your own risk.</p><br>
-        <p >Please email <a href="mailto:louizhu@iupui.edu?Subject=Thank%20you">Louie Zhu</a> or call (317) 278-9536 for questions, comments, or reporting bugs. </p>
+
 
         <?php
         Parent::displayFooter();
