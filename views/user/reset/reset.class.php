@@ -20,7 +20,7 @@ class Reset extends UserIndexView
         <!-- middle row -->
         <div class="middle-row">
             <h3>Please enter a new password. Username is not changeable.</h3>
-            <form method="POST" action="index.php?action=do_reset">
+            <form method="POST" action="<?= BASE_URL ?>/user/reset">
                 <p>
                     <input id="username" value="<?= $_COOKIE['login']?>" name="username" type="text" required="required" placeholder="username" readonly/>
                     <br>
@@ -34,7 +34,7 @@ class Reset extends UserIndexView
         </div>
         <!-- bottom row for links  -->
         <div class="bottom-row">
-            <span style="float: right">Cancel password reset? <a href="index.php">Cancel Reset</a></span>
+            <span style="float: right">Cancel password reset? <a href="<?= BASE_URL ?>/user/index">Cancel Reset</a></span>
         </div>
         <!-- page specific content ends -->
 
