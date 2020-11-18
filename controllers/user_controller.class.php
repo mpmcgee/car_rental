@@ -18,8 +18,8 @@ class UserController {
     //Action methods:
 
     //Index - display registration form - default view.
-    public function index() {
-        $view = new Index();
+    public function Index() {
+        $view = new UserIndex();
         $view->display();
     }
 

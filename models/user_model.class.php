@@ -14,7 +14,7 @@ class UserModel
     private $dbConnection; // database connection object
 
     public function __construct(){
-        $this->db = Database::getInstance();
+        $this->db = Database::getDatabase();
         $this->dbConnection = $this->db->getConnection();
     }
 
