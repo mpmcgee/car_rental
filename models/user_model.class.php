@@ -12,10 +12,12 @@ class UserModel
 
     private $db; //database object
     private $dbConnection; // database connection object
+    private $tblUsers;
 
     public function __construct(){
         $this->db = Database::getDatabase();
         $this->dbConnection = $this->db->getConnection();
+        $this->tblUsers = $this->db->getUsersTable();
     }
 
 
@@ -31,7 +33,7 @@ class UserModel
         $role = 2; //Role 2 = customer role.
 
         //SQL insert statement.
-        $sql = "INSERT INTO " . $this->db->getUserTable() .
+        $sql = "INSERT INTO " . $this->tblUsers .
             " VALUES (NULL, '$first_name', '$last_name', '$username', '$password_hash', '$role', '$email')";
 
         //execute the query
@@ -57,7 +59,7 @@ class UserModel
         $password = ($_POST['password']);
 
         //sql select statement
-        $sql = "Select * From " . $this->db->getUserTable() . " WHERE username = '$username'";
+        $sql = "Select * From " . $this->tblUsers . " WHERE username = '$username'";
 
         //execute the query
         $query = $this->dbConnection->query($sql);
@@ -98,10 +100,10 @@ class UserModel
         //retrieve credentials and table
         $username = $_POST['username'];
         $password_hash = password_hash($_POST['password'], PASSWORD_BCRYPT);
-        $tbl = $this->db->getUserTable();
+
 
         //sql update statement
-        $sql = "UPDATE $tbl SET password='$password_hash' WHERE username='$username'";
+        $sql = "UPDATE " . $this->tblUsers ." SET password='$password_hash' WHERE username='$username'";
 
         //execute the query
         $query = $this->dbConnection->query($sql);
