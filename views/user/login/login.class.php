@@ -20,7 +20,7 @@ class Login extends UserIndexView
         <!-- middle row -->
         <div class="middle-row">
             <h3>Please enter your username and password.</h3>
-            <form method="POST" action="index.php?action=verify">
+            <form method="POST" action='<?= BASE_URL . "/user/verify" ?>'>
                 <p>
                     <input id="username" value="" name="username" type="text" required="required" placeholder="Username"/>
                     <br>
