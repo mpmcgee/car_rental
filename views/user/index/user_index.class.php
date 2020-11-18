@@ -2,11 +2,11 @@
 /**
  * Author: Matthew McGee
  * Date: 10/31/2020
- * File: index.class.php
+ * File: user_index.class.php
  *Description:
  */
 
-class Index extends UserIndexView
+class UserIndex extends UserIndexView
 {
     public function display() {
 
