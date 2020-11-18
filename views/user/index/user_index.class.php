@@ -48,8 +48,7 @@ class UserIndex extends UserIndexView
         <hr>
         <!-- bottom row for links  -->
         <div class="bottom-row">
-            <span style="float: left">Already have an account? <a href=<?= BASE_URL ?>/user/login">Login</a></span>
-        </div>
+            <span style="float: left">Already have an account? <a href="<?= BASE_URL ?>/user/login">Login</a></span>        </div>
         <!-- page specific content ends -->
 
 
