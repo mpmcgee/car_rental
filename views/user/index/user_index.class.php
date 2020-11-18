@@ -21,7 +21,7 @@ class UserIndex extends UserIndexView
         </div>
         <!-- middle row -->
         <div class="middle-row">
-            <form method="POST" action="<?= BASE_URL ?>/user/register">
+            <form method="POST" action='<?= BASE_URL . "/user/register" ?>'
                 <p>
                     <input id="username" value="" name="username" type="text" required="required" placeholder="Username"/>
                     <br>
