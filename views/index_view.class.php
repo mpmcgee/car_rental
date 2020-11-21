@@ -28,19 +28,16 @@ class IndexView {
         <div id="top"></div>
     <div id='wrapper'>
         <div id="banner">
-            <a href="<?= BASE_URL ?>/index.php" style="text-decoration: none" title="X Car Rental">
-                <div id="left">
 
-                    <div class="topnav">
-                        <a class="active" href="<?= BASE_URL ?>/index.php">Home</a>
-                        <a href="<?= BASE_URL ?>/booking/index">Bookings</a>
-                        <a href="<?= BASE_URL ?>/vehicle/index">Vehicles</a>
-                    <div class="topnav-right">
-                        <a href="<?= BASE_URL ?>/user/index">Login</a>
-                    </div>
-                    </div>
-                </div>
-            </a>
+
+            <ul class="navbar">
+                <li><a href="<?= BASE_URL ?>/booking/index">Bookings</a></li>
+                <li><a href="<?= BASE_URL ?>/vehicle/index">Vehicles</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <div id="logo"><li><a href="<?= BASE_URL ?>/index.php">X Car Rental</a> </li></div>
+                <li style="float:right"><a class="active" href="<?= BASE_URL ?>/user/index">Login</a></li>
+            </ul>
+
 
         </div>
 

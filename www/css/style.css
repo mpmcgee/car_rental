@@ -1,13 +1,19 @@
 
-body {
-    background-image: url("../img/background_img.jpg");
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+
+
+#main-header {
+    text-align: center;
+    font-size: xx-large;
+    font-family: OCR A Std, monospace;
+    color: lightgray;
 }
 
-
+#sub-title {
+    text-align: center;
+    font-size: large;
+    font-family: OCR A Std, monospace;
+    color: lightgray;
+}
 
 .clickable-image
 {
@@ -62,12 +68,12 @@ div.top-row {
 
 div.middle-row {
     min-height: 200px;
-    padding: 0px 20px;
+    padding: 0 20px;
     width: 100%;
 }
 
 div.bottom-row {
-    margin: 0px 20px;
+    margin: 0 20px;
     height: 50px;
     line-height: 50px;
     border-top: 1px solid #999;
@@ -102,34 +108,86 @@ form div {
     margin: 25px auto;
 }
 
-/* Add a black background color to the top navigation */
-.topnav {
-    background-color: #333;
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
     overflow: hidden;
+    background-color: #333;
 }
 
-/* Style the links inside the navigation bar */
-.topnav a {
+li {
     float: left;
-    color: #f2f2f2;
+}
+
+li a {
+    display: block;
+    color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
 }
 
-/* Change the color of links on hover */
-.topnav a:hover {
-    background-color: #ddd;
-    color: black;
+li a:hover:not(.active) {
+    background-color: #111;
 }
 
-/* Add a color to the active/current link */
-.topnav a.active {
+.active {
     background-color: #4CAF50;
+}
+
+.navbar {
+    position: relative;
+}
+
+#logo {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px !important;  /* 50% of your logo width */
+    display: block;
+    font-family: OCR A Std, monospace;
+    color: lightgray;
+}
+
+#home_img {
+    width: 100%;
+    height: auto;
+
+}
+
+/* Container holding the image and the text */
+.img_container {
+    position: relative;
+    text-align: center;
     color: white;
 }
 
-.topnav-right {
+/* Top left text */
+.centered {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: OCR A Std, monospace;
+    color: black;
+}
+
+.sub-text {
+    font-family: OCR A Std, monospace;
+    font-size: large;
+    color: black;
+    text-align: center;
+}
+
+#person_computer {
     float: right;
 }
+
+.img_text {
+    font-family: OCR A Std, monospace;
+    font-size: large;
+    color: black;
+    text-align: center;
+    float: left;
+}
+
