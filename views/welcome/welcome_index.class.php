@@ -12,6 +12,9 @@ class WelcomeIndex extends IndexView{
         parent::displayHeader("X Car Rental Home");
 
         ?>
+
+
+
         <div id="main-header">Welcome to X Car Rental!</div>
         <p>This application is designed to demonstrate the popular software design pattern named MVC. The application hosts three different media types: booking, vehicles, and login. The application is meant to be flexible and extensible.</p>
         <br>
@@ -41,6 +44,8 @@ class WelcomeIndex extends IndexView{
 
         <br>
 
+
+
         <div id="thumbnails" style="text-align: center; border: none">
             <p>Click an image below to explore a library. Click the logo in the banner to come back to this page.</p>
 
@@ -48,10 +53,10 @@ class WelcomeIndex extends IndexView{
                 <img src="<?= BASE_URL ?>/www/img/movies.jpg" title="Bookings"/>
             </a>
             <a href="<?= BASE_URL ?>/vehicle/index">
-                <img src="<?= BASE_URL ?>/www/img/books.jpg" title="Vehicles"/>
+
             </a>
             <a href="<?= BASE_URL ?>/user/index">
-                <img src="<?= BASE_URL ?>/www/img/games.jpg" title="Login" />
+
             </a>
             <a href="#">
                 <img src="<?= BASE_URL ?>/www/img/music.jpg" title="Music Library (Under Construction)" />
