@@ -57,3 +57,4 @@ class UserIndex extends UserIndexView
         parent::displayFooter();
     }
 }
+
