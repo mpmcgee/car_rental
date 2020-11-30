@@ -20,7 +20,7 @@ class Reset extends UserIndexView
         <!-- middle row -->
         <div class="middle-row">
             <h3>Please enter a new password. Username is not changeable.</h3>
-            <form method="POST" action="<?= BASE_URL ?>/user/reset">
+            <form method="POST" action="<?= BASE_URL ?>/user/do_reset">
                 <p>
                     <input id="username" value="<?= $_COOKIE['login']?>" name="username" type="text" required="required" placeholder="username" readonly/>
                     <br>
