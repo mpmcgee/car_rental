@@ -22,11 +22,11 @@ class Login extends UserIndexView
             <h3>Please enter your username and password.</h3>
             <form method="POST" action='<?= BASE_URL . "/user/verify" ?>'>
                 <p>
-                    <input id="username" value="" name="username" type="text" required="required" placeholder="Username"/>
+                    <input id="username" value="" name="username" type="text" placeholder="Username"/>
                     <br>
                 </p>
                 <p>
-                    <input id="password" value="" name="password" type="text" required="required" placeholder="Password"/>
+                    <input id="password" value="" name="password" type="password" placeholder="Password"/>
                     <br>
                 </p>
                 <button type="submit" style="width: 560px; background-color: #333333; height: 50px; color: white"><span>Login</span></button>
