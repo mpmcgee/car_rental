@@ -23,23 +23,23 @@ class UserIndex extends UserIndexView
         <div class="middle-row">
             <form method="POST" action='<?= BASE_URL . "/user/register" ?>'
                 <p>
-                    <input id="username" value="" name="username" type="text" required="required" placeholder="Username"/>
+                    <input id="username" value="" name="username" type="text" placeholder="Username"/>
                     <br>
                 </p>
                 <p>
-                    <input id="password" value="" name="password" type="text" required="required" placeholder="Password, 5 characters minimum"/>
+                    <input id="password" value="" name="password" type="password" placeholder="Password, 5 characters minimum"/>
                     <br>
                 </p>
                 <p>
-                    <input id="email" value="" name="email" type="email" required="required" placeholder="Email"/>
+                    <input id="email" value="" name="email" type="email" placeholder="Email"/>
                     <br>
                 </p>
                 <p>
-                    <input id="firstname" value="" name="firstname" type="text" required="required" placeholder="First name"/>
+                    <input id="firstname" value="" name="firstname" type="text" placeholder="First name"/>
                     <br>
                 </p>
                 <p>
-                    <input id="lastname" value="" name="lastname" type="text" required="required" placeholder="Last name"/>
+                    <input id="lastname" value="" name="lastname" type="text" placeholder="Last name"/>
                     <br>
                 </p>
                 <button type="submit" style="width: 560px; background-color: #333333; height: 50px; color: white"><span>Register</span></button>
