@@ -35,7 +35,7 @@ class IndexView {
                 <li><a href="<?= BASE_URL ?>/vehicle/index">Vehicles</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <div id="logo"><li><a href="<?= BASE_URL ?>/index.php">X Car Rental</a> </li></div>
-                <li style="float:right"><a class="active" href="<?= BASE_URL ?>/user/index">Login</a></li>
+                <li style="float:right"><a class="active" href="<?= BASE_URL ?>/user/login">Login</a></li>
             </ul>
 
 
@@ -51,7 +51,7 @@ class IndexView {
         <br><br><br>
         <div id="push"></div>
         </div>
-        <div id="footer"><br>&copy 2020 X Car. All Rights Reserved.</div>
+        <div id="footer"><br>&copy 2020 X Car Rental. All Rights Reserved.</div>
 <!--        <script type="text/javascript" src="--><?//= BASE_URL ?><!--/www/js/ajax_autosuggestion.js"></script>-->
         </body>
         </html>
