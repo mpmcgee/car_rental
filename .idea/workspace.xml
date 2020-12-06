@@ -13,7 +13,7 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:car_rental" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
     <select />
@@ -21,13 +21,92 @@
   <component name="ChangeListManager">
     <list default="true" id="2e28ebf4-0eaa-483e-af0b-973de67c25cb" name="Default Changelist" comment="Fixed user_index.class.php, updated user class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user_controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user_controller.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/index/user_index.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/index/user_register.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/user_index_view.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/user_index_view.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/welcome/welcome_index.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/welcome/welcome_index.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/js/ajax_vehicleclass.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/ajax_vehicleclass.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/algorithms.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/application/config.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/application/database.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/application/dispatcher.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/application/error.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/controllers/booking_controller.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/controllers/user_controller.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/controllers/vehicle_controller.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/controllers/welcome.controller.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/exceptions/data_length_exception.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/exceptions/data_missing_exception.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/exceptions/database_exception.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/models/booking.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/models/booking_model.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/models/user.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/models/user_model.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/models/vehicle.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/models/vehicle_model.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/rental.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/vendor/autoload.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/vendor/composer/ClassLoader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/vendor/composer/InstalledVersions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/vendor/composer/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/vendor/composer/autoload_classmap.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/vendor/composer/autoload_namespaces.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/vendor/composer/autoload_psr4.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/vendor/composer/autoload_real.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/vendor/composer/autoload_static.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/vendor/composer/installed.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/vendor/composer/installed.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/views/booking/booking_index_view.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/views/booking/detail/booking_detail.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/views/booking/error/booking_error.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/views/booking/index/booking_index.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/views/booking/search/booking_search.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/views/index_view.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/views/user/error/user_error.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/views/user/index/register.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/views/user/index/user_index.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/views/user/login/login.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/views/user/login/verify_user.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/views/user/logout/logout.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/views/user/reset/reset.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/views/user/reset/reset_confirm.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/views/user/reset/reset_confirm.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/views/user/user_index_view.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/views/vehicle/error/vehicle_error.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/views/vehicle/index/vehicle_index.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/views/vehicle/search/vehicle_search.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/views/vehicle/vehicle_index_view.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/views/welcome/welcome_index.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/altima19.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/altima20.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/altima_hybrid20.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/background_img.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/background_img.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/corolla19.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/corolla20.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/corolla_hybrid20.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/cruze19.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/cruze20.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/focus17.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/focus19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/focus20.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/fusion19.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/fusion20.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/fusion_hybrid20.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/impala20.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/malibu19.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/malibu20.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/malibu_hybrid19.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/person_on_computer.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/taurus19.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/taurus20.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/vehicles/car.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/versa19.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/versa20.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/img/xcarrental.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final/www/js/ajax_vehicleclass.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/booking_model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/booking_model.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/vehicle_model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/vehicle_model.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vehicle/error/vehicle_error.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vehicle/error/vehicle_error.class.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +148,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../I210/Unit10" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.composer" />
@@ -122,6 +201,7 @@
       <workItem from="1606156895677" duration="77000" />
       <workItem from="1606520161625" duration="1696000" />
       <workItem from="1607264471637" duration="3363000" />
+      <workItem from="1607285228026" duration="1460000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1603552583926</created>
@@ -342,10 +422,10 @@
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
     <state x="-1155" y="-64" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604940727688" />
-    <state x="-1660" y="-22" key="FileChooserDialogImpl" timestamp="1606522262277">
+    <state x="-1660" y="-22" key="FileChooserDialogImpl" timestamp="1607286633170">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
-    <state x="-1660" y="-22" key="FileChooserDialogImpl/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1606522262277" />
+    <state x="-1660" y="-22" key="FileChooserDialogImpl/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607286633170" />
     <state x="185" y="195" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604242731796" />
     <state x="-1136" y="122" key="Github.CreateGistDialog" timestamp="1603552300392">
       <screen x="-1920" y="-300" width="1920" height="1040" />
@@ -380,11 +460,19 @@
     <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1605664848858" />
     <state x="393" y="168" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@0.0.1366.728" timestamp="1605023369129" />
     <state x="393" y="168" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1605492122564" />
-    <state x="-1143" y="134" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607268021237">
+    <state x="-1143" y="134" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607285298330">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
-    <state x="-1143" y="134" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607268021237" />
+    <state x="-1143" y="134" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607285298330" />
     <state x="553" y="304" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1606156905389" />
+    <state x="0" y="0" width="1382" height="803" key="dock-window-1" timestamp="1607285575024">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="0" y="0" width="1382" height="803" key="dock-window-1/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607285575024" />
+    <state x="0" y="0" width="1382" height="803" key="dock-window-2" timestamp="1607285575024">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="0" y="0" width="1382" height="803" key="dock-window-2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607285575024" />
     <state x="-1159" y="126" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1603552489074">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>

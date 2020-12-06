@@ -14,7 +14,7 @@ class VehicleError {
 <!DOCTYPE HTML>
     <html>
     <head>
-        <title>ToyMVC Error</title>
+        <title>Vehicle Error</title>
         <link type="text/css" rel="stylesheet" href="../../www/css/style.css" />
     </head>
     <body>
