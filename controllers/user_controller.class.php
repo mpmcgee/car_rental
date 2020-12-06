@@ -15,32 +15,35 @@ class UserController {
         $this->user_model = new UserModel();
     }
 
-    //Action methods:
-
     //Index - display registration form - default view.
-    public function Index() {
-        $view = new UserRegister();
+    public function index() {
+        $view = new UserIndex();
         $view->display();
     }
 
     //Register - store user information in database.
     public function register()
     {
-        $register = $this->user_model->add_user();
+        $message = $this->user_model->add_user();
 
-        //If return value is false, return an error.
-        if ($register == False) {
-            $message = "There was an error registering the user.";
-            $this->error($message);
-            return;
+//        //If return value is false, return an error.
+//        if ($register == False) {
+//            $message = "There was an error registering the user.";
+//            $this->error($message);
+//            return;
+//        }
+//
+//        $message = "successfully created account";
+
+        if(strpos($message, "success") !== FALSE) {
+            $view = new Register();
+        } else {
+            $view = new UserError();
         }
-
-        $message = "successfully created account";
-        $view = new Register();
         $view->display($message);
     }
 
-    //Login - display login form.
+   //Login - display login form.
     public function login() {
         $view = new Login();
         $view->display();
@@ -48,17 +51,13 @@ class UserController {
 
     //Verify - verify a user account exists.
     public function verify() {
-        $verify = $this->user_model->verify_user();
+        $message = $this->user_model->verify_user();
 
-        //If return value is false, return an error.
-        if ($verify == False) {
-            $message = "The username or password does not exist.";
-            $this->error($message);
-            return;
+        if(strpos($message, "success") !== FALSE) {
+            $view = new VerifyUser();
+        } else {
+            $view = new UserError();
         }
-
-        $message = "You have successfully logged in.";
-        $view = new Verify();
         $view->display($message); //If this is true, show the confirmation message on page.
     }
 
@@ -78,6 +77,7 @@ class UserController {
         $view = new Logout();
         $view->display($message);
     }
+    
     //Reset - display password reset form.
     public function reset() {
         $view = new Reset();
@@ -86,17 +86,13 @@ class UserController {
 
     //Do_Reset - reset password in database.
     public function do_reset() {
-        $reset = $this->user_model->reset_password();
+        $message = $this->user_model->reset_password();
 
-        //If return value is false, return an error.
-        if ($reset == False) {
-            $message = "The password could not be reset.";
-            $this->error($message);
-            return;
+        if(strpos($message, "success") !== FALSE) {
+            $view = new ResetConfirm();
+        } else {
+            $view = new UserError();
         }
-
-        $message = "Your password has been reset.";
-        $view = new Verify();
         $view->display($message); //If this is true, show the confirmation message on page.
     }
 

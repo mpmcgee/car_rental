@@ -6,7 +6,6 @@
  *Description:
  */
 
-
 class UserModel
 {
 
@@ -20,65 +19,98 @@ class UserModel
         $this->tblUsers = $this->db->getUsersTable();
     }
 
-
-
     public function add_user(){
-        // REGISTER USER
-        // receive all input values from the form
-        $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
-        $password_hash = password_hash($_POST['password'], PASSWORD_BCRYPT);
-        $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
-        $first_name = filter_var($_POST['firstname'], FILTER_SANITIZE_STRING);
-        $last_name = filter_var($_POST['lastname'], FILTER_SANITIZE_STRING);
-        $role = 2; //Role 2 = customer role.
+        try {
+            // REGISTER USER
+            // receive all input values from the form
+            $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+            $password_hash = password_hash($_POST['password'], PASSWORD_BCRYPT);
+            $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
+            $first_name = filter_var($_POST['firstname'], FILTER_SANITIZE_STRING);
+            $last_name = filter_var($_POST['lastname'], FILTER_SANITIZE_STRING);
+            $role = 2; //Role 2 = customer role.
+            
+            //Check for missing data.
+            if ($username == "" || $_POST['password'] == "" || $email == "" || $first_name == "" || $last_name == "") {
+                throw new DataMissingException("Please complete all fields.");
+            }
 
-        //SQL insert statement.
-        $sql = "INSERT INTO " . $this->tblUsers .
-            " VALUES (NULL, '$first_name', '$last_name', '$username', '$password_hash', '$role', '$email')";
+            //Check password length.
+            if (strlen($_POST['password']) < 5) {
+                throw new DataLengthException("Passwords must contain at least 5 characters.");
+            }
 
-        //execute the query
-        $query = $this->dbConnection->query($sql);
+            //SQL insert statement.
+            $sql = "INSERT INTO " . $this->tblUsers .
+                " VALUES (NULL, '$first_name', '$last_name', '$username', '$password_hash', '$role', '$email')";
 
-        if (is_null($query)) {
-            return false;
+            //execute the query
+            $query = $this->dbConnection->query($sql);
 
-            //set cookie with username and return true
-        } else {
-            //Create cookie for username.
-            setcookie("login", $username);
-            return true;
+            //execute the query and return true if successful or false if failed
+            if (!$query) {
+                throw new DatabaseException("There was an error adding user to the database.");
+            }
+            
+            } catch (DataMissingException $e) {
+            return $e->getMessage();
+        } catch (DataLengthException $e) {
+            return $e->getMessage();
+        } catch (DatabaseException $e) {
+            return $e->getMessage();
+        } catch (Exception $e) { //Handle all other exceptions.
+            return $e->getMessage();
         }
-
+        //If no errors, return success message.
+        //Create cookie for username.
+        setcookie("login", $username);
+        return "You have successfully registered.";
     }
-
-
+    
     public function verify_user()
     {
-        //get credentials
-        $username = ($_POST['username']);
-        $password = ($_POST['password']);
+        try {
+            //get credentials
+            $username = trim(filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING));
+            $password = trim(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING));
 
-        //sql select statement
-        $sql = "Select * From " . $this->tblUsers . " WHERE username = '$username'";
+            //Check for missing data.
+            if ($username == "" || $password == "") {
+                throw new DataMissingException("Please enter both a username and password.");
+            }
 
-        //execute the query
-        $query = $this->dbConnection->query($sql);
+            //sql select statement
+            $sql = "Select password From " . $this->tblUsers . " WHERE username = '$username'";
 
-        if($query->num_rows > 0){
-            //loop through all rows
-            while ($query_row = $query->fetch_assoc()){
+            //execute the query
+            $query = $this->dbConnection->query($sql);
+            
+            //execute the query and return true if successful or false if failed
+            if (!$query || $query->num_rows == 0) {
+                throw new DatabaseException("There was an error verifying the account exists.");
+            }
 
-                //verify password
-                if (password_verify($password, $query_row['password'])) {
+            //Verify the username and password are correct.
+            if ($query->num_rows > 0) {
+                $query_row = $query->fetch_assoc();
+                if (password_verify($password, $query_row['password']) !== FALSE) {
                     setcookie("login", $username);
-                    return true;
+                    //If no errors, verify password and return success message.
+                    return "You have successfully logged in.";
+                } else {
+                    throw new DatabaseException("There was an error verifying the password.");
                 }
             }
+            
+            } catch (DataMissingException $e) {
+            return $e->getMessage();
+        } catch (DatabaseException $e) {
+            return $e->getMessage();
+        } catch (Exception $e) {
+            return $e->getMessage();
         }
-        return false;
     }
-
-
+    
     public function logout(){
 
         //if 'login' cookie is set, destroy it
@@ -93,27 +125,45 @@ class UserModel
             return true;
         }
     }
+    
+    public function reset_password()
+    {
+        try {
+            //retrieve credentials and table
+            $username = $_POST['username'];
+            $password_hash = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
+            //Check for missing data.
+            if ($_POST['password'] == "") {
+                throw new DataMissingException("Please fill in the new password field.");
+            }
 
-    public function reset_password(){
+            //Check password length.
+            if (strlen($_POST['password']) < 5) {
+                throw new DataLengthException("Password must contain at least 5 characters.");
+            }
 
-        //retrieve credentials and table
-        $username = $_POST['username'];
-        $password_hash = password_hash($_POST['password'], PASSWORD_BCRYPT);
+            //sql update statement
+            $sql = "UPDATE " . $this->tblUsers . " SET password='$password_hash' WHERE username='$username'";
 
+            //execute the query
+            $query = $this->dbConnection->query($sql);
+            
+            //execute the query and return true if successful or false if failed
+            if (!$query) {
+                throw new DatabaseException("There was an error updating the password.");
+            }
 
-        //sql update statement
-        $sql = "UPDATE " . $this->tblUsers ." SET password='$password_hash' WHERE username='$username'";
-
-        //execute the query
-        $query = $this->dbConnection->query($sql);
-
-        if (!$query){
-            return false;
+        } catch (DataMissingException $e) {
+            return $e->getMessage();
+        } catch (DataLengthException $e) {
+            return $e->getMessage();
+        } catch (DatabaseException $e) {
+            return $e->getMessage();
+        } catch (Exception $e) { //Handle all other exceptions.
+            return $e->getMessage();
         }
-
-        else{
-            return true;
-        }
+        //If no errors, return success message.
+        return "Your password has been successfully reset.";
     }
 }

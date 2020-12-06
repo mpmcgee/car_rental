@@ -26,7 +26,7 @@ class Register extends UserIndexView
 
         <div class="bottom-row">
             <span style="float: left">Want to logout? <a href="<?= BASE_URL ?>/user/logout">Logout</a></span>
-            <span style="float: right">Reset password? <a href="index.php?action=reset">Reset</a></span>
+            <span style="float: right">Reset password? <a href="<?= BASE_URL ?>/user/reset">Reset</a></span>
         </div>
         <!-- page specific content ends -->
 
