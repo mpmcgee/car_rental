@@ -164,7 +164,7 @@ class BookingModel
         foreach ($terms as $term) {
             $sql .= " AND last_name LIKE '%"  . $term . "%' OR  first_name LIKE '%" . $term . "%' 
             OR model LIKE '%" . $term . "%' OR make LIKE '%" . $term . "%' OR booking_id LIKE '%" . $term . "%'
-            OR year LIKE '%" . $term . "%' OR year=" .$term;
+            OR year LIKE '%" . $term . "%'";
 
 
 
