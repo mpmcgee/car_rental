@@ -19,7 +19,7 @@ class UserController {
 
     //Index - display registration form - default view.
     public function Index() {
-        $view = new UserIndex();
+        $view = new UserRegister();
         $view->display();
     }
 

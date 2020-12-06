@@ -50,7 +50,7 @@ class WelcomeIndex extends IndexView{
             <a href="<?= BASE_URL ?>/vehicle/index">
                 <img src="<?= BASE_URL ?>/www/img/books.jpg" title="Vehicles"/>
             </a>
-            <a href="<?= BASE_URL ?>/user/index">
+            <a href="<?= BASE_URL ?>/user/login">
                 <img src="<?= BASE_URL ?>/www/img/games.jpg" title="Login" />
             </a>
             <a href="#">

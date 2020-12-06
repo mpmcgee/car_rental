@@ -19,10 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e28ebf4-0eaa-483e-af0b-973de67c25cb" name="Default Changelist" comment="Debugged user controller, user index, and user model">
+    <list default="true" id="2e28ebf4-0eaa-483e-af0b-973de67c25cb" name="Default Changelist" comment="Fixed user_index.class.php, updated user class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/user_model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/user_model.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/index/user_index.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/index/user_index.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user_controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user_controller.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/index/user_index.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/index/user_register.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/user_index_view.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/user_index_view.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/welcome/welcome_index.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/welcome/welcome_index.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/js/ajax_vehicleclass.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/ajax_vehicleclass.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +116,12 @@
       <workItem from="1605198068047" duration="3761000" />
       <workItem from="1605578408448" duration="4433000" />
       <workItem from="1605582883775" duration="897000" />
-      <workItem from="1605661115284" duration="3112000" />
+      <workItem from="1605661115284" duration="4066000" />
+      <workItem from="1605723100788" duration="132000" />
+      <workItem from="1605723275960" duration="606000" />
+      <workItem from="1606156895677" duration="77000" />
+      <workItem from="1606520161625" duration="1696000" />
+      <workItem from="1607264471637" duration="3363000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1603552583926</created>
@@ -274,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605662396469</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Fixed user_index.class.php, updated user class">
+      <created>1605664843131</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1605664843131</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,7 +326,8 @@
     <MESSAGE value="Composer dumpautoload" />
     <MESSAGE value="Backup" />
     <MESSAGE value="Debugged user controller, user index, and user model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Debugged user controller, user index, and user model" />
+    <MESSAGE value="Fixed user_index.class.php, updated user class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed user_index.class.php, updated user class" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1380" y="-125" key="#CLI_Interpreters" timestamp="1604053670306">
@@ -324,10 +342,10 @@
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
     <state x="-1155" y="-64" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604940727688" />
-    <state x="-1660" y="-22" key="FileChooserDialogImpl" timestamp="1605662170434">
+    <state x="-1660" y="-22" key="FileChooserDialogImpl" timestamp="1606522262277">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
-    <state x="-1660" y="-22" key="FileChooserDialogImpl/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1605662170434" />
+    <state x="-1660" y="-22" key="FileChooserDialogImpl/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1606522262277" />
     <state x="185" y="195" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604242731796" />
     <state x="-1136" y="122" key="Github.CreateGistDialog" timestamp="1603552300392">
       <screen x="-1920" y="-300" width="1920" height="1040" />
@@ -356,16 +374,17 @@
     </state>
     <state x="-1459" y="-135" key="SettingsEditor/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604054158309" />
     <state x="328" y="18" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1604242688878" />
-    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2" timestamp="1605662405599">
+    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2" timestamp="1605664848858">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
-    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1605662405599" />
+    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1605664848858" />
     <state x="393" y="168" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@0.0.1366.728" timestamp="1605023369129" />
     <state x="393" y="168" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1605492122564" />
-    <state x="-1143" y="134" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605582969490">
+    <state x="-1143" y="134" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607268021237">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
-    <state x="-1143" y="134" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1605582969490" />
+    <state x="-1143" y="134" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607268021237" />
+    <state x="553" y="304" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1606156905389" />
     <state x="-1159" y="126" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1603552489074">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
