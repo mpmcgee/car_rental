@@ -13,7 +13,7 @@ error_reporting(E_ALL);
 date_default_timezone_set('America/New_York');
 
 //base url of the application
-define("BASE_URL", "http://localhost/I211/Final");
+define("BASE_URL", "http://localhost/I211/car_rental");
 
 /*************************************************************************************
  *                       settings for vehicle                                       *

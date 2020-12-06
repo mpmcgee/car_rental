@@ -7,7 +7,9 @@ namespace Composer\Autoload;
 class ComposerStaticInitfe4c4fae442cdb8392988156c0594d3d
 {
     public static $classMap = array (
+        'Add' => __DIR__ . '/../..' . '/views/booking/add/add.class.php',
         'Booking' => __DIR__ . '/../..' . '/models/booking.class.php',
+        'BookingAdd' => __DIR__ . '/../..' . '/views/booking/add/booking_add.class.php',
         'BookingController' => __DIR__ . '/../..' . '/controllers/booking_controller.class.php',
         'BookingDetail' => __DIR__ . '/../..' . '/views/booking/detail/booking_detail.class.php',
         'BookingError' => __DIR__ . '/../..' . '/views/booking/error/booking_error.class.php',
@@ -36,6 +38,7 @@ class ComposerStaticInitfe4c4fae442cdb8392988156c0594d3d
         'UserIndex' => __DIR__ . '/../..' . '/views/user/index/user_index.class.php',
         'UserIndexView' => __DIR__ . '/../..' . '/views/user/user_index_view.class.php',
         'UserModel' => __DIR__ . '/../..' . '/models/user_model.class.php',
+        'UserRegister' => __DIR__ . '/../..' . '/views/user/index/user_register.class.php',
         'Vehicle' => __DIR__ . '/../..' . '/models/vehicle.class.php',
         'VehicleController' => __DIR__ . '/../..' . '/controllers/vehicle_controller.class.php',
         'VehicleError' => __DIR__ . '/../..' . '/views/vehicle/error/vehicle_error.class.php',

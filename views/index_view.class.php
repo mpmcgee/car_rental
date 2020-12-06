@@ -31,8 +31,9 @@ class IndexView {
 
 
             <ul class="navbar">
-                <li><a href="<?= BASE_URL ?>/booking/index">Bookings</a></li>
-                <li><a href="<?= BASE_URL ?>/vehicle/index">Vehicles</a></li>
+                <li><a href="<?= BASE_URL ?>/booking/index">View Bookings</a></li>
+                <li><a href="<?= BASE_URL ?>/vehicle/index">View Vehicles</a></li>
+                <li><a href="<?= BASE_URL ?>/booking/add">Create a booking</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <div id="logo"><li><a href="<?= BASE_URL ?>/index.php">X Car Rental</a> </li></div>
                 <li style="float:right"><a class="active" href="<?= BASE_URL ?>/user/login">Login</a></li>

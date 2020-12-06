@@ -88,9 +88,9 @@ class BookingController
     }
 
     //Register - store user information in database.
-    public function book()
+    public function add()
     {
-        $booking = $this->booking_model->add_booking();
+        $message = $this->booking_model->add_booking();
 
         //If return value is false, return an error.
         if ($booking == False) {

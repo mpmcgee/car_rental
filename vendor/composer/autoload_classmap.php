@@ -6,7 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Add' => $baseDir . '/views/booking/add/add.class.php',
     'Booking' => $baseDir . '/models/booking.class.php',
+    'BookingAdd' => $baseDir . '/views/booking/add/booking_add.class.php',
     'BookingController' => $baseDir . '/controllers/booking_controller.class.php',
     'BookingDetail' => $baseDir . '/views/booking/detail/booking_detail.class.php',
     'BookingError' => $baseDir . '/views/booking/error/booking_error.class.php',
@@ -35,6 +37,7 @@ return array(
     'UserIndex' => $baseDir . '/views/user/index/user_index.class.php',
     'UserIndexView' => $baseDir . '/views/user/user_index_view.class.php',
     'UserModel' => $baseDir . '/models/user_model.class.php',
+    'UserRegister' => $baseDir . '/views/user/index/user_register.class.php',
     'Vehicle' => $baseDir . '/models/vehicle.class.php',
     'VehicleController' => $baseDir . '/controllers/vehicle_controller.class.php',
     'VehicleError' => $baseDir . '/views/vehicle/error/vehicle_error.class.php',
