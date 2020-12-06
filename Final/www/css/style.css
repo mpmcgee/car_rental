@@ -1,0 +1,208 @@
+
+
+
+#main-header {
+    text-align: center;
+    font-size: xx-large;
+    font-family: OCR A Std, monospace;
+    color: lightgray;
+}
+
+#sub-title {
+    text-align: center;
+    font-size: large;
+    font-family: OCR A Std, monospace;
+    color: lightgray;
+}
+
+.clickable-image
+{
+    cursor: pointer;
+}
+
+/* styles for grid */
+.container{
+    margin: 10px auto 10px auto;
+    width: 960px;
+    border: 1px solid #eee;
+    background-color: #ffebeb;
+}
+.classes
+{
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15%;
+    cursor: pointer;
+}
+.lines
+{
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15%;
+    cursor: pointer;
+}
+
+.car-lines
+{
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15%;
+    cursor: pointer;
+}
+
+div.top-row {
+    height: 50px;
+    line-height: 50px;
+    font-size: 18pt;
+    color: white;
+    background-color: #316AC5;
+    padding: 20px;
+    text-transform: uppercase;
+}
+
+div.middle-row {
+    min-height: 200px;
+    padding: 0 20px;
+    width: 100%;
+}
+
+div.bottom-row {
+    margin: 0 20px;
+    height: 50px;
+    line-height: 50px;
+    border-top: 1px solid #999;
+    overflow: hidden;
+}
+
+input.button {
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    text-align: center;
+    color: white;
+    background-color: #000;
+    text-transform: uppercase;
+}
+
+
+
+input[type='password'], input[type='email'] {
+    height: 30px;
+    font-size: 10pt;
+    width: 550px;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form div {
+    margin: 25px auto;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+.navbar {
+    position: relative;
+}
+
+#logo {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px !important;  /* 50% of your logo width */
+    display: block;
+    font-family: OCR A Std, monospace;
+    color: lightgray;
+}
+
+#home_img {
+    width: 100%;
+    height: auto;
+
+}
+
+/* Container holding the image and the text */
+.img_container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+/* Top left text */
+.centered {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: OCR A Std, monospace;
+    color: black;
+}
+
+.sub-text {
+    font-family: OCR A Std, monospace;
+    font-size: large;
+    color: black;
+    text-align: center;
+}
+
+#person_computer {
+    float: right;
+}
+
+.img_text {
+    font-family: OCR A Std, monospace;
+    font-size: large;
+    color: black;
+    text-align: center;
+    float: left;
+}
+
