@@ -179,7 +179,7 @@ class VehicleModel {
         }
 
 
-        //retrieve data for the new movie; data are sanitized and escaped for security.
+        //retrieve data for the new vehicle; data are sanitized and escaped for security.
         $year = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'year', FILTER_SANITIZE_STRING)));
         $make = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'make', FILTER_SANITIZE_STRING)));
         $model = $this->dbConnection->real_escape_string(filter_input(INPUT_POST, 'model', FILTER_DEFAULT));
@@ -267,6 +267,9 @@ class VehicleModel {
         }
         return $vehicles;
     }
+
+
+        }
 
 
 

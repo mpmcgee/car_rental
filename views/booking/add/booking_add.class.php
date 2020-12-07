@@ -44,6 +44,7 @@ class BookingAdd extends BookingIndexView {
                 <p>
                     <label for="class">Vehicle Class:</label>
                     <Select id="class" value="" name="class" required="required" placeholder="Vehicle Id"/>
+                    <option value="" selected></option>
                     <optgroup label="Car">
                         <option value="compact">Compact</option>
                         <option value="midsize">Midsize</option>

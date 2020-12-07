@@ -1,29 +1,36 @@
 var numResults = 0;
-var vClass = "";
+var vClass = [];
 var suggestionBoxObj;
 var selectBoxObj;
+var startDate;
+var endDate;
 
 
 //initial actions to take when the page load
 window.onload = function () {
     //DOM objects
-    selectBoxObj = document.getElementById('class').value;
+    selectBoxObj = document.getElementById('class');
     suggestionBoxObj = document.getElementById('suggestionDiv');
-    suggestionBoxObj.addEventListener('select', handleOnSelect);
+    selectBoxObj.addEventListener('change', handleOnChange);
+    startDate = document.getElementById("start-date").value;
+    endDate = document.getElementById("end-date").value;
+
+
 };
 
-function handleOnSelect(e){
+function handleOnChange(e){
     //retrieve input from the select box
 
     vClass = document.getElementById("class").value;
 
-    if (vClass != ""){
+
+    if (vClass != "" && startDate != "" && endDate != ""){
 
         // create an XHR object
         var xhr = new XMLHttpRequest();
 
         //open an asynchornous AJAX request
-        xhr.open("GET", "vclass.php?name=" + name, true);
+        xhr.open("GET", "vclass.php?vClass=" + vClass, true);
 
         //handle server's responses
         xhr.onload = function () {
@@ -32,12 +39,16 @@ function handleOnSelect(e){
             var results = JSON.parse(xhr.responseText);
 
             displayVehicles(results);
+            console.log(results[0]);
 
         }//end of xhr.onload function
 
+        xhr.send(null);
+
 
     } // end of outer if statement
-    xhr.send(null);
+
+
 }
 
 function displayVehicles(results){
@@ -51,7 +62,8 @@ function displayVehicles(results){
 
     var divContent = ""
     for (let i=0; i < numResults; i++){
-        divContent += "<input type = 'radio' id = " + results[i] + " value = " + results[i];
+        console.log(results[i]);
+        divContent += "<input type = 'radio' id = " + results[i] + " value = " + results[i] + ">";
     }
     //display the spans in the div block
     suggestionBoxObj.innerHTML = divContent;

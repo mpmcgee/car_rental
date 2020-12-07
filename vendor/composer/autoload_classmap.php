@@ -6,7 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Add' => $baseDir . '/views/booking/add/add.class.php',
+    'AddBooking' => $baseDir . '/views/booking/add/booking_add.php',
     'Booking' => $baseDir . '/models/booking.class.php',
     'BookingAdd' => $baseDir . '/views/booking/add/booking_add.class.php',
     'BookingController' => $baseDir . '/controllers/booking_controller.class.php',

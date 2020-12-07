@@ -53,7 +53,7 @@ class IndexView {
         <div id="push"></div>
         </div>
         <div id="footer"><br>&copy 2020 X Car Rental. All Rights Reserved.</div>
-<!--        <script type="text/javascript" src="--><?//= BASE_URL ?><!--/www/js/ajax_autosuggestion.js"></script>-->
+        <script type="text/javascript" src="<?= BASE_URL ?>/www/js/ajax_vehicleclass.js"></script>
         </body>
         </html>
         <?php

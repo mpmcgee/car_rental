@@ -7,7 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInitfe4c4fae442cdb8392988156c0594d3d
 {
     public static $classMap = array (
-        'Add' => __DIR__ . '/../..' . '/views/booking/add/add.class.php',
+        'AddBooking' => __DIR__ . '/../..' . '/views/booking/add/booking_add.php',
         'Booking' => __DIR__ . '/../..' . '/models/booking.class.php',
         'BookingAdd' => __DIR__ . '/../..' . '/views/booking/add/booking_add.class.php',
         'BookingController' => __DIR__ . '/../..' . '/controllers/booking_controller.class.php',
