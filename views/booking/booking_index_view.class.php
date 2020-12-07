@@ -15,14 +15,14 @@ class BookingIndexView extends IndexView{
             //the media type
             var media = "booking";
         </script>
-        <!--create the search bar -->-->
-<!--        <div id="searchbar">-->
-<!--            <form method="get" action="--><?//= BASE_URL ?><!--/booking/search">-->
-<!--                <input type="text" name="query_terms" id="searchtextbox" placeholder="Search bookings" autocomplete="off">-->
-<!--                <input type="submit" value="Go"/>-->
-<!--            </form>-->
-<!--            <div id="suggestionDiv"></div>-->
-<!--        </div>-->
+        <!--create the search bar -->
+        <div id="searchbar">
+            <form method="get" action="<?= BASE_URL ?>/booking/search">
+                <input type="text" name="query_terms" id="searchtextbox" placeholder="Search bookings" autocomplete="off">
+                <input type="submit" value="Go"/>
+            </form>
+            <div id="suggestionDiv"></div>
+        </div>
         <?php
     }
 

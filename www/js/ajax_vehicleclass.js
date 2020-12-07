@@ -1,19 +1,20 @@
 var numResults = 0;
-var vClass = [];
 var suggestionBoxObj;
 var selectBoxObj;
 var startDate;
 var endDate;
+var groupObj;
 
 
 //initial actions to take when the page load
 window.onload = function () {
     //DOM objects
     selectBoxObj = document.getElementById('class');
+
     suggestionBoxObj = document.getElementById('suggestionDiv');
     selectBoxObj.addEventListener('change', handleOnChange);
-    startDate = document.getElementById("start-date").value;
-    endDate = document.getElementById("end-date").value;
+    startDate = document.getElementById("start-date");
+    endDate = document.getElementById("end-date");
 
 
 };
@@ -21,16 +22,26 @@ window.onload = function () {
 function handleOnChange(e){
     //retrieve input from the select box
 
-    vClass = document.getElementById("class").value;
+    var vLine = selectBoxObj.value;
+    var classObj = selectBoxObj;
 
 
-    if (vClass != "" && startDate != "" && endDate != ""){
+
+    vLine = vLine.charAt(0).toLowerCase() + vLine.slice(1);
+    vLine = vLine.replace('-', '');
+
+    console.log(vLine);
+    console.log(groupObj);
+
+
+
+    if (vLine && startDate && endDate){
 
         // create an XHR object
         var xhr = new XMLHttpRequest();
 
         //open an asynchornous AJAX request
-        xhr.open("GET", "vclass.php?vClass=" + vClass, true);
+        xhr.open("GET", "vline.php?vline=" + vLine, true);
 
         //handle server's responses
         xhr.onload = function () {
@@ -38,16 +49,18 @@ function handleOnChange(e){
             //retrieve server's response and parse it to a json object
             var results = JSON.parse(xhr.responseText);
 
+
             displayVehicles(results);
-            console.log(results[0]);
+
 
         }//end of xhr.onload function
 
-        xhr.send(null);
+
 
 
     } // end of outer if statement
 
+    xhr.send(null);
 
 }
 
@@ -61,8 +74,9 @@ function displayVehicles(results){
     }
 
     var divContent = ""
+
     for (let i=0; i < numResults; i++){
-        console.log(results[i]);
+        // console.log(results[i]);
         divContent += "<input type = 'radio' id = " + results[i] + " value = " + results[i] + ">";
     }
     //display the spans in the div block

@@ -6,7 +6,7 @@
  *Description:
  */
 
-class BookingAdd extends BookingIndexView {
+class BookingAdd extends IndexView {
 //call the header method defined in the parent class to add the header
 
     public function display(){
@@ -45,27 +45,27 @@ class BookingAdd extends BookingIndexView {
                     <label for="class">Vehicle Class:</label>
                     <Select id="class" value="" name="class" required="required" placeholder="Vehicle Id"/>
                     <option value="" selected></option>
-                    <optgroup label="Car">
-                        <option value="compact">Compact</option>
-                        <option value="midsize">Midsize</option>
-                        <option value="fullsize">Full-size</option
-                        <option value="luxury">Luxury</option>
-                        <option value="sports">Sports</option>
-                        <option value="exotic">Exotic</option>
+                    <optgroup id = "1" label="Car">
+                        <option id="1" value="compact">Compact</option>
+                        <option id="1" value="midsize">Midsize</option>
+                        <option id="1" value="fullsize">Full-size</option
+                        <option id="1" value="luxury">Luxury</option>
+                        <option id="1" value="sports">Sports</option>
+                        <option id="1" value="exotic">Exotic</option>
                     </optgroup>
 
-                    <optgroup label="SUV">
+                    <optgroup id="2" label="SUV">
                         <option value="compact">Compact</option>
                         <option value="intermediate">Midsize</option>
                         <option value="fullsize">Full-Size</option
                     </optgroup>
 
-                    <optgroup label="Van">
+                    <optgroup id="3" label="Van">
                     <option value="minivan">Minivan</option>
                     <option value="pasengervan">Passenger Van</option>
                     </optgroup>
 
-                    <optgroup label="Truck">
+                    <optgroup id="4" label="Truck">
                         <option value="smallpickup">Small Pickup</option>
                         <option value="fullpickup">Full-Size Pickup</option>
                     </optgroup>

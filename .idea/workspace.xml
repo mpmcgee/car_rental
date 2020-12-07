@@ -19,14 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e28ebf4-0eaa-483e-af0b-973de67c25cb" name="Default Changelist" comment="AJAX js added">
+    <list default="true" id="2e28ebf4-0eaa-483e-af0b-973de67c25cb" name="Default Changelist" comment="php file for AJAX">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/vehicle_model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/vehicle_model.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vclass.php" beforeDir="false" afterPath="$PROJECT_DIR$/vclass.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vclass.php" beforeDir="false" afterPath="$PROJECT_DIR$/vline.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/booking/add/booking_add.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/booking/add/booking_add.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index_view.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/index_view.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/booking/booking_index_view.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/booking/booking_index_view.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/js/ajax_vehicleclass.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/ajax_vehicleclass.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +122,7 @@
       <workItem from="1607264471637" duration="3363000" />
       <workItem from="1607285228026" duration="1781000" />
       <workItem from="1607287372957" duration="4461000" />
-      <workItem from="1607350379623" duration="21846000" />
+      <workItem from="1607350379623" duration="29186000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1603552583926</created>
@@ -336,7 +334,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607366784675</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="AJAX js added">
+      <created>1607373143145</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1607373143145</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,7 +382,8 @@
     <MESSAGE value="CSS fixed for form fields and buttons. Search results now lists number of results." />
     <MESSAGE value="Add booking form created." />
     <MESSAGE value="Add booking form completed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add booking form completed." />
+    <MESSAGE value="AJAX js added" />
+    <option name="LAST_COMMIT_MESSAGE" value="AJAX js added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1380" y="-125" key="#CLI_Interpreters" timestamp="1604053670306">
@@ -424,10 +430,10 @@
     </state>
     <state x="-1459" y="-135" key="SettingsEditor/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604054158309" />
     <state x="328" y="18" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1604242688878" />
-    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2" timestamp="1607366827602">
+    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2" timestamp="1607373194736">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
-    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607366827602" />
+    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607373194736" />
     <state x="393" y="168" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@0.0.1366.728" timestamp="1605023369129" />
     <state x="393" y="168" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1605492122564" />
     <state x="-1143" y="134" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607357211939">
@@ -455,6 +461,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="0" y="0" width="1382" height="815" key="dock-window-5/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607373122234" />
+    <state x="0" y="0" width="1382" height="815" key="dock-window-6" timestamp="1607376930117">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="0" y="0" width="1382" height="815" key="dock-window-6/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607376930117" />
     <state x="-1159" y="126" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1603552489074">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>

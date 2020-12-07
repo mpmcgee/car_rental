@@ -2,12 +2,12 @@
 /**
  * Author: Matthew McGee
  * Date: 12/7/2020
- * File: vclass.php
+ * File: vline.php
  *Description:
  */
 
 //retrieve class selection
-$class = ($_GET['vClass']);
+$line = ($_GET['vLine']);
 
 // establish database connection and get tables for bookings and vehicles
 $db = Database::getDatabase();
@@ -18,11 +18,14 @@ $this->tblVehicles = $this->db->getVehiclesTable();
 
 
 
-    $start_date = (filter_input(INPUT_POST, 'start-date', FILTER_SANITIZE_STRING));
-    $end_date = (filter_input(INPUT_POST, 'end-date', FILTER_SANITIZE_STRING));
+$start_date = (filter_input(INPUT_POST, 'start-date', FILTER_SANITIZE_STRING));
+$end_date = (filter_input(INPUT_POST, 'end-date', FILTER_SANITIZE_STRING));
 
-    $sql = "SELECT * FROM " . $this->tblBookings . "," . $this->tblVehicles . " WHERE " .
-        $this->tblBookings . ".vehicle_id=" . $this->tblVehicles . ".vehicle_id AND class = '$class'";
+$sql = "SELECT * FROM " . $this->tblBookings . "," . $this->tblVehicles . " WHERE " .
+    $this->tblBookings . ".vehicle_id=" . $this->tblVehicles . ".vehicle_id AND " . $this->tblVehicles . ".line='$line' AND 
+    '$start_date' NOT BETWEEN " . $this->tblBookings . ".start_date AND " . $this->tblBookings . ".end_date AND 
+    'end_date' NOT BETWEEN " . $this->tblBookings . ".start_date AND " . $this->tblBookings . ".end_date";
+
 
 //execute the query
     $query = $this->dbConnection->query($sql);
@@ -30,8 +33,7 @@ $this->tblVehicles = $this->db->getVehiclesTable();
 //create an array to store all returned vehicles
     $results = array();
 
-    if ($this->dbConnection->query($sql) === TRUE) {
-
+    if ($query && $query->num_rows >0) {
 
         //loop through all rows and crete recordsets
         while ($obj = $query->fetch_object()) {
@@ -45,12 +47,15 @@ $this->tblVehicles = $this->db->getVehiclesTable();
 
 
             //add the booking to the array
-            $results[] = $vehicle->getMake() + " " + $vehicle->getModel();
+            $results[] = $vehicle;
+
+
         }
 
-    echo json_encode($results);
+        echo json_encode($results);
 
 }
+
 
 
 
