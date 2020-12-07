@@ -19,17 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e28ebf4-0eaa-483e-af0b-973de67c25cb" name="Default Changelist" comment="CSS fixed for form fields and buttons. Search results now lists number of results.">
-      <change afterPath="$PROJECT_DIR$/views/booking/add/booking_add.php" afterDir="false" />
+    <list default="true" id="2e28ebf4-0eaa-483e-af0b-973de67c25cb" name="Default Changelist" comment="Add booking form created.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/booking_controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/booking_controller.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/booking_model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/booking_model.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/autoload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/booking/add/add.class.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/views/booking/add/booking_add.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/booking/add/booking_add.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/booking/booking_index_view.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/booking/booking_index_view.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/welcome/welcome_index.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/welcome/welcome_index.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/www/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +119,7 @@
       <workItem from="1607264471637" duration="3363000" />
       <workItem from="1607285228026" duration="1781000" />
       <workItem from="1607287372957" duration="4461000" />
-      <workItem from="1607350379623" duration="10779000" />
+      <workItem from="1607350379623" duration="12660000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1603552583926</created>
@@ -317,7 +310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607356611324</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Add booking form created.">
+      <created>1607361417818</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1607361417819</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,7 +356,8 @@
     <MESSAGE value="Searches now take multiple terms" />
     <MESSAGE value="added some add booking functions" />
     <MESSAGE value="CSS fixed for form fields and buttons. Search results now lists number of results." />
-    <option name="LAST_COMMIT_MESSAGE" value="CSS fixed for form fields and buttons. Search results now lists number of results." />
+    <MESSAGE value="Add booking form created." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add booking form created." />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1380" y="-125" key="#CLI_Interpreters" timestamp="1604053670306">
@@ -403,10 +404,10 @@
     </state>
     <state x="-1459" y="-135" key="SettingsEditor/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604054158309" />
     <state x="328" y="18" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1604242688878" />
-    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2" timestamp="1607356617800">
+    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2" timestamp="1607361421410">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
-    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607356617800" />
+    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607361421410" />
     <state x="393" y="168" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@0.0.1366.728" timestamp="1605023369129" />
     <state x="393" y="168" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1605492122564" />
     <state x="-1143" y="134" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607357211939">

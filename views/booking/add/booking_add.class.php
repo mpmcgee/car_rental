@@ -29,11 +29,10 @@ class BookingAdd extends BookingIndexView {
                     <input id="lastname" value="" name="lastname" type="text" required="required" placeholder="Last name"/>
                     <br>
                 </p>
-                <p>
-                    <input id="vehicleid" value="" name="vehicleid" type="vehicleid" required="required" placeholder="Vehicle Id"/>
-                    <br>
+
                 </p>
                 <p>
+
                     <input id="start-date" value="" name="firstname" type="date" required="required"/>
                     <br>
                 </p>
@@ -41,7 +40,38 @@ class BookingAdd extends BookingIndexView {
                     <input id="end-date" value="" name="lastname" type="date" required="required"/>
                     <br>
                 </p>
-                <button type="submit" style="width: 560px; background-color: #333333; height: 50px; color: white"><span>Create Booking</span></button>
+
+                <p>
+                    <label for="class">Vehicle Class:</label>
+                    <Select id="class" value="" name="class" required="required" placeholder="Vehicle Id"/>
+                    <optgroup label="Car">
+                        <option value="compact">Compact</option>
+                        <option value="midsize">Midsize</option>
+                        <option value="fullsize">Full-size</option
+                        <option value="luxury">Luxury</option>
+                        <option value="sports">Sports</option>
+                        <option value="exotic">Exotic</option>
+                    </optgroup>
+
+                    <optgroup label="SUV">
+                        <option value="compact">Compact</option>
+                        <option value="intermediate">Midsize</option>
+                        <option value="fullsize">Full-Size</option
+                    </optgroup>
+
+                    <optgroup label="Van">
+                    <option value="minivan">Minivan</option>
+                    <option value="pasengervan">Passenger Van</option>
+                    </optgroup>
+
+                    <optgroup label="Truck">
+                        <option value="smallpickup">Small Pickup</option>
+                        <option value="fullpickup">Full-Size Pickup</option>
+                    </optgroup>
+                </select>
+                    <br>
+                    <br>
+                    <button type="submit" style="width: 560px; background-color: #333333; height: 50px; color: white"><span>Create Booking</span></button>
             </form>
         </div>
         <hr>
