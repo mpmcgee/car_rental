@@ -69,9 +69,13 @@ class BookingAdd extends BookingIndexView {
                         <option value="fullpickup">Full-Size Pickup</option>
                     </optgroup>
                 </select>
+                </p>
+
+                <div id="suggestionDiv"></div>
                     <br>
                     <br>
                     <button type="submit" style="width: 560px; background-color: #333333; height: 50px; color: white"><span>Create Booking</span></button>
+
             </form>
         </div>
         <hr>
