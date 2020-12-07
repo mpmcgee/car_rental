@@ -19,12 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e28ebf4-0eaa-483e-af0b-973de67c25cb" name="Default Changelist" comment="added some add booking functions">
+    <list default="true" id="2e28ebf4-0eaa-483e-af0b-973de67c25cb" name="Default Changelist" comment="CSS fixed for form fields and buttons. Search results now lists number of results.">
+      <change afterPath="$PROJECT_DIR$/views/booking/add/booking_add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/booking_controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/booking_controller.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/booking_model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/booking_model.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/autoload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/booking/search/booking_search.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/booking/search/booking_search.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/user/login/login.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/login/login.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/vehicle/search/vehicle_search.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vehicle/search/vehicle_search.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/booking/add/add.class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/booking/add/booking_add.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/booking/add/booking_add.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/booking/booking_index_view.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/booking/booking_index_view.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/welcome/welcome_index.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/welcome/welcome_index.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/www/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +71,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Unit04/Lab10" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Unit05/Lab11" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.composer" />
@@ -75,11 +79,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\I211\car_rental\views\user\index" />
       <recent name="C:\xampp\htdocs\I211\Final\views\user" />
       <recent name="C:\xampp\htdocs\I211\Final\models" />
       <recent name="C:\xampp\htdocs\I211\Final\views\booking\search" />
       <recent name="C:\xampp\htdocs\I211\Final\views\booking\error" />
-      <recent name="C:\xampp\htdocs\I211\Final" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -122,7 +126,7 @@
       <workItem from="1607264471637" duration="3363000" />
       <workItem from="1607285228026" duration="1781000" />
       <workItem from="1607287372957" duration="4461000" />
-      <workItem from="1607350379623" duration="5960000" />
+      <workItem from="1607350379623" duration="10779000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1603552583926</created>
@@ -306,7 +310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607290542517</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="CSS fixed for form fields and buttons. Search results now lists number of results.">
+      <created>1607356611324</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1607356611324</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,7 +355,8 @@
     <MESSAGE value="Fixed user_index.class.php, updated user class" />
     <MESSAGE value="Searches now take multiple terms" />
     <MESSAGE value="added some add booking functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="added some add booking functions" />
+    <MESSAGE value="CSS fixed for form fields and buttons. Search results now lists number of results." />
+    <option name="LAST_COMMIT_MESSAGE" value="CSS fixed for form fields and buttons. Search results now lists number of results." />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1380" y="-125" key="#CLI_Interpreters" timestamp="1604053670306">
@@ -359,10 +371,10 @@
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
     <state x="-1155" y="-64" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604940727688" />
-    <state x="-1660" y="-22" key="FileChooserDialogImpl" timestamp="1607352389253">
+    <state x="-1660" y="-22" key="FileChooserDialogImpl" timestamp="1607360071845">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
-    <state x="-1660" y="-22" key="FileChooserDialogImpl/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607352389253" />
+    <state x="-1660" y="-22" key="FileChooserDialogImpl/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607360071845" />
     <state x="185" y="195" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604242731796" />
     <state x="-1136" y="122" key="Github.CreateGistDialog" timestamp="1603552300392">
       <screen x="-1920" y="-300" width="1920" height="1040" />
@@ -391,25 +403,33 @@
     </state>
     <state x="-1459" y="-135" key="SettingsEditor/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604054158309" />
     <state x="328" y="18" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1604242688878" />
-    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2" timestamp="1607290544906">
+    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2" timestamp="1607356617800">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
-    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607290544906" />
+    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607356617800" />
     <state x="393" y="168" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@0.0.1366.728" timestamp="1605023369129" />
     <state x="393" y="168" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1605492122564" />
-    <state x="-1143" y="134" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607286916385">
+    <state x="-1143" y="134" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607357211939">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
-    <state x="-1143" y="134" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607286916385" />
+    <state x="-1143" y="134" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607357211939" />
     <state x="553" y="304" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1606156905389" />
     <state x="0" y="0" width="1382" height="815" key="dock-window-1" timestamp="1607353165607">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="0" y="0" width="1382" height="815" key="dock-window-1/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607353165607" />
-    <state x="0" y="0" width="1382" height="798" key="dock-window-2" timestamp="1607288691436">
+    <state x="0" y="0" width="1382" height="815" key="dock-window-2" timestamp="1607357440883">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="0" y="0" width="1382" height="798" key="dock-window-2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607288691436" />
+    <state x="0" y="0" width="1382" height="815" key="dock-window-2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607357440883" />
+    <state x="0" y="0" width="1382" height="815" key="dock-window-3" timestamp="1607357440883">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="0" y="0" width="1382" height="815" key="dock-window-3/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607357440883" />
+    <state x="0" y="0" width="1382" height="815" maximized="true" key="dock-window-4" timestamp="1607359097989">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="0" y="0" width="1382" height="815" maximized="true" key="dock-window-4/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607359097989" />
     <state x="-1159" y="126" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1603552489074">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>

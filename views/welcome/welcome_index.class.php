@@ -40,7 +40,7 @@ class WelcomeIndex extends IndexView{
 
         <img src="www/img/person_on_computer.jpg" alt='person_computer' id="person_computer">
         <br><br><br><br><br><br><br><br>
-        <p class="img_text"> If you already have an account log in <a href="<?= BASE_URL ?>/user/index">here.</a></p>
+        <p class="img_text"> If you already have an account log in <a href="<?= BASE_URL ?>/user/login">here.</a></p>
 
 
 

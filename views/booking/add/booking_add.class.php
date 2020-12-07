@@ -30,7 +30,7 @@ class BookingAdd extends BookingIndexView {
                     <br>
                 </p>
                 <p>
-                    <input id="vehicleid" value="" name="email" type="email" required="required" placeholder="Email"/>
+                    <input id="vehicleid" value="" name="vehicleid" type="vehicleid" required="required" placeholder="Vehicle Id"/>
                     <br>
                 </p>
                 <p>
@@ -45,8 +45,8 @@ class BookingAdd extends BookingIndexView {
             </form>
         </div>
         <hr>
-    <?php
+        <?php
         //call the footer method defined in the parent class to add the footer
-    parent::displayFooter();
+        parent::displayFooter();
     }
 }

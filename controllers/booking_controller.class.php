@@ -87,22 +87,27 @@ class BookingController
 
     }
 
-    //Register - store user information in database.
-    public function add()
-    {
+    //Add booking - display add booking form
+    public function add() {
+        $view = new BookingAdd();
+        $view->display();
+
+    }
+
+    public function add_Booking(){
+
         $message = $this->booking_model->add_booking();
 
-        //If return value is false, return an error.
-        if ($booking == False) {
-            $message = "There was an error booking the vehicle.";
-            $this->error($message);
-            return;
+        if(strpos($message, "success") !== FALSE) {
+            $view = new Register();
+        } else {
+            $view = new BookingError();
         }
-
-        $message = "Booking successfully created.";
-        $view = new Booking();
         $view->display($message);
+
+
     }
+
 
 
 
