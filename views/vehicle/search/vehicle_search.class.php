@@ -15,7 +15,7 @@ class VehicleSearch extends VehicleIndexView {
         <div id="main-header"> Search Results for <i><?= $terms ?></i></div>
         <span class="rcd-numbers">
             <?php
-            echo ((!is_array($vehicles)) ? "( 0 - 0 )" : "( 1 - " . count($vehicles) . " )");
+            echo ((!is_array($vehicles)) ? "" :  count($vehicles) . " result(s)");
             ?>
             </span>
         <hr>
@@ -63,7 +63,7 @@ class VehicleSearch extends VehicleIndexView {
             }
         ?>
             </table>
-            <a href="<?= BASE_URL ?>/vehicle/index">Go to bookings list</a>
+            <a href="<?= BASE_URL ?>/vehicle/index">Go to vehicles list</a>
             <?php
             //display page footer
             parent::displayFooter();

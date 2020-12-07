@@ -19,22 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e28ebf4-0eaa-483e-af0b-973de67c25cb" name="Default Changelist" comment="Searches now take multiple terms">
-      <change afterPath="$PROJECT_DIR$/views/booking/add/add.class.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/booking/add/booking_add.class.php" afterDir="false" />
+    <list default="true" id="2e28ebf4-0eaa-483e-af0b-973de67c25cb" name="Default Changelist" comment="added some add booking functions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/booking_controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/booking_controller.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/booking_model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/booking_model.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/autoload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index_view.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/index_view.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/booking/search/booking_search.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/booking/search/booking_search.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user/login/login.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user/login/login.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/vehicle/search/vehicle_search.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/vehicle/search/vehicle_search.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/www/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +67,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Unit05/Lab11" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Unit04/Lab10" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.composer" />
@@ -130,7 +121,8 @@
       <workItem from="1606520161625" duration="1696000" />
       <workItem from="1607264471637" duration="3363000" />
       <workItem from="1607285228026" duration="1781000" />
-      <workItem from="1607287372957" duration="2995000" />
+      <workItem from="1607287372957" duration="4461000" />
+      <workItem from="1607350379623" duration="5960000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1603552583926</created>
@@ -307,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607286821783</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="added some add booking functions">
+      <created>1607290542517</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1607290542517</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,7 +343,8 @@
     <MESSAGE value="Debugged user controller, user index, and user model" />
     <MESSAGE value="Fixed user_index.class.php, updated user class" />
     <MESSAGE value="Searches now take multiple terms" />
-    <option name="LAST_COMMIT_MESSAGE" value="Searches now take multiple terms" />
+    <MESSAGE value="added some add booking functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="added some add booking functions" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1380" y="-125" key="#CLI_Interpreters" timestamp="1604053670306">
@@ -359,10 +359,10 @@
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
     <state x="-1155" y="-64" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604940727688" />
-    <state x="-1660" y="-22" key="FileChooserDialogImpl" timestamp="1607288054125">
+    <state x="-1660" y="-22" key="FileChooserDialogImpl" timestamp="1607352389253">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
-    <state x="-1660" y="-22" key="FileChooserDialogImpl/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607288054125" />
+    <state x="-1660" y="-22" key="FileChooserDialogImpl/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607352389253" />
     <state x="185" y="195" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604242731796" />
     <state x="-1136" y="122" key="Github.CreateGistDialog" timestamp="1603552300392">
       <screen x="-1920" y="-300" width="1920" height="1040" />
@@ -391,10 +391,10 @@
     </state>
     <state x="-1459" y="-135" key="SettingsEditor/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604054158309" />
     <state x="328" y="18" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1604242688878" />
-    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2" timestamp="1607286829644">
+    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2" timestamp="1607290544906">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
-    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607286829644" />
+    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607290544906" />
     <state x="393" y="168" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@0.0.1366.728" timestamp="1605023369129" />
     <state x="393" y="168" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1605492122564" />
     <state x="-1143" y="134" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607286916385">
@@ -402,10 +402,10 @@
     </state>
     <state x="-1143" y="134" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607286916385" />
     <state x="553" y="304" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1606156905389" />
-    <state x="0" y="0" width="1382" height="798" key="dock-window-1" timestamp="1607287894055">
+    <state x="0" y="0" width="1382" height="815" key="dock-window-1" timestamp="1607353165607">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="0" y="0" width="1382" height="798" key="dock-window-1/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607287894055" />
+    <state x="0" y="0" width="1382" height="815" key="dock-window-1/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607353165607" />
     <state x="0" y="0" width="1382" height="798" key="dock-window-2" timestamp="1607288691436">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

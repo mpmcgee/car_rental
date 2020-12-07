@@ -15,7 +15,7 @@ class BookingSearch extends BookingIndexView {
             <div id="main-header"> Search Results for <i><?= $terms ?></i></div>
             <span class="rcd-numbers">
             <?php
-                    echo ((!is_array($bookings)) ? "( 0 - 0 )" : "( 1 - " . count($bookings) . " )");
+                    echo ((!is_array($bookings)) ? "" :  count($bookings) . " result(s)");
                     ?>
             </span>
             <hr>
