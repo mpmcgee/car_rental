@@ -29,7 +29,7 @@ IndexView::displayHeader($page_title);
         </tr>
     </table>
     <br><br><br><br><hr>
-    <a href="<?= BASE_URL ?>/movie/index">Back to movie list</a>
+    <a href="<?= BASE_URL ?>/movie/index">Back to </a>
 
 <?php
 //display footer
