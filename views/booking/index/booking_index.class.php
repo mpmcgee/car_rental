@@ -16,7 +16,9 @@ class BookingIndex extends BookingIndexView {
         } else {
             //display bookings in table
         ?>
-        <div id="main-header"> Bookings</div>
+
+
+            <div class="middle-row">
     <table border="0">
         <tr>
             <th>Booking ID</th>
@@ -50,6 +52,7 @@ class BookingIndex extends BookingIndexView {
     }
         ?>
     </table>
+        </div>
 
     <?php
     Parent::displayFooter();

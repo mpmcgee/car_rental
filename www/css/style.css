@@ -2,7 +2,7 @@
     text-align: center;
     font-size: xx-large;
     font-family: OCR A Std, monospace;
-    color: lightgray;
+    color: black;
 }
 
 #sub-title {
@@ -57,8 +57,9 @@
     height: 50px;
     line-height: 50px;
     font-size: 18pt;
+    font-family: OCR A Std, monospace;
     color: white;
-    background-color: #316AC5;
+    background-color: #4F5155;
     padding: 20px;
     text-transform: uppercase;
 }
@@ -169,6 +170,18 @@ table{
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    font-family: Helvetica, Arial, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+}
+
+table td, table tr, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
 }
 
 #logo {

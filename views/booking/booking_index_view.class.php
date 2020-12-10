@@ -15,6 +15,10 @@ class BookingIndexView extends IndexView{
             //the media type
             var media = "booking";
         </script>
+
+        <div class="top-row">Bookings</div>
+
+        <br>
         <!--create the search bar -->
         <div id="searchbar">
             <form method="get" action="<?= BASE_URL ?>/booking/search">
@@ -23,6 +27,8 @@ class BookingIndexView extends IndexView{
             </form>
             <div id="suggestionDiv"></div>
         </div>
+
+        <br><hr><br>
         <?php
     }
 

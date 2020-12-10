@@ -18,7 +18,7 @@ class VehicleIndex extends VehicleIndexView {
         //display bookings in table
         ?>
 
-        <div id="main-header">Vehicles</div>
+            <div class="middle-row">
         <table border="0">
         <tr>
             <th>Year</th>
@@ -56,6 +56,7 @@ class VehicleIndex extends VehicleIndexView {
 
         ?>
         </table>
+            </div>
         </body>
         </html>
 

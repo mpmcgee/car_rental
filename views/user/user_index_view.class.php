@@ -25,7 +25,7 @@ class UserIndexView extends IndexView
     <body>
     <h1><span style="color: forestgreen; font-family: serif; font-size: 36pt">Rental</span> User Management System</h1>
     <div id="wrapper">
-        <img src="www/img/gfif.jpg" style="float: right; width: 130px">
+
         <?php
         }
 

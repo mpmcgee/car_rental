@@ -15,6 +15,11 @@ class VehicleIndexView extends IndexView{
             //the media type
             var media = "vehicle";
         </script>
+
+        <div class="top-row">Vehicles</div>
+        <br>
+
+
         <!--create the search bar -->
         <div id="searchbar">
             <form method="get" action="<?= BASE_URL ?>/vehicle/search">
@@ -23,6 +28,8 @@ class VehicleIndexView extends IndexView{
             </form>
             <div id="suggestionDiv"></div>
         </div>
+
+        <br><hr><br>
         <?php
     }
 
