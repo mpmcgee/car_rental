@@ -248,31 +248,38 @@ class BookingModel
         //retrieve data for the new movie; data are sanitized and escaped for security.
         $first_name = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING)));
         $last_name = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_STRING)));
-        $vehicle_id = $this->dbConnection->real_escape_string(filter_input(INPUT_POST, 'vehicleid', FILTER_DEFAULT));
+        $vehicle_id = (int)$this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'pick_car', FILTER_SANITIZE_NUMBER_INT)));  
         $start_date = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'start-date', FILTER_SANITIZE_STRING)));
         $end_date = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'end-date', FILTER_SANITIZE_STRING)));
 
         try {
-
-            //query string for update
+            
+          if (isset($_COOKIE['login'])) {
+                $user_id = $_COOKIE['user_id'];
+            } else {
+                throw new UserLoginException("Please log in to create a booking.");
+            }
+            
+           //query string for update
             $sql = "INSERT INTO " . $this->tblBookings .
-                " VALUES (NULL, '$first_name', '$last_name', '$vehicle_id', '$start_date', '$end_date'";
-            $sql2 = "SELECT * FROM " . $this->tblBookings . " WHERE " . $start_date . "BETWEEN start_date AND end_date AND"
-                . $end_date . " BETWEEN start_date AND end_date";
+                " VALUES (NULL, '$vehicle_id', '$user_id', '$start_date', '$end_date'";
+//            $sql2 = "SELECT * FROM " . $this->tblBookings . " WHERE " . $start_date . "BETWEEN start_date AND end_date AND"
+//                . $end_date . " BETWEEN start_date AND end_date";
 
             //execute the query and return true if successful or false if failed
-            if ($this->dbConnection->query($sql) === TRUE) {
+            if ($this->dbConnection->query($sql)) {
                 return "Booking successfully created.";
-            } else if ($this->dbConnection->query($sql2) === FALSE) {
+            } //else if ($this->dbConnection->query($sql2) === FALSE) {
+            else {
                 throw new DatabaseException();
             }
-
+            
+        } catch (UserLoginException $e) {
+            return $e->getMessage();
         } catch (DatabaseException $e) {
-            return $e->getDetails();
-
-        } catch (otherException $e) {
+            return $e->getMessage();
+        } catch (Exception $e) {
             return "Vehicle not available for these dates";
-
         }
     }
 
