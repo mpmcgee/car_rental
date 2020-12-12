@@ -1,70 +1,38 @@
 var numResults = 0;
 var suggestionBoxObj;
 var selectBoxObj;
-var startDate;
-var endDate;
-var groupObj;
-
+var vLine;
 
 //initial actions to take when the page load
 window.onload = function () {
     //DOM objects
     selectBoxObj = document.getElementById('class');
-
     suggestionBoxObj = document.getElementById('suggestionDiv');
     selectBoxObj.addEventListener('change', handleOnChange);
-    startDate = document.getElementById("start-date");
-    endDate = document.getElementById("end-date");
-
-
 };
 
-function handleOnChange(e){
+function handleOnChange() {
     //retrieve input from the select box
-
-    var vLine = selectBoxObj.value;
-    var classObj = selectBoxObj;
-
-
-
-    vLine = vLine.charAt(0).toLowerCase() + vLine.slice(1);
-    vLine = vLine.replace('-', '');
-
+    vLine = selectBoxObj.value;
     console.log(vLine);
-    console.log(groupObj);
 
+    // create an XHR object
+    var xhr = new XMLHttpRequest();
 
+    //open an asynchornous AJAX request
+    xhr.open("GET", base_url + "/booking/getVline/" + vLine, true);
 
-    if (vLine && startDate && endDate){
-
-        // create an XHR object
-        var xhr = new XMLHttpRequest();
-
-        //open an asynchornous AJAX request
-        xhr.open("GET", "vline.php?vline=" + vLine, true);
-
+    xhr.onload = function () {
         //handle server's responses
-        xhr.onload = function () {
+        var results = JSON.parse(xhr.responseText);
+        console.log(results);
 
-            //retrieve server's response and parse it to a json object
-            var results = JSON.parse(xhr.responseText);
-
-
-            displayVehicles(results);
-
-
-        }//end of xhr.onload function
-
-
-
-
-    } // end of outer if statement
-
+        displayVehicles(results);
+    };
     xhr.send(null);
-
 }
 
-function displayVehicles(results){
+function displayVehicles(results) {
     numResults = results.length;
 
     if (numResults === 0) {
@@ -73,14 +41,16 @@ function displayVehicles(results){
         return false;
     }
 
-    var divContent = ""
+    suggestionBoxObj.innerHTML = "";
 
-    for (let i=0; i < numResults; i++){
+    for (let i = 0; i < numResults; i++) {
         // console.log(results[i]);
-        divContent += "<input type = 'radio' id = " + results[i] + " value = " + results[i] + ">";
+        suggestionBoxObj.innerHTML += "<input type='radio' id=" + results[i].vehicle_id + " value= " + results[i].vehicle_id + " name = pick_car>";
+        suggestionBoxObj.innerHTML += "<label for=" + results[i].vehicle_id + ">" + results[i].make + " " + results[i].model +
+            " (" + results[i].year +  ") - $" + results[i].price_per_day + "</label>";
+        suggestionBoxObj.innerHTML += "<br>";
     }
     //display the spans in the div block
-    suggestionBoxObj.innerHTML = divContent;
     suggestionBoxObj.style.display = 'block';
 
 }
