@@ -81,7 +81,7 @@ class UserModel
             }
 
             //sql select statement
-            $sql = "Select password From " . $this->tblUsers . " WHERE username = '$username'";
+            $sql = "Select password, user_id From " . $this->tblUsers . " WHERE username = '$username'";
 
             //execute the query
             $query = $this->dbConnection->query($sql);
@@ -96,6 +96,7 @@ class UserModel
                 $query_row = $query->fetch_assoc();
                 if (password_verify($password, $query_row['password'])) {
                     setcookie("login", $username);
+                    setcookie("user_id", $query_row['user_id']);//save user id in a session.
                     //If no errors, verify password and return success message.
                     return "You have successfully logged in.";
                 } else {
@@ -117,6 +118,7 @@ class UserModel
         //if 'login' cookie is set, destroy it
         if (isset($_COOKIE['login'])) {
             unset($_COOKIE['login']);
+            unset($_COOKIE['user_id']);
             setcookie('login', null, -1, '/');
         }
         //if 'login' cookie is not set, return true
