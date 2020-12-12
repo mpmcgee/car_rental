@@ -9,12 +9,14 @@
 class BookingController
 {
     private $booking_model;
+    private $vehicle_model;
 
     //default constructor
     public function __construct(){
 
         //create an instance of the BookingModel class
         $this->booking_model = BookingModel::getBookingModel();
+        $this->vehicle_model = VehicleModel::getVehicleModel(); //Get vehicle model for vline function.
     }
 
     //index that displays all bookings
@@ -130,7 +132,33 @@ class BookingController
         $view->display($booking, $confirm);
     }
 
+//show avaialble cars based on class selection.
+    public function getVline($line) {
+        $query_line = urldecode(trim($line));
+        $vehicles_with_line = $this->vehicle_model->search_vehicles($query_line);
 
+        if ($vehicles_with_line) {
+            foreach ($vehicles_with_line as $v) {
+                $vehicles[] = array(
+                    "vehicle_id" => $v->getId(),
+                    "year" => $v->getYear(),
+                    "make" => $v->getMake(),
+                    "model" => $v->getModel(),
+                    "engine_type" => $v->getEngineType(),
+                    "transmission" => $v->getTransmission(),
+                    "class" => $v->getClass(),
+                    "doors" => $v->getDoors(),
+                    "line" => $v->getLine(),
+                    "passengers" => $v->getPassengers(),
+                    "suitcases" => $v->getSuitcases(),
+                    "combined_mpg" => $v->getMPG(),
+                    "sirius" => $v->getSirius(),
+                    "price_per_day" => $v->getPrice()
+                );
+            }
+        }
+        echo json_encode($vehicles);
+    }
 
     //handle calling inaccessible methods
     public function __call($name, $arguments)
