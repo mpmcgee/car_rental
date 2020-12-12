@@ -88,7 +88,7 @@ input.button {
     text-transform: uppercase;
 }
 
-input#username, input#firstname, input#lastname, input#vehicleid{
+input#username, input#firstname, input#lastname{
     height: 30px;
     font-size: 10pt;
     width: 550px;

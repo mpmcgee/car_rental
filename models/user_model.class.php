@@ -40,6 +40,7 @@ class UserModel
                 throw new DataLengthException("Passwords must contain at least 5 characters.");
             }
 
+
             //SQL insert statement.
             $sql = "INSERT INTO " . $this->tblUsers .
                 " VALUES (NULL, '$first_name', '$last_name', '$username', '$password_hash', '$role', '$email')";
@@ -93,7 +94,7 @@ class UserModel
             //Verify the username and password are correct.
             if ($query->num_rows > 0) {
                 $query_row = $query->fetch_assoc();
-                if (password_verify($password, $query_row['password']) !== FALSE) {
+                if (password_verify($password, $query_row['password'])) {
                     setcookie("login", $username);
                     //If no errors, verify password and return success message.
                     return "You have successfully logged in.";
