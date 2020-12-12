@@ -20,30 +20,30 @@ class BookingAdd extends IndexView {
         </div>
         <!-- middle row -->
         <div class="middle-row">
-            <form method="POST" action="<?= BASE_URL ?>/booking/add">
+            <form method="POST" action="<?= BASE_URL ?>/booking/add_Booking">
                 <p>
-                    <input id="firstname" value="" name="name" type="text" required="required" placeholder="First name"/>
+                    <input id="firstname" name="firstname" type="text" required="required" placeholder="First name"/>
                     <br>
                 </p>
                 <p>
-                    <input id="lastname" value="" name="lastname" type="text" required="required" placeholder="Last name"/>
+                    <input id="lastname" name="lastname" type="text" required="required" placeholder="Last name"/>
                     <br>
                 </p>
 
                 </p>
                 <p>
 
-                    <input id="start-date" value="" name="firstname" type="date" required="required"/>
+                    <input id="start-date" name="start-date" type="date" required="required"/>
                     <br>
                 </p>
                 <p>
-                    <input id="end-date" value="" name="lastname" type="date" required="required"/>
+                    <input id="end-date" name="end-date" type="date" required="required"/>
                     <br>
                 </p>
 
                 <p>
                     <label for="class">Vehicle Class:</label>
-                    <Select id="class" value="" name="class" required="required" placeholder="Vehicle Id"/>
+                    <Select id="class" value="" name="vehicleid" required="required" placeholder="Vehicle Id"/>
                     <option value="" selected></option>
                     <optgroup id = "1" label="Car">
                         <option id="1" value="compact">Compact</option>
