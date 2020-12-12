@@ -76,46 +76,55 @@ class BookingModel
      */
 
     public function list_booking(){
-        /* construct the sql SELECT statement in this format
-         * SELECT ...
-         * FROM ...
-         * WHERE ...
-         */
+            /* construct the sql SELECT statement in this format
+             * SELECT ...
+             * FROM ...
+             * WHERE ...
+             */
+        try {
+            $sql = "SELECT * FROM " . $this->tblBookings . "," . $this->tblUsers . "," .
+                $this->tblVehicles . " WHERE " . $this->tblBookings . ".user_id=" . $this->tblUsers .
+                ".user_id AND " . $this->tblBookings . ".vehicle_id=" . $this->tblVehicles . ".vehicle_id";
 
-        $sql = "SELECT * FROM " . $this->tblBookings . "," . $this->tblUsers . "," .
-            $this->tblVehicles . " WHERE " . $this->tblBookings . ".user_id=" . $this->tblUsers .
-            ".user_id AND " . $this->tblBookings . ".vehicle_id=" . $this->tblVehicles . ".vehicle_id";
+            //execute the query
+            $query = $this->dbConnection->query($sql);
 
-        //execute the query
-        $query = $this->dbConnection->query($sql);
+            //execute the query and return true if successful or false if failed
+            if (!$query || $query->num_rows == 0) {
+                throw new DatabaseException("There was an error verifying the booking exists.");
+            }
 
-        //if the query failed, return false
-        if (!$query){
-            return false;
+            //if the query failed, return false
+            if (!$query) {
+                return false;
+            }
+
+            //if the query succeeded, but no booking was found
+            if ($query->num_rows == 0) {
+                return 0;
+            }
+
+            //handle the result
+            //crete an array to store all bookings
+            $bookings = array();
+
+            while ($obj = $query->fetch_object()) {
+                $booking = new Booking(stripslashes($obj->user_id), stripslashes($obj->last_name), stripslashes($obj->first_name),
+                    stripslashes($obj->vehicle_id), stripslashes($obj->year), stripslashes($obj->make),
+                    stripslashes($obj->model), stripslashes($obj->start_date), stripslashes($obj->end_date));
+
+                //set the id for the booking
+                $booking->setId($obj->booking_id);
+
+                //add the booking to the array
+                $bookings[] = $booking;
+            }
+            return $bookings;
+        } catch (DatabaseException $e) {
+            return $e->getMessage();
+        } catch (Exception $e) {
+            return $e->getMessage();
         }
-
-        //if the query succeeded, but no booking was found
-        if($query->num_rows == 0){
-            return 0;
-        }
-
-        //handle the result
-        //crete an array to store all bookings
-        $bookings = array();
-
-        while($obj = $query->fetch_object()){
-            $booking = new Booking(stripslashes($obj->user_id), stripslashes($obj->last_name), stripslashes($obj->first_name),
-                stripslashes($obj->vehicle_id), stripslashes($obj->year), stripslashes($obj->make),
-                stripslashes($obj->model), stripslashes($obj->start_date), stripslashes($obj->end_date));
-
-            //set the id for the booking
-            $booking->setId($obj->booking_id);
-
-            //add the booking to the array
-            $bookings[] = $booking;
-        }
-        return $bookings;
-
     }
 
     /*
@@ -125,84 +134,110 @@ class BookingModel
 
     public function view_booking($id)
     {
+        try {
+            //select sql statement
+            $sql = "SELECT * FROM " . $this->tblBookings . "," . $this->tblUsers . "," .
+                $this->tblVehicles . " WHERE " . $this->tblBookings . ".user_id=" . $this->tblUsers .
+                ".user_id AND " . $this->tblBookings . ".vehicle_id=" . $this->tblVehicles . ".vehicle_id AND"
+                . $this->tblBookings . ".booking_id='$id'";
 
-        //select sql statement
-        $sql = "SELECT * FROM " . $this->tblBookings . "," . $this->tblUsers . "," .
-            $this->tblVehicles . " WHERE " . $this->tblBookings . ".user_id=" . $this->tblUsers .
-            ".user_id AND " . $this->tblBookings . ".vehicle_id=" . $this->tblVehicles . ".vehicle_id AND"
-            . $this->tblBookings . ".booking_id='$id'";
+            //execute the query
+            $query = $this->dbConnection->query($sql);
 
-        //execute the query
-        $query = $this->dbConnection->query($sql);
+            //execute the query and return true if successful or false if failed
+            if (!$query || $query->num_rows == 0) {
+                throw new DatabaseException("There was an error verifying the booking exists.");
+            }
 
-        if ($query && $query->num_rows > 0) {
-            $obj = $query->fetch_object();
+            if ($query && $query->num_rows > 0) {
+                $obj = $query->fetch_object();
 
-            //crete a new booking object
-            $booking = new Booking(stripslashes($obj->user_id), stripslashes($obj->last_name), stripslashes($obj->first_name),
-                stripslashes($obj->vehicle_id), stripslashes($obj->year), stripslashes($obj->make),
-                stripslashes($obj->model), stripslashes($obj->start_date), stripslashes($obj->end_date));
+                //crete a new booking object
+                $booking = new Booking(stripslashes($obj->user_id), stripslashes($obj->last_name), stripslashes($obj->first_name),
+                    stripslashes($obj->vehicle_id), stripslashes($obj->year), stripslashes($obj->make),
+                    stripslashes($obj->model), stripslashes($obj->start_date), stripslashes($obj->end_date));
 
-            //set the id for the booking
-            $booking->setId($obj->id);
+                //set the id for the booking
+                $booking->setId($obj->id);
 
-            return $booking;
+                return $booking;
+            }
+
+            return false;
+        } catch (DatabaseException $e) {
+            return $e->getMessage();
+        } catch (Exception $e) {
+            return $e->getMessage();
         }
-
-        return false;
-    }
+        }
 
     public function search_bookings($terms)
     {
-        $terms = explode(" ", $terms); //explode multiple terms into an array
+        try {
+            $terms = explode(" ", $terms); //explode multiple terms into an array
 
-        //select statement for AND search
-        $sql = "SELECT * FROM " . $this->tblBookings . "," . $this->tblUsers . "," .
-            $this->tblVehicles . " WHERE " . $this->tblBookings . ".user_id=" . $this->tblUsers .
-            ".user_id AND " . $this->tblBookings . ".vehicle_id=" . $this->tblVehicles . ".vehicle_id AND (1";
+            //Check for missing data.
+            if ($terms == "") {
+                throw new DataMissingException("Please enter a booking.");
+            }
 
-        foreach ($terms as $term) {
-            $sql .= " AND last_name LIKE '%"  . $term . "%' OR  first_name LIKE '%" . $term . "%' 
-            OR model LIKE '%" . $term . "%' OR make LIKE '%" . $term . "%' OR booking_id LIKE '%" . $term . "%'
-            OR year LIKE '%" . $term . "%'";
+            //select statement for AND search
+            $sql = "SELECT * FROM " . $this->tblBookings . "," . $this->tblUsers . "," .
+                $this->tblVehicles . " WHERE " . $this->tblBookings . ".user_id=" . $this->tblUsers .
+                ".user_id AND " . $this->tblBookings . ".vehicle_id=" . $this->tblVehicles . ".vehicle_id AND (1";
+
+            foreach ($terms as $term) {
+                $sql .= " AND last_name LIKE '%" . $term . "%' OR  first_name LIKE '%" . $term . "%' 
+                OR model LIKE '%" . $term . "%' OR make LIKE '%" . $term . "%' OR booking_id LIKE '%" . $term . "%'
+                OR year LIKE '%" . $term . "%'";
 
 
+            }
 
+            $sql .= ")";
+
+            //execute the query
+            $query = $this->dbConnection->query($sql);
+
+            //execute the query and return true if successful or false if failed
+            if (!$query || $query->num_rows == 0) {
+                throw new DatabaseException("There was an error verifying the booking exists.");
+            }
+
+            // the search failed, return false.
+            if (!$query) {
+                return false;
+            }
+
+            if ($query->num_rows == 0) {
+                return 0;
+            }
+
+            //search succeeded and at least one booking found
+            //create an array to store all returned bookings
+            $bookings = array();
+
+            //loop through all rows and crete recordsets
+            while ($obj = $query->fetch_object()) {
+                $booking = new Booking($obj->user_id, $obj->last_name, $obj->first_name,
+                    $obj->vehicle_id, $obj->year, $obj->make,
+                    $obj->model, $obj->start_date, $obj->end_date);
+
+                //set the id for the booking
+                $booking->setId($obj->booking_id);
+
+                //add the booking to the array
+                $bookings[] = $booking;
+            }
+
+            return $bookings;
+        } catch (DataMissingException $e) {
+            return $e->getMessage();
+        } catch (DatabaseException $e) {
+            return $e->getMessage();
+        } catch (Exception $e) {
+            return $e->getMessage();
         }
-
-        $sql .= ")";
-
-        //execute the query
-        $query = $this->dbConnection->query($sql);
-
-        // the search failed, return false.
-        if (!$query) {
-            return false;
-        }
-
-        if ($query->num_rows == 0) {
-            return 0;
-        }
-
-        //search succeeded and at least one booking found
-        //create an array to store all returned bookings
-        $bookings = array();
-
-        //loop through all rows and crete recordsets
-        while($obj = $query->fetch_object()){
-            $booking = new Booking($obj->user_id, $obj->last_name, $obj->first_name,
-                $obj->vehicle_id, $obj->year, $obj->make,
-                $obj->model, $obj->start_date, $obj->end_date);
-
-            //set the id for the booking
-            $booking->setId($obj->booking_id);
-
-            //add the booking to the array
-            $bookings[] = $booking;
-        }
-
-        return $bookings;
-
     }
 
     //the add booking method a new booking to the database. Details of the booking are posted in a form. Return true if succeed; false otherwise.

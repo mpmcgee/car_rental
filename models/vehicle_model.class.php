@@ -43,43 +43,55 @@ class VehicleModel {
          * FROM ...
          * WHERE ...
          */
+        try {
 
-        $sql = "SELECT * FROM . " . $this-> tblVehicles;
+            $sql = "SELECT * FROM . " . $this->tblVehicles;
 
-        //execute the query
-        $query = $this->dbConnection->query($sql);
+            //execute the query
+            $query = $this->dbConnection->query($sql);
 
-        //if the query failed, return false
-        if (!$query){
-            return false;
+            //execute the query and return true if successful or false if failed
+            if (!$query || $query->num_rows == 0) {
+                throw new DatabaseException("There was an error verifying the vehicle(s) exists.");
+            }
+
+            //if the query failed, return false
+            if (!$query) {
+                return false;
+            }
+
+            //if the query succeeded, but no vehicle was found
+            if ($query->num_rows == 0) {
+                return 0;
+            }
+
+            //handle the result
+            //crete an array to store all vehicles
+            $vehicles = array();
+
+            while ($obj = $query->fetch_object()) {
+
+                //create a new vehicle object
+                $vehicle = new Vehicle(stripslashes($obj->year), stripslashes($obj->make), stripslashes($obj->model),
+                    stripslashes($obj->engine_type), stripslashes($obj->transmission), stripslashes($obj->class),
+                    stripslashes($obj->doors), stripslashes($obj->line), stripslashes($obj->passengers), stripslashes($obj->suitcases),
+                    stripslashes($obj->combined_mpg), stripslashes($obj->sirius), stripslashes($obj->price_per_day));
+
+                //set the id for the vehicle
+                $vehicle->setId($obj->vehicle_id);
+
+                //add the vehicle to the array
+                $vehicles[] = $vehicle;
+            }
+            return $vehicles;
+
+        } catch (DatabaseException $e) {
+            return $e->getMessage();
+        } catch (Exception $e) {
+            return $e->getMessage();
         }
 
-        //if the query succeeded, but no vehicle was found
-        if($query->num_rows == 0){
-            return 0;
         }
-
-        //handle the result
-        //crete an array to store all vehicles
-        $vehicles = array();
-
-        while($obj = $query->fetch_object()){
-
-            //create a new vehicle object
-            $vehicle = new Vehicle(stripslashes($obj->year), stripslashes($obj->make), stripslashes($obj->model),
-                stripslashes($obj->engine_type), stripslashes($obj->transmission), stripslashes($obj->class),
-                stripslashes($obj->doors), stripslashes($obj->line), stripslashes($obj->passengers), stripslashes($obj->suitcases),
-                stripslashes($obj->combined_mpg), stripslashes($obj->sirius), stripslashes($obj->price_per_day));
-
-            //set the id for the vehicle
-            $vehicle->setId($obj->vehicle_id);
-
-            //add the vehicle to the array
-            $vehicles[] = $vehicle;
-        }
-        return $vehicles;
-
-    }
 
     /*
     * the view_vehicle method retrieves the details of the vehicle specified by its id
@@ -88,30 +100,40 @@ class VehicleModel {
 
     public function view_vehicle()
     {
+        try {
+            //select sql statement
+            $sql = "SELECT * FROM" . $this->tblVehicles;
 
-        //select sql statement
-        $sql = "SELECT * FROM" . $this->tblVehicles;
+            //execute the query
+            $query = $this->dbConnection->query($sql);
 
-        //execute the query
-        $query = $this->dbConnection->query($sql);
+            //execute the query and return true if successful or false if failed
+            if (!$query || $query->num_rows == 0) {
+                throw new DatabaseException("There was an error verifying the vehicle(s) exists.");
+            }
 
-        if ($query && $query->num_rows > 0) {
-            $obj = $query->fetch_object();
+            if ($query && $query->num_rows > 0) {
+                $obj = $query->fetch_object();
 
-            //create a new vehicle object
-            $vehicle = new Vehicle(stripslashes($obj->year), stripslashes($obj->make), stripslashes($obj->model),
-                stripslashes($obj->engine_type), stripslashes($obj->transmission), stripslashes($obj->class),
-                stripslashes($obj->doors), stripslashes($obj->line), stripslashes($obj->passengers), stripslashes($obj->suitcases),
-                stripslashes($obj->combined_mpg), stripslashes($obj->sirius), stripslashes($obj->price_per_day));
+                //create a new vehicle object
+                $vehicle = new Vehicle(stripslashes($obj->year), stripslashes($obj->make), stripslashes($obj->model),
+                    stripslashes($obj->engine_type), stripslashes($obj->transmission), stripslashes($obj->class),
+                    stripslashes($obj->doors), stripslashes($obj->line), stripslashes($obj->passengers), stripslashes($obj->suitcases),
+                    stripslashes($obj->combined_mpg), stripslashes($obj->sirius), stripslashes($obj->price_per_day));
 
-            //set the id for the vehicle
-            $vehicle->setId($obj->vehicle_id);
+                //set the id for the vehicle
+                $vehicle->setId($obj->vehicle_id);
 
-            return $vehicle;
+                return $vehicle;
+            }
+
+            return false;
+        } catch (DatabaseException $e) {
+            return $e->getMessage();
+        } catch (Exception $e) {
+            return $e->getMessage();
         }
-
-        return false;
-    }
+        }
 
     //the vehicle method updates an existing vehicle in the database. Details of the vehicle are posted in a form. Return true if succeed; false otherwise.
     public function update_vehicle($id) {
@@ -217,55 +239,72 @@ class VehicleModel {
 
     public function search_vehicles($terms)
     {
-        $terms = explode(" ", $terms); //explode multiple terms into an array
+        try {
+            $terms = explode(" ", $terms); //explode multiple terms into an array
 
-        //select statement for AND search
-        $sql = "SELECT * FROM " . $this->tblVehicles. " WHERE (1";
+            //Check for missing data.
+            if ($terms == "") {
+                throw new DataMissingException("Please enter a vehicle.");
+            }
 
-        foreach ($terms as $term) {
-            $sql .= " AND year LIKE '%" . $term . "%' OR  make LIKE '%" . $term . "%' 
-            OR model LIKE '%" . $term . "%' OR engine_type LIKE '%" . $term . "%' OR transmission LIKE '%" . $term . "%'
-            OR class LIKE '%" . $term . "%' OR doors LIKE '%" . $term . "%' OR line LIKE '%" . $term . "%'
-            OR passengers LIKE '%" . $term . "%' OR suitcases LIKE '%" . $term . "%' OR combined_mpg LIKE '%" . $term . "%'
-            OR sirius LIKE '%" . $term . "%' OR price_per_day LIKE '%" . $term . "%'";
+            //select statement for AND search
+            $sql = "SELECT * FROM " . $this->tblVehicles . " WHERE (1";
+
+            foreach ($terms as $term) {
+                $sql .= " AND year LIKE '%" . $term . "%' OR  make LIKE '%" . $term . "%' 
+                OR model LIKE '%" . $term . "%' OR engine_type LIKE '%" . $term . "%' OR transmission LIKE '%" . $term . "%'
+                OR class LIKE '%" . $term . "%' OR doors LIKE '%" . $term . "%' OR line LIKE '%" . $term . "%'
+                OR passengers LIKE '%" . $term . "%' OR suitcases LIKE '%" . $term . "%' OR combined_mpg LIKE '%" . $term . "%'
+                OR sirius LIKE '%" . $term . "%' OR price_per_day LIKE '%" . $term . "%'";
 
 
+            }
+
+            $sql .= ")";
+
+
+            //execute the query
+            $query = $this->dbConnection->query($sql);
+
+            //execute the query and return true if successful or false if failed
+            if (!$query || $query->num_rows == 0) {
+                throw new DatabaseException("There was an error verifying the vehicle exists.");
+            }
+
+            // the search failed, return false.
+            if (!$query) {
+                return false;
+            }
+
+            if ($query->num_rows == 0) {
+                return 0;
+            }
+
+            //handle the result
+            //crete an array to store all vehicles
+            $vehicles = array();
+
+            while ($obj = $query->fetch_object()) {
+                //create a new vehicle object
+                $vehicle = new Vehicle(stripslashes($obj->year), stripslashes($obj->make), stripslashes($obj->model),
+                    stripslashes($obj->engine_type), stripslashes($obj->transmission), stripslashes($obj->class),
+                    stripslashes($obj->doors), stripslashes($obj->line), stripslashes($obj->passengers), stripslashes($obj->suitcases),
+                    stripslashes($obj->combined_mpg), stripslashes($obj->sirius), stripslashes($obj->price_per_day));
+
+                //set the id for the vehicle
+                $vehicle->setId($obj->vehicle_id);
+
+                //add the vehicle to the array
+                $vehicles[] = $vehicle;
+            }
+            return $vehicles;
+        } catch (DataMissingException $e) {
+            return $e->getMessage();
+        } catch (DatabaseException $e) {
+            return $e->getMessage();
+        } catch (Exception $e) {
+            return $e->getMessage();
         }
-
-        $sql .= ")";
-
-
-
-        //execute the query
-        $query = $this->dbConnection->query($sql);
-
-        // the search failed, return false.
-        if (!$query) {
-            return false;
-        }
-
-        if ($query->num_rows == 0) {
-            return 0;
-        }
-
-        //handle the result
-        //crete an array to store all vehicles
-        $vehicles = array();
-
-        while ($obj = $query->fetch_object()) {
-            //create a new vehicle object
-            $vehicle = new Vehicle(stripslashes($obj->year), stripslashes($obj->make), stripslashes($obj->model),
-                stripslashes($obj->engine_type), stripslashes($obj->transmission), stripslashes($obj->class),
-                stripslashes($obj->doors), stripslashes($obj->line), stripslashes($obj->passengers), stripslashes($obj->suitcases),
-                stripslashes($obj->combined_mpg), stripslashes($obj->sirius), stripslashes($obj->price_per_day));
-
-            //set the id for the vehicle
-            $vehicle->setId($obj->vehicle_id);
-
-            //add the vehicle to the array
-            $vehicles[] = $vehicle;
-        }
-        return $vehicles;
     }
 
 
