@@ -10,6 +10,7 @@ class IndexView {
 
     //this method displays the page header
     static public function displayHeader($page_title){
+
         ?>
         <!DOCTYPE html>
         <html>
@@ -31,11 +32,37 @@ class IndexView {
 
 
             <ul class="navbar">
-                <li><a href="<?= BASE_URL ?>/booking/index">View Bookings</a></li>
-                <li><a href="<?= BASE_URL ?>/vehicle/index">View Vehicles</a></li>
-                <li><a href="<?= BASE_URL ?>/booking/add">Create Booking</a></li>
-                <div id="logo"><li><a href="<?= BASE_URL ?>/index.php">X Car Rental</a> </li></div>
-                <li style="float:right"><a class="active" href="<?= BASE_URL ?>/user/login">Login</a></li>
+                <?php
+
+                if (session_status() == PHP_SESSION_NONE){
+                    session_start();
+
+                }
+                if (isset($_SESSION['role'])) {
+                    $role = $_SESSION['role'];
+
+                    if($role == 1){
+                        ?>
+                        <li><a href="<?= BASE_URL ?>/booking/index">View Bookings</a></li>
+                        <li><a href="<?= BASE_URL ?>/vehicle/index">View Vehicles</a></li>
+                        <li><a href="<?= BASE_URL ?>/booking/add">Create Booking</a></li>
+                        <div id="logo"><li><a href="<?= BASE_URL ?>/index.php">X Car Rental</a> </li></div>
+                        <li style="float:right"><a class="active" href="<?= BASE_URL ?>/user/logout">Logout</a></li>
+                        <?php
+                    } else if (role ==2){
+                        ?>
+                        <li><a href="<?= BASE_URL ?>/booking/add">Create Booking</a></li>
+                        <div id="logo"><li><a href="<?= BASE_URL ?>/index.php">X Car Rental</a> </li></div>
+                        <li style="float:right"><a class="active" href="<?= BASE_URL ?>/user/logout">Logout</a></li>
+                    <?php
+                    }
+                } else{
+                    ?>
+                    <li><a href="<?= BASE_URL ?>/user/login">Create Booking</a></li>
+                    <div id="logo"><li><a href="<?= BASE_URL ?>/index.php">X Car Rental</a> </li></div>
+                    <li style="float:right"><a class="active" href="<?= BASE_URL ?>/user/login">Login</a></li>
+
+                <?php } ?>
             </ul>
 
 
