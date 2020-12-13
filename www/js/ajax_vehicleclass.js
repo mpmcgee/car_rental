@@ -19,7 +19,7 @@ function handleOnChange() {
     // create an XHR object
     var xhr = new XMLHttpRequest();
 
-    //open an asynchornous AJAX request
+    //open an asynchronous AJAX request
     xhr.open("GET", base_url + "/booking/getVline/" + vLine, true);
 
     xhr.onload = function () {
