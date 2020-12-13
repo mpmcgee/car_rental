@@ -46,16 +46,19 @@ class UserModel
                 " VALUES (NULL, '$first_name', '$last_name', '$username', '$password_hash', '$role', '$email')";
             $sql2 = "SELECT * FROM " . $this->tblUsers . " WHERE  username = '$username'";
 
-            //execute the query
-            $query = $this->dbConnection->query($sql);
 
-            //execute the query and return true if successful or false if failed
-            if (!$query) {
-                throw new DatabaseException("There was an error adding user to the database.");
-            } else if ($this->dbConnection->query($sql2) > 0){
+
+            //check to see if username has already been taken
+            if ($this->dbConnection->query($sql2)->num_rows > 0){
                 throw new DatabaseException("Username already taken.");
             }
-            
+
+            //execute the query and return true if successful or false if failed
+            $query = $this->dbConnection->query($sql);
+            if (!$query) {
+                throw new DatabaseException("There was an error adding user to the database.");
+            }
+
             } catch (DataMissingException $e) {
             return $e->getMessage();
         } catch (DataLengthException $e) {

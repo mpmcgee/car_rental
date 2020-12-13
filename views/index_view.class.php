@@ -49,7 +49,7 @@ class IndexView {
                         <div id="logo"><li><a href="<?= BASE_URL ?>/index.php">X Car Rental</a> </li></div>
                         <li style="float:right"><a class="active" href="<?= BASE_URL ?>/user/logout">Logout</a></li>
                         <?php
-                    } else if (role ==2){
+                    } else if ($role ==2){
                         ?>
                         <li><a href="<?= BASE_URL ?>/booking/add">Create Booking</a></li>
                         <div id="logo"><li><a href="<?= BASE_URL ?>/index.php">X Car Rental</a> </li></div>

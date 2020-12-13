@@ -20,22 +20,43 @@ class BookingController
     }
 
     //index that displays all bookings
-    public function index(){
+    public function index()
+    {
 
-        //retrieve all bookings and store them in an array
-        $bookings = $this->booking_model->list_booking();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
 
-        if (!$bookings){
-            //display error
-            $message = "There was a problem displaying bookings.";
-            $this->error($message);
-            return;
         }
+        if (isset($_SESSION['role'])) {
+            $role = $_SESSION['role'];
 
-        //display all bookings
-        $view = new BookingIndex();
-        $view->display($bookings);
+            if ($role == 1) {
+
+
+                //retrieve all bookings and store them in an array
+                $bookings = $this->booking_model->list_booking();
+
+                if (!$bookings) {
+                    //display error
+                    $message = "There was a problem displaying bookings.";
+                    $this->error($message);
+                    return;
+                }
+
+                //display all bookings
+                $view = new BookingIndex();
+                $view->display($bookings);
+
+
+            } else{
+                echo("access denied");
+            }
+        } else {
+            $view = new Login();
+            $view->display();
+        }
     }
+
 
     //show details of a booking
     public function detail($id) {
@@ -66,47 +87,101 @@ class BookingController
     }
 
     // search bookings
-    public function search(){
-        $query_terms = trim($_GET['query_terms']);
+    public function search()
+    {
 
-        //if search term is empty, list all bookings
-        if ($query_terms == "") {
-            $this->index();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+
         }
+        if (isset($_SESSION['role'])) {
+            $role = $_SESSION['role'];
 
-        //search the database for matching bookings
-        $bookings = $this->booking_model->search_bookings($query_terms);
+            if ($role == 1) {
 
-        if($bookings === false){
-            //handle error
-            $message = "An error has occurred.";
-            $this->error($message);
-            return;
+                $query_terms = trim($_GET['query_terms']);
+
+                //if search term is empty, list all bookings
+                if ($query_terms == "") {
+                    $this->index();
+                }
+
+                //search the database for matching bookings
+                $bookings = $this->booking_model->search_bookings($query_terms);
+
+                if ($bookings === false) {
+                    //handle error
+                    $message = "An error has occurred.";
+                    $this->error($message);
+                    return;
+                }
+                //display matching bookings
+                $search = new BookingSearch();
+                $search->display($query_terms, $bookings);
+            }else{
+                echo("access denied");
+            }
+        }  else {
+            $view = new Login();
+            $view->display();
         }
-        //display matching bookings
-        $search = new BookingSearch();
-        $search->display($query_terms, $bookings);
-
     }
 
     //Add booking - display add booking form
-    public function add() {
-        $view = new BookingAdd();
-        $view->display();
+    public function add()
+    {
 
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        if (isset($_SESSION['role'])) {
+            $role = $_SESSION['role'];
+
+            if ($role == 1 || $role == 2) {
+
+
+                $view = new BookingAdd();
+                $view->display();
+            }else{
+                echo("access denied");
+            }
+        } else {
+            $view = new Login();
+            $view->display();
+        }
     }
+
+
+
 
     public function add_Booking(){
 
-        $message = $this->booking_model->add_booking();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
 
-        if(strpos($message, "success") !== FALSE) {
-            $view = new Register();
-        } else {
-            $view = new BookingError();
         }
-        $view->display($message);
+        if (isset($_SESSION['role'])) {
+            $role = $_SESSION['role'];
 
+            if ($role == 1 || $role == 2) {
+
+                $message = $this->booking_model->add_booking();
+
+                if (strpos($message, "success") !== FALSE) {
+                    $view = new Register();
+                } else {
+                    $view = new BookingError();
+                }
+                $view->display($message);
+
+            }else{
+                echo("access denied");
+            }
+        } else {
+            $view = new Login();
+            $view->display();
+        }
 
     }
 
@@ -114,22 +189,39 @@ class BookingController
 
 
     //update a booking in the database
-    public function update($id) {
-        //update the booking
-        $update = $this->booking_model->update_booking($id);
-        if (!$update) {
-            //handle errors
-            $message = "There was a problem updating the booking id='" . $id . "'.";
-            $this->error($message);
-            return;
+    public function update($id)
+    {
+
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+
         }
+        if (isset($_SESSION['role'])) {
+            $role = $_SESSION['role'];
 
-        //display the updated booking details
-        $confirm = "The booking was successfully updated.";
-        $booking = $this->booking_model->view_booking($id);
+            if ($role == 1) {
+                //update the booking
+                $update = $this->booking_model->update_booking($id);
+                if (!$update) {
+                    //handle errors
+                    $message = "There was a problem updating the booking id='" . $id . "'.";
+                    $this->error($message);
+                    return;
+                }
 
-        $view = new BookingDetail();
-        $view->display($booking, $confirm);
+                //display the updated booking details
+                $confirm = "The booking was successfully updated.";
+                $booking = $this->booking_model->view_booking($id);
+
+                $view = new BookingDetail();
+                $view->display($booking, $confirm);
+            }else{
+                echo("access denied");
+            }
+        } else {
+            $view = new Login();
+            $view->display();
+        }
     }
 
 //show avaialble cars based on class selection.
@@ -161,8 +253,7 @@ class BookingController
     }
 
     //handle calling inaccessible methods
-    public function __call($name, $arguments)
-    {
+    public function __call($name, $arguments) {
         //$message = "Route does not exist.";
         //Note: value of $name is case sensitive
         $message = "Calling method '$name' caused errors. Route does not exist.";
