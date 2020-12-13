@@ -44,6 +44,7 @@ class UserModel
             //SQL insert statement.
             $sql = "INSERT INTO " . $this->tblUsers .
                 " VALUES (NULL, '$first_name', '$last_name', '$username', '$password_hash', '$role', '$email')";
+            $sql2 = "SELECT * FROM " . $this->tblUsers . " WHERE  username = '$username'";
 
             //execute the query
             $query = $this->dbConnection->query($sql);
@@ -51,6 +52,8 @@ class UserModel
             //execute the query and return true if successful or false if failed
             if (!$query) {
                 throw new DatabaseException("There was an error adding user to the database.");
+            } else if ($this->dbConnection->query($sql2) > 0){
+                throw new DatabaseException("Username already taken.");
             }
             
             } catch (DataMissingException $e) {
@@ -70,6 +73,7 @@ class UserModel
     
     public function verify_user()
     {
+        $login_status = "";
         try {
             //get credentials
             $username = trim(filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING));
@@ -81,7 +85,7 @@ class UserModel
             }
 
             //sql select statement
-            $sql = "Select password, user_id From " . $this->tblUsers . " WHERE username = '$username'";
+            $sql = "Select password, role From " . $this->tblUsers . " WHERE username = '$username'";
 
             //execute the query
             $query = $this->dbConnection->query($sql);
@@ -96,7 +100,11 @@ class UserModel
                 $query_row = $query->fetch_assoc();
                 if (password_verify($password, $query_row['password'])) {
                     setcookie("login", $username);
-                    setcookie("user_id", $query_row['user_id']);//save user id in a session.
+                    $role = $query_row['role'];
+                    session_start();
+
+                    $_SESSION['role'] = $role;
+
                     //If no errors, verify password and return success message.
                     return "You have successfully logged in.";
                 } else {
@@ -118,8 +126,9 @@ class UserModel
         //if 'login' cookie is set, destroy it
         if (isset($_COOKIE['login'])) {
             unset($_COOKIE['login']);
-            unset($_COOKIE['user_id']);
             setcookie('login', null, -1, '/');
+            session_start();
+            session_destroy();
         }
         //if 'login' cookie is not set, return true
         if (isset($_COOKIE['login'])){
@@ -134,6 +143,7 @@ class UserModel
         try {
             //retrieve credentials and table
             $username = $_POST['username'];
+            $new_password = $_POST['password'];
             $password_hash = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
             //Check for missing data.
@@ -146,16 +156,38 @@ class UserModel
                 throw new DataLengthException("Password must contain at least 5 characters.");
             }
 
+
+
             //sql update statement
             $sql = "UPDATE " . $this->tblUsers . " SET password='$password_hash' WHERE username='$username'";
 
+            //sql statement to check to see if password is new
+            $sql2 = "SELECT password FROM " . $this->tblUsers . " WHERE username='$username'";
+
+
+            //execute the query
+            $query2 = $this->dbConnection->query($sql2);
+
+
+            // check to see if password has been used before
+            if ($query2 && $query2->num_rows > 0) {
+                $result_row = $query2->fetch_assoc();
+                $hash = $result_row['password'];
+                if (password_verify($new_password, $hash)) {
+                    throw new DatabaseException("Password previously used.");
+                }
+            }
+
             //execute the query
             $query = $this->dbConnection->query($sql);
-            
+
+
+
             //execute the query and return true if successful or false if failed
             if (!$query) {
                 throw new DatabaseException("There was an error updating the password.");
             }
+
 
         } catch (DataMissingException $e) {
             return $e->getMessage();
