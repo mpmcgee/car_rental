@@ -76,7 +76,7 @@ class UserModel
     
     public function verify_user()
     {
-        $login_status = "";
+
         try {
             //get credentials
             $username = trim(filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING));
@@ -88,7 +88,7 @@ class UserModel
             }
 
             //sql select statement
-            $sql = "Select password, role From " . $this->tblUsers . " WHERE username = '$username'";
+            $sql = "Select password, role, user_id From " . $this->tblUsers . " WHERE username = '$username'";
 
             //execute the query
             $query = $this->dbConnection->query($sql);
@@ -104,9 +104,11 @@ class UserModel
                 if (password_verify($password, $query_row['password'])) {
                     setcookie("login", $username);
                     $role = $query_row['role'];
+                    $user_id = $query_row['user_id'];;
                     session_start();
 
                     $_SESSION['role'] = $role;
+                    $_SESSION['user_id'] = $user_id;
 
                     //If no errors, verify password and return success message.
                     return "You have successfully logged in.";

@@ -6,6 +6,6 @@ Name: data_length_exception.class.php
 Description: Exception for incorrect data length.
 */
 
-class DataLengthException extends Exception {
+class UserErrorException extends Exception {
     //Use default exception message.
 }

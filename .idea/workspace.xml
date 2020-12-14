@@ -19,14 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e28ebf4-0eaa-483e-af0b-973de67c25cb" name="Default Changelist" comment="displays content based on login status">
+    <list default="true" id="2e28ebf4-0eaa-483e-af0b-973de67c25cb" name="Default Changelist" comment="Restricted access according to admin role">
+      <change afterPath="$PROJECT_DIR$/exceptions/user_login_exception.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/booking_controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/booking_controller.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/vehicle_controller.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/vehicle_controller.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceptions/data_length_exception.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/exceptions/data_length_exception.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/booking_model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/booking_model.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/user_model.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/user_model.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index_view.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/index_view.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vline.php" beforeDir="false" afterPath="$PROJECT_DIR$/vline.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +129,8 @@
       <workItem from="1607443392848" duration="2142000" />
       <workItem from="1607805282119" duration="3667000" />
       <workItem from="1607828435628" duration="487000" />
-      <workItem from="1607865522888" duration="10284000" />
+      <workItem from="1607865522888" duration="11583000" />
+      <workItem from="1607952244793" duration="14617000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1603552583926</created>
@@ -388,7 +391,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607872612930</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Restricted access according to admin role">
+      <created>1607876384215</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1607876384215</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,7 +417,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Reformatted for MVC" />
     <MESSAGE value="Updated user_model, user_controller, and user_error classes" />
     <MESSAGE value="initial commit" />
     <MESSAGE value="Created MVC to list bookings." />
@@ -432,7 +441,8 @@
     <MESSAGE value="requires a unique username for each registration,does not allow previous password for password reset, sets session role upon login" />
     <MESSAGE value="fixed typeo in notes" />
     <MESSAGE value="displays content based on login status" />
-    <option name="LAST_COMMIT_MESSAGE" value="displays content based on login status" />
+    <MESSAGE value="Restricted access according to admin role" />
+    <option name="LAST_COMMIT_MESSAGE" value="Restricted access according to admin role" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1380" y="-125" key="#CLI_Interpreters" timestamp="1604053670306">
@@ -469,10 +479,10 @@
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
     <state x="-1322" y="-19" key="MultipleFileMergeDialog/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1605583018006" />
-    <state x="-1163" y="-57" key="NewPhpClassDialog" timestamp="1607288785128">
+    <state x="-1163" y="-57" key="NewPhpClassDialog" timestamp="1607952661031">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
-    <state x="-1163" y="-57" key="NewPhpClassDialog/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607288785128" />
+    <state x="-1163" y="-57" key="NewPhpClassDialog/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607952661031" />
     <state x="331" y="141" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1604243229454" />
     <state x="-1126" y="143" key="NewPhpFileDialog" timestamp="1607364970866">
       <screen x="-1920" y="-300" width="1920" height="1040" />
@@ -484,10 +494,10 @@
     </state>
     <state x="-1459" y="-135" key="SettingsEditor/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1604054158309" />
     <state x="328" y="18" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1604242688878" />
-    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2" timestamp="1607872614691">
+    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2" timestamp="1607876387869">
       <screen x="-1920" y="-300" width="1920" height="1040" />
     </state>
-    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607872614691" />
+    <state x="-1368" y="-47" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607876387869" />
     <state x="393" y="168" key="Vcs.Push.Dialog.v2/0.0.1366.728/-1920.-300.1920.1040@0.0.1366.728" timestamp="1605023369129" />
     <state x="393" y="168" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1605492122564" />
     <state x="553" y="304" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607828521490">
@@ -495,10 +505,10 @@
     </state>
     <state x="-1143" y="134" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607805364978" />
     <state x="553" y="304" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1607828521490" />
-    <state x="0" y="0" width="1382" height="815" key="dock-window-1" timestamp="1607353165607">
+    <state x="0" y="0" width="1382" height="815" key="dock-window-1" timestamp="1607960054448">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="0" y="0" width="1382" height="815" key="dock-window-1/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607353165607" />
+    <state x="0" y="0" width="1382" height="815" key="dock-window-1/0.0.1366.728/-1920.-300.1920.1040@-1920.-300.1920.1040" timestamp="1607960054448" />
     <state x="0" y="0" width="1382" height="815" key="dock-window-2" timestamp="1607357440883">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -246,80 +246,83 @@ class BookingModel
 
 
         //retrieve data for the new movie; data are sanitized and escaped for security.
-        $first_name = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING)));
-        $last_name = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_STRING)));
-        $vehicle_id = (int)$this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'pick_car', FILTER_SANITIZE_NUMBER_INT)));  
+        $vehicle_id = (int)$this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'pick_car', FILTER_SANITIZE_NUMBER_INT)));
         $start_date = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'start-date', FILTER_SANITIZE_STRING)));
         $end_date = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'end-date', FILTER_SANITIZE_STRING)));
 
         try {
-            
-          if (isset($_COOKIE['login'])) {
-                $user_id = $_COOKIE['user_id'];
+
+                if (session_status() == PHP_SESSION_NONE) {
+                    session_start();
+
+                }
+                if (isset($_SESSION['user_id'])) {
+                    $user_id = $_SESSION['user_id'];
+
+
+
+                    //query string for update
+                    $sql = "INSERT INTO " . $this->tblBookings .
+                        " VALUES (NULL, '$vehicle_id', '$user_id', '$start_date', '$end_date')";
+
+                    //execute the query and return true if successful or false if failed
+                    $query = $this->dbConnection->query($sql);
+
+
+                    if (!$query) {
+                        throw new DatabaseException("There was an error adding your booking.");
+                    } else{
+                        return "Your booking was successfully created.";
+                    }
+
+
+                    }
+                    }catch (DatabaseException $e) {
+                        return $e->getMessage();
+                    }
+
+
+
+            }
+
+
+                //the add booking method a new booking to the database. Details of the booking are posted in a form. Return true if succeed; false otherwise.
+                public function update_booking($id)
+        {
+            //if the script did not received post data, display an error message and then terminate the script immediately
+            if (!filter_has_var(INPUT_POST, 'first-name') ||
+                !filter_has_var(INPUT_POST, 'last-name') ||
+                !filter_has_var(INPUT_POST, 'Vehicle-id') ||
+                !filter_has_var(INPUT_POST, 'start-date') ||
+                !filter_has_var(INPUT_POST, 'end-date')) {
+
+                return false;
+            }
+
+            //retrieve data for the new movie; data are sanitized and escaped for security.
+            $first_name = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'first-name', FILTER_SANITIZE_STRING)));
+            $last_name = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'last-name', FILTER_SANITIZE_STRING)));
+            $vehicle_id = $this->dbConnection->real_escape_string(filter_input(INPUT_POST, 'vehicle-id', FILTER_DEFAULT));
+            $start_date = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'start-date', FILTER_SANITIZE_STRING)));
+            $end_date = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'end-date', FILTER_SANITIZE_STRING)));
+
+
+            //query string for update
+            $sql = "UPDATE " . $this->tblBookings .
+                " SET first_name='$first_name', last_name='$last_name', vehicle_id='$vehicle_id', start_date='$start_date', "
+                . "end_date='$end_date' WHERE id='$id'";
+
+            //execute the query
+            $query = $this->dbConnection->query($sql);
+
+            if (is_null($query)) {
+                return false;
+
+                //set cookie with username and return true
             } else {
-                throw new UserLoginException("Please log in to create a booking.");
+
+                return true;
             }
-            
-           //query string for update
-            $sql = "INSERT INTO " . $this->tblBookings .
-                " VALUES (NULL, '$vehicle_id', '$user_id', '$start_date', '$end_date'";
-//            $sql2 = "SELECT * FROM " . $this->tblBookings . " WHERE " . $start_date . "BETWEEN start_date AND end_date AND"
-//                . $end_date . " BETWEEN start_date AND end_date";
-
-            //execute the query and return true if successful or false if failed
-            if ($this->dbConnection->query($sql)) {
-                return "Booking successfully created.";
-            } //else if ($this->dbConnection->query($sql2) === FALSE) {
-            else {
-                throw new DatabaseException();
-            }
-            
-        } catch (UserLoginException $e) {
-            return $e->getMessage();
-        } catch (DatabaseException $e) {
-            return $e->getMessage();
-        } catch (Exception $e) {
-            return "Vehicle not available for these dates";
-        }
-    }
-
-            //the add booking method a new booking to the database. Details of the booking are posted in a form. Return true if succeed; false otherwise.
-            public function update_booking($id)
-    {
-        //if the script did not received post data, display an error message and then terminate the script immediately
-        if (!filter_has_var(INPUT_POST, 'first-name') ||
-            !filter_has_var(INPUT_POST, 'last-name') ||
-            !filter_has_var(INPUT_POST, 'Vehicle-id') ||
-            !filter_has_var(INPUT_POST, 'start-date') ||
-            !filter_has_var(INPUT_POST, 'end-date')) {
-
-            return false;
-        }
-
-        //retrieve data for the new movie; data are sanitized and escaped for security.
-        $first_name = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'first-name', FILTER_SANITIZE_STRING)));
-        $last_name = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'last-name', FILTER_SANITIZE_STRING)));
-        $vehicle_id = $this->dbConnection->real_escape_string(filter_input(INPUT_POST, 'vehicle-id', FILTER_DEFAULT));
-        $start_date = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'start-date', FILTER_SANITIZE_STRING)));
-        $end_date = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'end-date', FILTER_SANITIZE_STRING)));
-
-
-        //query string for update
-        $sql = "UPDATE " . $this->tblBookings .
-            " SET first_name='$first_name', last_name='$last_name', vehicle_id='$vehicle_id', start_date='$start_date', "
-            . "end_date='$end_date' WHERE id='$id'";
-
-        //execute the query
-        $query = $this->dbConnection->query($sql);
-
-        if (is_null($query)) {
-            return false;
-
-            //set cookie with username and return true
-        } else {
-
-            return true;
-        }
     }
 
 

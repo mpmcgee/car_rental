@@ -23,7 +23,6 @@ class ComposerStaticInitfe4c4fae442cdb8392988156c0594d3d
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'ContactIndex' => __DIR__ . '/../..' . '/views/contact/index/contact_index.class.php',
         'ContactIndexView' => __DIR__ . '/../..' . '/views/contact/contact_index_view.class.php',
-        'DataLengthException' => __DIR__ . '/../..' . '/exceptions/data_length_exception.class.php',
         'DataMissingException' => __DIR__ . '/../..' . '/exceptions/data_missing_exception.class.php',
         'Database' => __DIR__ . '/../..' . '/application/database.class.php',
         'DatabaseException' => __DIR__ . '/../..' . '/exceptions/database_exception.class.php',
@@ -37,8 +36,10 @@ class ComposerStaticInitfe4c4fae442cdb8392988156c0594d3d
         'User' => __DIR__ . '/../..' . '/models/user.class.php',
         'UserController' => __DIR__ . '/../..' . '/controllers/user_controller.class.php',
         'UserError' => __DIR__ . '/../..' . '/views/user/error/user_error.class.php',
+        'UserErrorException' => __DIR__ . '/../..' . '/exceptions/data_length_exception.class.php',
         'UserIndex' => __DIR__ . '/../..' . '/views/user/index/user_index.class.php',
         'UserIndexView' => __DIR__ . '/../..' . '/views/user/user_index_view.class.php',
+        'UserLoginException' => __DIR__ . '/../..' . '/user_login_exception.class.php',
         'UserModel' => __DIR__ . '/../..' . '/models/user_model.class.php',
         'UserRegister' => __DIR__ . '/../..' . '/views/user/index/user_register.class.php',
         'Vehicle' => __DIR__ . '/../..' . '/models/vehicle.class.php',
@@ -52,6 +53,7 @@ class ComposerStaticInitfe4c4fae442cdb8392988156c0594d3d
         'VerifyUser' => __DIR__ . '/../..' . '/views/user/login/verify_user.class.php',
         'WelcomeController' => __DIR__ . '/../..' . '/controllers/welcome.controller.class.php',
         'WelcomeIndex' => __DIR__ . '/../..' . '/views/welcome/welcome_index.class.php',
+        'user_login_exception' => __DIR__ . '/../..' . '/exceptions/user_login_exception.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
