@@ -273,17 +273,24 @@ class VehicleModel {
                 throw new DataMissingException("Please enter a vehicle.");
             }
 
-            //select statement for AND search
-            $sql = "SELECT * FROM " . $this->tblVehicles . " WHERE (1";
+            if (in_array("VLINE", $terms)) {
+                //select statement for AND search
+                $sql = "SELECT * FROM " . $this->tblVehicles . " WHERE (";
 
-            foreach ($terms as $term) {
-                $sql .= " AND year LIKE '%" . $term . "%' OR  make LIKE '%" . $term . "%' 
+                $sql .= "class = '" . $terms[0] . "' AND line = '" . $terms[1] . "'";
+            } else {
+
+                //select statement for AND search
+                $sql = "SELECT * FROM " . $this->tblVehicles . " WHERE (1";
+                
+                foreach ($terms as $term) {
+                    $sql .= " AND year LIKE '%" . $term . "%' OR  make LIKE '%" . $term . "%' 
                 OR model LIKE '%" . $term . "%' OR engine_type LIKE '%" . $term . "%' OR transmission LIKE '%" . $term . "%'
                 OR class LIKE '%" . $term . "%' OR doors LIKE '%" . $term . "%' OR line LIKE '%" . $term . "%'
                 OR passengers LIKE '%" . $term . "%' OR suitcases LIKE '%" . $term . "%' OR combined_mpg LIKE '%" . $term . "%'
                 OR sirius LIKE '%" . $term . "%' OR price_per_day LIKE '%" . $term . "%'";
-
-
+                    
+                    }
             }
 
             $sql .= ")";
@@ -319,7 +326,7 @@ class VehicleModel {
 
                 //set the id for the vehicle
                 $vehicle->setId($obj->vehicle_id);
-
+                
                 //add the vehicle to the array
                 $vehicles[] = $vehicle;
             }
@@ -332,10 +339,6 @@ class VehicleModel {
             return $e->getMessage();
         }
     }
-
-
-
-
-
-
 }
+            
+                
