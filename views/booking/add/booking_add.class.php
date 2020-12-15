@@ -42,32 +42,32 @@ class BookingAdd extends IndexView {
                 </p>
 
                 <p>
-                    <label for="class">Vehicle Class:</label>
+                  <label for="class">Vehicle Class:</label>
                     <Select id="class" value="" name="vehicleid" required="required" placeholder="Vehicle Id"/>
                     <option value="" selected></option>
-                    <optgroup id = "1" label="Car">
-                        <option id="1" value="compact">Compact</option>
-                        <option id="1" value="midsize">Midsize</option>
-                        <option id="1" value="fullsize">Full-size</option
-                        <option id="1" value="luxury">Luxury</option>
-                        <option id="1" value="sports">Sports</option>
-                        <option id="1" value="exotic">Exotic</option>
-                    </optgroup>
+                    <optgroup id = "1" label="Car"
+                        <option id="1" value="car compact">Compact</option>
+                        <option id="1" value="car midsize">Midsize</option>
+                        <option id="1" value="car fullsize">Full-size</option
+                        <option id="1" value="car luxury">Luxury</option>
+                        <option id="1" value="car sports">Sports</option>
+                        <option id="1" value="car exotic">Exotic</option>
+                    </optgroup> 
 
                     <optgroup id="2" label="SUV">
-                        <option value="compact">Compact</option>
-                        <option value="intermediate">Midsize</option>
-                        <option value="fullsize">Full-Size</option
+                        <option value="suv compact">Compact</option>
+                        <option value="suv intermediate">Midsize</option>
+                        <option value="suv fullsize">Full-Size</option
                     </optgroup>
 
                     <optgroup id="3" label="Van">
-                    <option value="minivan">Minivan</option>
-                    <option value="pasengervan">Passenger Van</option>
+                        <option value="van minivan">Minivan</option>
+                        <option value="van pasengervan">Passenger Van</option>
                     </optgroup>
 
                     <optgroup id="4" label="Truck">
-                        <option value="smallpickup">Small Pickup</option>
-                        <option value="fullpickup">Full-Size Pickup</option>
+                        <option value="truck smallpickup">Small Pickup</option>
+                        <option value="truck fullpickup">Full-Size Pickup</option>
                     </optgroup>
                 </select>
                 </p>
