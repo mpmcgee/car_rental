@@ -261,7 +261,11 @@ class BookingModel
             }
             if (isset($_SESSION['user_id'])) {
                 $user_id = $_SESSION['user_id'];
-
+                
+                //Check for missing data.
+                    if ($vehicle_id == "" || $start_date == "" || $end_date == "") {
+                        throw new DataMissingException("Please complete all fields.");
+                    }
 
                 //query string for update
                 $sql = "INSERT INTO " . $this->tblBookings .
@@ -279,9 +283,9 @@ class BookingModel
 
 
             }
-        } catch (DatabaseException $e) {
+        } catch (DataMissingException $e) {
             return $e->getMessage();
-        } catch (Exception $e) {
+        } catch (DatabaseException $e) {
             return $e->getMessage();
         }
     }
