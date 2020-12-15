@@ -227,8 +227,13 @@ class BookingController
 //show avaialble cars based on class selection.
     public function getVline($line) {
         $query_line = urldecode(trim($line));
+        $terms = explode("-", $query_line);
+        $query_line = $terms[0] . " ". $terms[1] . " VLINE";
         $vehicles_with_line = $this->vehicle_model->search_vehicles($query_line);
 
+        if (is_string($vehicles_with_line)) {
+            return false;
+        }
         if ($vehicles_with_line) {
             foreach ($vehicles_with_line as $v) {
                 $vehicles[] = array(
