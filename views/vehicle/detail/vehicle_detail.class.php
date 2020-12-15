@@ -22,9 +22,9 @@ $image = $vehicle->getImage();
 $price = $vehicle->getPrice();
 
 
-if (strpos($image, "http://") === false AND strpos($image, "https://") === false) {
-    $image = BASE_URL . '/' . VEHICLE_IMG . $image;
-}
+//if (strpos($image, "http://") === false AND strpos($image, "https://") === false) {
+//    $image = BASE_URL . '/' . VEHICLE_IMG . $image;
+//}
 ?>
 
     <div id="main-header">Vehicle Details</div>
@@ -43,7 +43,7 @@ if (strpos($image, "http://") === false AND strpos($image, "https://") === false
                 <p><strong>Price:</strong></p>
                 <div id="button-group">
                     <input type="button" id="edit-button" value="   Edit   "
-                           onclick="window.location.href = '<?= BASE_URL ?>/movie/edit/<?= $id ?>'">&nbsp;
+                           onclick="window.location.href = '<?= BASE_URL ?>/vehicle/edit/<?= $id ?>'">&nbsp;
                 </div>
             </td>
             <td>

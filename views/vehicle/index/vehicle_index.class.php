@@ -11,7 +11,6 @@ class VehicleIndex extends VehicleIndexView {
         Parent::displayHeader("List all vehicle");
 
 
-
         if ($vehicles === 0) {
         echo "No vehicle were found.<br><br><br><br><br>";
         } else {
@@ -34,9 +33,11 @@ class VehicleIndex extends VehicleIndexView {
             <th>Combined MPG</th>
             <th>Sirius Capability</th>
             <th>Price Per Day</th>
+            <th>View Details</th>
         </tr>
         <?php
         foreach ($vehicles as $vehicle) {
+            $id = $vehicle->getId();
             echo "<tr>";
             echo "<td>" . $vehicle->getYear() . "</td>";
             echo "<td>" . $vehicle->getMake() . "</td>";
@@ -51,6 +52,8 @@ class VehicleIndex extends VehicleIndexView {
             echo "<td>" . $vehicle->getMPG() . "</td>";
             echo "<td>" . $vehicle->getSirius() . "</td>";
             echo "<td>" . $vehicle->getPrice() . "</td>";
+
+            echo "<td><a href='" , BASE_URL, "/vehicle/detail/$id'></td>";
             echo "</tr>";
         }
 
