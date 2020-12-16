@@ -23,17 +23,8 @@ class WelcomeIndex extends IndexView{
 
         <br>
 
-        <p class="sub-text">Find the vehicle that is right for you</p>
-        <hr>
 
-        <!--create the search bar -->
-        <div class="search">
-            <form method="get" action="<?= BASE_URL ?>/vehicle/search">
-                <input class="vehicles" type="text" name="query_terms" id="searchtextbox" placeholder="Search Vehicles" autocomplete="on">
-                <input type="submit" value="Go"/>
-            </form>
-            <div id="suggestionDiv"></div>
-        </div>
+
 
         <hr>
         <br>
