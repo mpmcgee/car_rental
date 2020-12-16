@@ -33,7 +33,6 @@ class VehicleIndex extends VehicleIndexView {
             <th>Combined MPG</th>
             <th>Sirius Capability</th>
             <th>Price Per Day</th>
-            <th>View Details</th>
         </tr>
         <?php
         foreach ($vehicles as $vehicle) {

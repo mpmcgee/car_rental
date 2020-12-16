@@ -103,7 +103,7 @@ class BookingController
 
                 //if search term is empty, list all bookings
                 if ($query_terms == "") {
-                    $this->index();
+
                 }
 
                 //search the database for matching bookings

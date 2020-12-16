@@ -204,7 +204,7 @@ class VehicleController
 
                 //if search term is empty, list all vehicle
                 if ($query_terms == "") {
-                    $this->index();
+
                 }
 
                 //search the database for matching vehicle
